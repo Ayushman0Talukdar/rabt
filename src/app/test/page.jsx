@@ -1,41 +1,59 @@
 "use client";
+import { BasilYoutubeOutline } from "@/components/icons/youtubeicon";
 
 import { useEffect, useRef, useCallback } from "react";
 import styles from "./ContentFlywheel.module.css";
 
-// ── Node definitions — fixed final positions relative to SVG center (0,0) ────
 const NODES = [
-  { id: "youtube",   label: "YouTube Shorts",  x:  0,    y: -148, bg: "#1e0808", ic: "#e03434", icon: "youtube"   },
-  { id: "instagram", label: "Instagram Reels", x:  135,  y:  -72, bg: "#1a060f", ic: "#d04070", icon: "instagram" },
-  { id: "tiktok",    label: "TikTok Videos",   x:  118,  y:   80, bg: "#0c0c18", ic: "#a0a8d8", icon: "tiktok"    },
-  { id: "linkedin",  label: "LinkedIn Posts",  x:  0,    y:  148, bg: "#050c1a", ic: "#3a8fdd", icon: "linkedin"  },
-  { id: "xthreads",  label: "X Threads",       x: -118,  y:   80, bg: "#0d0d0d", ic: "#c8c8c8", icon: "x"         },
-  { id: "podcast",   label: "Podcast",          x: -135,  y:  -72, bg: "#080d06", ic: "#58b058", icon: "podcast"   },
+  { id: "youtube",   label: "YouTube Shorts",  x:  0,   y: -152, bg: "#1e0808", ic: "#e03434", icon: "youtube"   },
+  { id: "instagram", label: "Instagram Reels", x:  138, y:  -74, bg: "#1a060f", ic: "#d04070", icon: "instagram" },
+  { id: "tiktok",    label: "TikTok Videos",   x:  120, y:   82, bg: "#0c0c18", ic: "#a0a8d8", icon: "tiktok"    },
+  { id: "linkedin",  label: "LinkedIn Posts",  x:  0,   y:  152, bg: "#050c1a", ic: "#3a8fdd", icon: "linkedin"  },
+  { id: "xthreads",  label: "X Threads",       x: -120, y:   82, bg: "#0d0d0d", ic: "#c8c8c8", icon: "x"         },
+  { id: "podcast",   label: "Podcast",          x: -138, y:  -74, bg: "#080d06", ic: "#58b058", icon: "podcast"   },
 ];
 
-// ── Easing ────────────────────────────────────────────────────────────────────
 function easeOut(t) {
   return 1 - Math.pow(1 - t, 3);
 }
 
-// ── Curved SVG path from center → node with slight quadratic bend ─────────────
-function curvePath(nx, ny) {
+/** Point on quadratic bezier from (0,0) through control point to (nx,ny) at t */
+function bezierPoint(nx, ny, t) {
   const dist = Math.sqrt(nx * nx + ny * ny);
-  // Perpendicular unit vector
   const px = -ny / dist;
   const py = nx / dist;
-  // Control point: midpoint + slight lateral offset
-  const cx = nx * 0.5 + px * 22;
-  const cy = ny * 0.5 + py * 22;
-  return `M 0 0 Q ${cx} ${cy} ${nx} ${ny}`;
+  const cpx = nx * 0.5 + px * 20;
+  const cpy = ny * 0.5 + py * 20;
+  const mt = 1 - t;
+  return {
+    x: 2 * mt * t * cpx + t * t * nx,
+    y: 2 * mt * t * cpy + t * t * ny,
+  };
 }
 
-// ── Label placement: push outward from node circle ────────────────────────────
+/** Build a partial bezier path from center to t (0→1) via ~30 line segments */
+function partialBezierPath(nx, ny, endT) {
+  const steps = 30;
+  let d = "M 0 0";
+  for (let s = 1; s <= steps; s++) {
+    const t = (s / steps) * endT;
+    const pt = bezierPoint(nx, ny, t);
+    d += ` L ${pt.x.toFixed(2)} ${pt.y.toFixed(2)}`;
+  }
+  return d;
+}
+
+/** Label position — pushed outward past node edge */
 function labelPos(node) {
   const dist = Math.sqrt(node.x * node.x + node.y * node.y);
   const ux = node.x / dist;
   const uy = node.y / dist;
-  return { lx: node.x + ux * 30, ly: node.y + uy * 30 };
+  // For top/bottom nodes push further vertically
+  const offset = Math.abs(node.x) < 20 ? 40 : 32;
+  return {
+    lx: node.x + ux * offset,
+    ly: node.y + uy * offset,
+  };
 }
 
 function textAnchor(x) {
@@ -44,7 +62,11 @@ function textAnchor(x) {
   return "middle";
 }
 
-// ── Stars canvas ───────────────────────────────────────────────────────────────
+function dominantBaseline(node) {
+  if (Math.abs(node.x) < 20) return node.y < 0 ? "auto" : "hanging";
+  return "central";
+}
+
 function paintStars(canvas) {
   const ctx = canvas.getContext("2d");
   canvas.width = canvas.offsetWidth;
@@ -65,15 +87,14 @@ function paintStars(canvas) {
   }
 }
 
-// ── Icon SVG content per platform ─────────────────────────────────────────────
 function NodeIcon({ type, color }) {
   switch (type) {
     case "youtube":
       return (
-        <>
-          <rect x="-9" y="-7" width="18" height="14" rx="3" fill={color} />
-          <polygon points="-2,-4 6,0 -2,4" fill="white" />
-        </>
+        <g>
+          <rect x={-12} y={-12} width={24} height={24} rx={6} fill="#18181b" />
+          <BasilYoutubeOutline width={14} height={14} x={-7} y={-7} />
+        </g>
       );
     case "instagram":
       return (
@@ -103,17 +124,8 @@ function NodeIcon({ type, color }) {
       return (
         <>
           <rect x="-9" y="-9" width="18" height="18" rx="3" fill={color} />
-          <text
-            x="0" y="1"
-            textAnchor="middle"
-            dominantBaseline="central"
-            fontSize="12"
-            fill="white"
-            fontWeight="700"
-            fontFamily="Georgia,serif"
-          >
-            𝕏
-          </text>
+          <text x="0" y="1" textAnchor="middle" dominantBaseline="central"
+            fontSize="12" fill="white" fontWeight="700" fontFamily="Georgia,serif">𝕏</text>
         </>
       );
     case "podcast":
@@ -131,13 +143,11 @@ function NodeIcon({ type, color }) {
   }
 }
 
-// ── Main Component ─────────────────────────────────────────────────────────────
 export default function ContentFlywheel({
   centerLabel = "rabt.",
   eyebrow = "Content Strategy",
   title = "Content Flywheel",
   subtitle = "One piece of content, repurposed across every platform — optimized for each algorithm.",
-  /** Controls scroll zone length. Higher = slower animation. */
   scrollMultiplier = 5,
 }) {
   const sectionRef = useRef(null);
@@ -146,10 +156,11 @@ export default function ContentFlywheel({
   const starsCanvasRef = useRef(null);
   const centerBlobRef = useRef(null);
 
-  // Imperative refs for each animated SVG element
-  const lineRefs = useRef([]);
-  const nodeCircleGroupRefs = useRef([]); // the circle+icon group
-  const nodeLabelRefs = useRef([]);       // the text label
+  // Per-node imperative refs
+  const lineRefs = useRef([]);      // <path> elements for growing lines
+  const tipDotRefs = useRef([]);    // <circle> tip dots
+  const nodeGroupRefs = useRef([]); // <g> circle+icon groups
+  const labelRefs = useRef([]);     // <text> labels
 
   const applyProgress = useCallback((progress) => {
     const header = headerRef.current;
@@ -157,47 +168,60 @@ export default function ContentFlywheel({
     const centerBlob = centerBlobRef.current;
     if (!header || !scrollHint || !centerBlob) return;
 
-    // ── Header ──────────────────────────────────────────────────────────
-    const hP = Math.min(1, progress / 0.05);
+    // Header
+    const hP = easeOut(Math.min(1, progress / 0.05));
     header.style.opacity = String(hP);
-    header.style.transform = `translateY(${(1 - hP) * 12}px)`;
+    header.style.transform = `translateY(${(1 - hP) * 10}px)`;
 
-    // ── Scroll hint ──────────────────────────────────────────────────────
+    // Scroll hint
     scrollHint.style.opacity = progress < 0.06 ? String(1 - progress / 0.06) : "0";
 
-    // ── Center blob: scale 0.4→1, fade 0→1 over first 12% ───────────────
-    const blobP = easeOut(Math.min(1, progress / 0.12));
+    // Center blob
+    const blobP = easeOut(Math.min(1, progress / 0.10));
     centerBlob.style.opacity = String(blobP);
-    centerBlob.style.transform = `scale(${0.4 + 0.6 * blobP})`;
+    centerBlob.style.transform = `scale(${0.3 + 0.7 * blobP})`;
 
-    // ── Nodes: staggered across 10%→100% ────────────────────────────────
-    const animStart = 0.10;
-    const animEnd   = 1.0;
-    const segSize   = (animEnd - animStart) / NODES.length;
+    // Nodes
+    const N = NODES.length;
+    const animStart = 0.08;
+    const animEnd = 1.0;
+    const segSize = (animEnd - animStart) / N;
 
     NODES.forEach((node, i) => {
       const start = animStart + i * segSize;
-      const end   = start + segSize;
+      const end = start + segSize;
+      const raw = Math.max(0, Math.min(1, (progress - start) / (end - start)));
+      const np = easeOut(raw);
 
-      // Node progress
-      const np = easeOut(Math.max(0, Math.min(1, (progress - start) / (end - start))));
-
-      // Line: fade in
+      // Line grows from center outward
       const lineEl = lineRefs.current[i];
-      if (lineEl) lineEl.setAttribute("opacity", String(np * 0.55));
-
-      // Circle group: scale 0.5→1 from its own center, fade in
-      const circleG = nodeCircleGroupRefs.current[i];
-      if (circleG) {
-        circleG.style.opacity = String(np);
-        circleG.style.transform = `translate(${node.x}px, ${node.y}px) scale(${0.5 + 0.5 * np})`;
-        circleG.style.transformOrigin = `${node.x}px ${node.y}px`;
+      const tipEl = tipDotRefs.current[i];
+      if (lineEl && tipEl) {
+        if (raw === 0) {
+          lineEl.setAttribute("d", "");
+          tipEl.setAttribute("opacity", "0");
+        } else {
+          lineEl.setAttribute("d", partialBezierPath(node.x, node.y, np));
+          lineEl.setAttribute("opacity", "0.55");
+          const tip = bezierPoint(node.x, node.y, np);
+          tipEl.setAttribute("cx", tip.x.toFixed(2));
+          tipEl.setAttribute("cy", tip.y.toFixed(2));
+          tipEl.setAttribute("opacity", np < 1 ? String(np * 0.6) : "0");
+        }
       }
 
-      // Label: delayed slightly behind node, fade in
-      const labelP = easeOut(Math.max(0, Math.min(1, (progress - start - segSize * 0.3) / (segSize * 0.7))));
-      const labelEl = nodeLabelRefs.current[i];
-      if (labelEl) labelEl.setAttribute("opacity", String(labelP * 0.75));
+      // Node scale + fade
+      const nodeEl = nodeGroupRefs.current[i];
+      if (nodeEl) {
+        nodeEl.style.opacity = String(np);
+        nodeEl.style.transform = `translate(${node.x}px,${node.y}px) scale(${0.2 + 0.8 * np})`;
+        nodeEl.style.transformOrigin = `${node.x}px ${node.y}px`;
+      }
+
+      // Label fades in after node
+      const labelRaw = Math.max(0, Math.min(1, (progress - (start + segSize * 0.4)) / (segSize * 0.6)));
+      const labelEl = labelRefs.current[i];
+      if (labelEl) labelEl.setAttribute("opacity", String(easeOut(labelRaw)));
     });
   }, []);
 
@@ -236,64 +260,65 @@ export default function ContentFlywheel({
       <div className={styles.stickyViewport}>
         <canvas ref={starsCanvasRef} className={styles.starsCanvas} />
 
-        {/* Header */}
         <div ref={headerRef} className={styles.headerBlock} style={{ opacity: 0 }}>
           <p className={styles.eyebrow}>{eyebrow}</p>
           <h2 className={styles.mainTitle}>{title}</h2>
           <p className={styles.subtitle}>{subtitle}</p>
         </div>
 
-        {/* Flywheel SVG */}
         <svg
           className={styles.flywheelSvg}
-          width="440"
-          height="420"
-          viewBox="-220 -210 440 420"
+          width="460"
+          height="440"
+          viewBox="-230 -215 460 440"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Curved lines — fixed path, only opacity animates */}
+          {/* Growing lines */}
           <g>
             {NODES.map((node, i) => (
-              <path
-                key={`line-${node.id}`}
-                ref={(el) => { lineRefs.current[i] = el; }}
-                d={curvePath(node.x, node.y)}
-                fill="none"
-                stroke="#2e2e2e"
-                strokeWidth="1"
-                strokeLinecap="round"
-                opacity="0"
-              />
+              <g key={`line-${node.id}`}>
+                <path
+                  ref={(el) => { lineRefs.current[i] = el; }}
+                  d=""
+                  fill="none"
+                  stroke="#2a2a2a"
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                  opacity="0"
+                />
+                <circle
+                  ref={(el) => { tipDotRefs.current[i] = el; }}
+                  r="1.5"
+                  fill="#333"
+                  opacity="0"
+                />
+              </g>
             ))}
           </g>
 
-          {/* Satellite nodes — circle + icon scale from own center */}
+          {/* Nodes */}
           <g>
             {NODES.map((node, i) => {
               const { lx, ly } = labelPos(node);
               return (
                 <g key={node.id}>
-                  {/* Circle + icon group — this scales */}
                   <g
-                    ref={(el) => { nodeCircleGroupRefs.current[i] = el; }}
+                    ref={(el) => { nodeGroupRefs.current[i] = el; }}
                     style={{
                       opacity: 0,
-                      transform: `translate(${node.x}px, ${node.y}px) scale(0.5)`,
+                      transform: `translate(${node.x}px,${node.y}px) scale(0.2)`,
                       transformOrigin: `${node.x}px ${node.y}px`,
                     }}
                   >
-                    <circle r="24" fill={node.bg} stroke="#282828" strokeWidth="1" />
                     <NodeIcon type={node.icon} color={node.ic} />
                   </g>
-
-                  {/* Label — only fades (no scale) */}
                   <text
-                    ref={(el) => { nodeLabelRefs.current[i] = el; }}
+                    ref={(el) => { labelRefs.current[i] = el; }}
                     x={lx}
                     y={ly}
                     textAnchor={textAnchor(node.x)}
-                    dominantBaseline="central"
-                    fontFamily="system-ui, sans-serif"
+                    dominantBaseline={dominantBaseline(node)}
+                    fontFamily="system-ui,sans-serif"
                     fontSize="10.5"
                     fill="#666"
                     opacity="0"
@@ -305,17 +330,17 @@ export default function ContentFlywheel({
             })}
           </g>
 
-          {/* Center blob — scales up first */}
+          {/* Center blob */}
           <g
             ref={centerBlobRef}
-            style={{ opacity: 0, transform: "scale(0.4)", transformOrigin: "0px 0px" }}
+            style={{ opacity: 0, transform: "scale(0.3)", transformOrigin: "0px 0px" }}
           >
-            <circle r="42" fill="#161616" stroke="#2c2c2c" strokeWidth="1" />
+            <circle r="42" fill="#161616" stroke="#252525" strokeWidth="1" />
             <text
               textAnchor="middle"
               dominantBaseline="central"
               y="0"
-              fontFamily="Georgia, serif"
+              fontFamily="Georgia,serif"
               fontSize="13"
               fontWeight="600"
               fill="#e0e0e0"
@@ -325,7 +350,6 @@ export default function ContentFlywheel({
           </g>
         </svg>
 
-        {/* Scroll hint */}
         <div ref={scrollHintRef} className={styles.scrollHint}>
           <span>Scroll</span>
           <div className={styles.scrollArrow} />

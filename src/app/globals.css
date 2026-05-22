@@ -1,26 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/BricolageGrotesque-VariableFont_opsz.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+  font-optical-sizing: auto;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #050507;
+  --foreground: #f8fafc;
 }
 
 body {
-  background: var(--background);
+  min-height: 100vh;
+  margin: 0;
+  background: radial-gradient(circle at top, rgba(56, 189, 248, 0.08), transparent 32%),
+    radial-gradient(circle at 20% 20%, rgba(125, 211, 252, 0.06), transparent 18%),
+    linear-gradient(180deg, #050507 0%, #090a0f 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
 }
+
+
+.inter-400 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.hero-line {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 50% 10%, rgba(255,255,255,0.08), transparent 20%),
+    radial-gradient(circle at 20% 20%, rgba(56,189,248,0.15), transparent 18%);
+}
+
+.hero-line::before,
+.hero-line::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  width: 110%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(56,189,248,0.45), transparent);
+  transform: translateX(-50%) rotate(5deg);
+  filter: blur(2px);
+}
+
+.hero-line::after {
+  top: 55%;
+  transform: translateX(-50%) rotate(-4deg);
+  opacity: 0.6;
+}
+
+section {
+  position: relative;
+}
+
+::selection {
+  background: rgba(56,189,248,0.35);
+}
+
+@media (max-width: 768px) {
+  .hero-line::before,
+  .hero-line::after {
+    display: none;
+  }
+}
+
+
+.bricolage-grotesque {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.plus-jakarta-sans {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+.plus-jakarta-sans-700 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+

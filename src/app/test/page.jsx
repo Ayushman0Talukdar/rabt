@@ -1,17 +1,32 @@
 "use client";
 import { BasilYoutubeOutline } from "@/components/icons/youtubeicon";
+import { FeInstagram } from "@/components/icons/instaicon";
+import {LineMdTiktok} from "@/components/icons/tiktokicon";
+import { UitLinkedinAlt } from "@/components/icons/linkedin";
+import { RiTwitterXFill } from "@/components/icons/Xicon";
+import { LineMdSpotify } from "@/components/icons/spotifyicon";
 
 import { useEffect, useRef, useCallback } from "react";
 import styles from "./ContentFlywheel.module.css";
 
+const NODE_SCALE = 0.85;
 const NODES = [
-  { id: "youtube",   label: "YouTube Shorts",  x:  0,   y: -152, bg: "#1e0808", ic: "#e03434", icon: "youtube"   },
-  { id: "instagram", label: "Instagram Reels", x:  138, y:  -74, bg: "#1a060f", ic: "#d04070", icon: "instagram" },
-  { id: "tiktok",    label: "TikTok Videos",   x:  120, y:   82, bg: "#0c0c18", ic: "#a0a8d8", icon: "tiktok"    },
-  { id: "linkedin",  label: "LinkedIn Posts",  x:  0,   y:  152, bg: "#050c1a", ic: "#3a8fdd", icon: "linkedin"  },
-  { id: "xthreads",  label: "X Threads",       x: -120, y:   82, bg: "#0d0d0d", ic: "#c8c8c8", icon: "x"         },
-  { id: "podcast",   label: "Podcast",          x: -138, y:  -74, bg: "#080d06", ic: "#58b058", icon: "podcast"   },
-];
+  { id: "youtube",   label: "YouTube Shorts",  x:   0,   y: -240, bg: "#1e0808", ic: "#e03434", icon: "youtube"   },
+  { id: "instagram", label: "Instagram Reels", x:  208, y: -120, bg: "#1a060f", ic: "#d04070", icon: "instagram" },
+  { id: "tiktok",    label: "TikTok Videos",   x:  208, y:  120, bg: "#0c0c18", ic: "#a0a8d8", icon: "tiktok"    },
+  { id: "linkedin",  label: "LinkedIn Posts",  x:   0,   y:  240, bg: "#050c1a", ic: "#3a8fdd", icon: "linkedin"  },
+  { id: "xthreads",  label: "X Threads",       x: -208, y:  120, bg: "#0d0d0d", ic: "#c8c8c8", icon: "x"         },
+  { id: "podcast",   label: "Podcast",          x: -208, y: -120, bg: "#080d06", ic: "#58b058", icon: "podcast"   },
+].map((node) => ({ ...node, x: node.x * NODE_SCALE, y: node.y * NODE_SCALE }));
+
+function hexToRgba(hex, alpha) {
+  const cleaned = hex.replace('#', '');
+  const bigint = parseInt(cleaned.length === 3 ? cleaned.split('').map(c => c + c).join('') : cleaned, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
 
 function easeOut(t) {
   return 1 - Math.pow(1 - t, 3);
@@ -88,55 +103,60 @@ function paintStars(canvas) {
 }
 
 function NodeIcon({ type, color }) {
+  const glowRect = (
+    <g filter="url(#nodeGlow)">
+      <rect x={-36} y={-36} width={72} height={72} rx={22} fill="none" stroke={color} strokeWidth="3" opacity="0.1" blur="0.5" />
+    </g>
+  );
+
   switch (type) {
     case "youtube":
       return (
         <g>
-          <rect x={-12} y={-12} width={24} height={24} rx={6} fill="#18181b" />
-          <BasilYoutubeOutline width={14} height={14} x={-7} y={-7} />
+          {glowRect}
+          <rect x={-35} y={-35} width={70} height={70} rx={20} fill="#18181b" stroke="rgba(255,255,255,0.16)" strokeWidth="1.2" />
+          <BasilYoutubeOutline width={40} height={40} x={-19} y={-20} />
         </g>
       );
     case "instagram":
       return (
-        <>
-          <rect x="-9" y="-9" width="18" height="18" rx="4" fill={color} />
-          <circle cx="0" cy="0" r="4" fill="none" stroke="white" strokeWidth="1.5" />
-          <circle cx="5" cy="-5" r="1.2" fill="white" />
-        </>
+        <g>
+          {glowRect}
+          <rect x={-35} y={-35} width={70} height={70} rx={20} fill="#18181b" stroke="rgba(255,255,255,0.16)" strokeWidth="1.2" />
+          <FeInstagram width={40} height={40} x={-19} y={-20} />
+        </g>
       );
     case "tiktok":
       return (
-        <path
-          fill={color}
-          d="M5,-8a4,4,0,0,1-3,1.2,4,4,0,0,1-1-1.2H-2V3a2,2,0,1,1-1.4-1.9V-1.5A4.5,4.5,0,1,0,3,3V-5A7,7,0,0,0,7.5-2.5V-6A4,4,0,0,1,5,-8Z"
-        />
+        <g>
+          {glowRect}
+          <rect x={-35} y={-35} width={70} height={70} rx={20} fill="#18181b" stroke="rgba(255,255,255,0.16)" strokeWidth="1.2" />
+          <LineMdTiktok width={40} height={40} x={-19} y={-20} />
+        </g>
       );
     case "linkedin":
       return (
-        <>
-          <rect x="-9" y="-9" width="18" height="18" rx="3" fill={color} />
-          <rect x="-6" y="-3" width="3" height="8" fill="white" />
-          <circle cx="-4.5" cy="-5.5" r="1.8" fill="white" />
-          <path d="M0,-2Q0,-4,2,-4Q4,-4,4,-2L4,5L7,5L7,-2Q7,-7,2,-7Q0,-7,0,-5Z" fill="white" />
-        </>
+        <g>
+          {glowRect}
+          <rect x={-35} y={-35} width={70} height={70} rx={20} fill="#18181b" stroke="rgba(255,255,255,0.16)" strokeWidth="1.2" />
+          <UitLinkedinAlt width={40} height={40} x={-19} y={-20} />
+        </g>
       );
     case "x":
       return (
-        <>
-          <rect x="-9" y="-9" width="18" height="18" rx="3" fill={color} />
-          <text x="0" y="1" textAnchor="middle" dominantBaseline="central"
-            fontSize="12" fill="white" fontWeight="700" fontFamily="Georgia,serif">𝕏</text>
-        </>
+        <g>
+          {glowRect}
+          <rect x={-35} y={-35} width={70} height={70} rx={20} fill="#18181b" stroke="rgba(255,255,255,0.16)" strokeWidth="1.2" />
+          <RiTwitterXFill width={40} height={40} x={-19} y={-20} />
+        </g>
       );
     case "podcast":
       return (
-        <>
-          <circle cx="0" cy="-2" r="4.5" fill="none" stroke={color} strokeWidth="2" />
-          <circle cx="0" cy="-2" r="1.5" fill={color} />
-          <path d="M-7,0Q-7,6,0,6Q7,6,7,0" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" />
-          <line x1="0" y1="6" x2="0" y2="9" stroke={color} strokeWidth="1.8" strokeLinecap="round" />
-          <line x1="-3" y1="9" x2="3" y2="9" stroke={color} strokeWidth="1.8" strokeLinecap="round" />
-        </>
+        <g>
+          {glowRect}
+          <rect x={-35} y={-35} width={70} height={70} rx={20} fill="#18181b" stroke="rgba(255,255,255,0.16)" strokeWidth="1.2" />
+          <LineMdSpotify width={40} height={40} x={-19} y={-20} />
+        </g>
       );
     default:
       return null;
@@ -268,11 +288,49 @@ export default function ContentFlywheel({
 
         <svg
           className={styles.flywheelSvg}
-          width="460"
-          height="440"
-          viewBox="-230 -215 460 440"
+          width="520"
+          height="520"
+          viewBox="-260 -260 520 520"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <defs>
+            <clipPath id="centerImageClip">
+              <circle cx="0" cy="0" r="34" />
+            </clipPath>
+            <filter id="nodeGlow" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <linearGradient id="ringFade" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="rgba(255,255,255,0.16)" />
+              <stop offset="100%" stopColor="rgba(255,255,255,0.03)" />
+            </linearGradient>
+            {NODES.map((node) => (
+              <linearGradient
+                key={`lineGradient-${node.id}`}
+                id={`lineGradient-${node.id}`}
+                gradientUnits="userSpaceOnUse"
+                x1="0"
+                y1="0"
+                x2={node.x}
+                y2={node.y}
+              >
+                <stop offset="0%" stopColor={node.ic} stopOpacity="0" />
+                <stop offset="100%" stopColor={node.ic} stopOpacity="1" />
+              </linearGradient>
+            ))}
+          </defs>
+          <g fill="none" stroke="rgba(255,255,255,0.24)" strokeWidth="1" opacity="0.45">
+            <circle cx="0" cy="0" r="80" opacity="0.94" />
+            <circle cx="0" cy="0" r="108" opacity="0.82" />
+            <circle cx="0" cy="0" r="136" opacity="0.72" />
+            <circle cx="0" cy="0" r="164" opacity="0.58" />
+            <circle cx="0" cy="0" r="192" opacity="0.44" />
+            <circle cx="0" cy="0" r="220" opacity="0.32" />
+          </g>
           {/* Growing lines */}
           <g>
             {NODES.map((node, i) => (
@@ -281,7 +339,7 @@ export default function ContentFlywheel({
                   ref={(el) => { lineRefs.current[i] = el; }}
                   d=""
                   fill="none"
-                  stroke="#2a2a2a"
+                  stroke={`url(#lineGradient-${node.id})`}
                   strokeWidth="1"
                   strokeLinecap="round"
                   opacity="0"
@@ -289,7 +347,7 @@ export default function ContentFlywheel({
                 <circle
                   ref={(el) => { tipDotRefs.current[i] = el; }}
                   r="1.5"
-                  fill="#333"
+                  fill={node.ic}
                   opacity="0"
                 />
               </g>
@@ -314,10 +372,10 @@ export default function ContentFlywheel({
                   </g>
                   <text
                     ref={(el) => { labelRefs.current[i] = el; }}
-                    x={lx}
-                    y={ly}
-                    textAnchor={textAnchor(node.x)}
-                    dominantBaseline={dominantBaseline(node)}
+                    x={node.x}
+                    y={node.y + 42}
+                    textAnchor="middle"
+                    dominantBaseline="hanging"
                     fontFamily="system-ui,sans-serif"
                     fontSize="10.5"
                     fill="#666"
@@ -335,18 +393,16 @@ export default function ContentFlywheel({
             ref={centerBlobRef}
             style={{ opacity: 0, transform: "scale(0.3)", transformOrigin: "0px 0px" }}
           >
-            <circle r="42" fill="#161616" stroke="#252525" strokeWidth="1" />
-            <text
-              textAnchor="middle"
-              dominantBaseline="central"
-              y="0"
-              fontFamily="Georgia,serif"
-              fontSize="13"
-              fontWeight="600"
-              fill="#e0e0e0"
-            >
-              {centerLabel}
-            </text>
+            <circle r="55" fill="#000" stroke="#252525" strokeWidth="1.2" />
+            <image
+              href="/Rabt.png"
+              x="-32"
+              y="-34"
+              width="68"
+              height="68"
+              preserveAspectRatio="xMidYMid slice"
+              clipPath="url(#centerImageClip)"
+            />
           </g>
         </svg>
 

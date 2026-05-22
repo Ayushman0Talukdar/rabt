@@ -1,6 +1,7 @@
 
-export function BasilYoutubeOutline(props) {
+
+ export function BasilYoutubeOutline(props) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>{/* Icon from Basil by Craftwork - https://creativecommons.org/licenses/by/4.0/ */}<g fill="#990017" fillRule="evenodd" clipRule="evenodd"><path d="M10.386 8.357A.75.75 0 0 0 9.25 9v6a.75.75 0 0 0 1.136.643l5-3a.75.75 0 0 0 0-1.286zM13.542 12l-2.792 1.675v-3.35z" /><path d="M17.03 4.641a64.5 64.5 0 0 0-10.06 0l-2.241.176a2.975 2.975 0 0 0-2.703 2.475a28.6 28.6 0 0 0 0 9.416a2.975 2.975 0 0 0 2.703 2.475l2.24.176c3.349.262 6.713.262 10.062 0l2.24-.176a2.975 2.975 0 0 0 2.703-2.475c.52-3.117.52-6.299 0-9.416a2.975 2.975 0 0 0-2.703-2.475zM7.087 6.137a63 63 0 0 1 9.828 0l2.24.175c.676.053 1.229.56 1.34 1.228a27 27 0 0 1 0 8.92a1.475 1.475 0 0 1-1.34 1.228l-2.24.175a63 63 0 0 1-9.828 0l-2.24-.175a1.475 1.475 0 0 1-1.34-1.228a27 27 0 0 1 0-8.92a1.475 1.475 0 0 1 1.34-1.228z" /></g></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>{/* Icon from Logos free icons by Streamline - https://creativecommons.org/licenses/by/4.0/ */}<g fill="none" stroke="#9c2638" strokeLinejoin="round"><path d="M1.5 12c0-1.477.071-2.87.164-4.038c.14-1.764 1.538-3.12 3.303-3.243C6.663 4.6 8.98 4.5 12 4.5s5.337.1 7.033.219c1.765.123 3.163 1.48 3.303 3.243c.093 1.169.164 2.56.164 4.038c0 1.53-.076 2.969-.174 4.163a3.374 3.374 0 0 1-3.166 3.121c-1.713.117-4.11.216-7.16.216s-5.447-.099-7.16-.216a3.374 3.374 0 0 1-3.166-3.121A52 52 0 0 1 1.5 12Z" /><path d="M10 15V9l5.5 3z" /></g></svg>
   )
 }

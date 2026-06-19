@@ -30,4 +30,3 @@ export function resolveImageUrl(image: any): string {
   }
   return "";
 }
-

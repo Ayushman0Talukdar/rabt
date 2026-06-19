@@ -14,7 +14,10 @@ export async function POST(req: NextRequest) {
       revalidateTag(type, "max");
       return NextResponse.json({ revalidated: true, now: Date.now() });
     }
-    return NextResponse.json({ message: "Missing document type" }, { status: 400 });
+    return NextResponse.json(
+      { message: "Missing document type" },
+      { status: 400 },
+    );
   } catch (err: any) {
     return NextResponse.json({ message: err.message }, { status: 500 });
   }

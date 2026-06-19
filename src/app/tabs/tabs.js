@@ -1,7 +1,14 @@
-'use client';
+"use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Film, Scissors, Mic, ChevronLeft, ChevronRight, Play } from "lucide-react";
+import {
+  Film,
+  Scissors,
+  Mic,
+  ChevronLeft,
+  ChevronRight,
+  Play,
+} from "lucide-react";
 import { getVideos } from "@/lib/cms/videos";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -10,22 +17,74 @@ const BG = "#000000"; // Pure black background matching screenshot
 const CARD_BG = "#0c0c0e"; // Dark premium card background
 
 const TAG_COLOR_MAP = {
-  "talking head videos": { bg: "rgba(34,197,94,0.06)", border: "rgba(34,197,94,0.25)", color: "#4ade80" },
-  "motion graphics videos": { bg: "rgba(168,85,247,0.06)", border: "rgba(168,85,247,0.25)", color: "#c084fc" },
-  "storytelling videos": { bg: "rgba(239,68,68,0.06)", border: "rgba(239,68,68,0.25)", color: "#f87171" },
-  "map animations": { bg: "rgba(14,165,233,0.06)", border: "rgba(14,165,233,0.25)", color: "#38bdf8" },
-  "reels / shorts / tiktok edits": { bg: "rgba(249,115,22,0.06)", border: "rgba(249,115,22,0.25)", color: "#fb923c" },
-  "hook-based viral edits": { bg: "rgba(234,179,8,0.06)", border: "rgba(234,179,8,0.25)", color: "#facc15" },
-  "subtitle-driven edits": { bg: "rgba(34,197,94,0.06)", border: "rgba(34,197,94,0.25)", color: "#4ade80" },
-  "explainer videos": { bg: "rgba(168,85,247,0.06)", border: "rgba(168,85,247,0.25)", color: "#c084fc" }
+  "talking head videos": {
+    bg: "rgba(34,197,94,0.06)",
+    border: "rgba(34,197,94,0.25)",
+    color: "#4ade80",
+  },
+  "motion graphics videos": {
+    bg: "rgba(168,85,247,0.06)",
+    border: "rgba(168,85,247,0.25)",
+    color: "#c084fc",
+  },
+  "storytelling videos": {
+    bg: "rgba(239,68,68,0.06)",
+    border: "rgba(239,68,68,0.25)",
+    color: "#f87171",
+  },
+  "map animations": {
+    bg: "rgba(14,165,233,0.06)",
+    border: "rgba(14,165,233,0.25)",
+    color: "#38bdf8",
+  },
+  "reels / shorts / tiktok edits": {
+    bg: "rgba(249,115,22,0.06)",
+    border: "rgba(249,115,22,0.25)",
+    color: "#fb923c",
+  },
+  "hook-based viral edits": {
+    bg: "rgba(234,179,8,0.06)",
+    border: "rgba(234,179,8,0.25)",
+    color: "#facc15",
+  },
+  "subtitle-driven edits": {
+    bg: "rgba(34,197,94,0.06)",
+    border: "rgba(34,197,94,0.25)",
+    color: "#4ade80",
+  },
+  "explainer videos": {
+    bg: "rgba(168,85,247,0.06)",
+    border: "rgba(168,85,247,0.25)",
+    color: "#c084fc",
+  },
 };
 
 const DEFAULT_TAG_COLORS = [
-  { bg: "rgba(139,92,246,0.06)", border: "rgba(139,92,246,0.22)", color: "#a78bfa" },
-  { bg: "rgba(249,115,22,0.06)", border: "rgba(249,115,22,0.22)", color: "#fdba74" },
-  { bg: "rgba(14,165,233,0.06)", border: "rgba(14,165,233,0.22)", color: "#7dd3fc" },
-  { bg: "rgba(236,72,153,0.06)", border: "rgba(236,72,153,0.22)", color: "#f472b6" },
-  { bg: "rgba(34,197,94,0.06)", border: "rgba(34,197,94,0.22)", color: "#86efac" }
+  {
+    bg: "rgba(139,92,246,0.06)",
+    border: "rgba(139,92,246,0.22)",
+    color: "#a78bfa",
+  },
+  {
+    bg: "rgba(249,115,22,0.06)",
+    border: "rgba(249,115,22,0.22)",
+    color: "#fdba74",
+  },
+  {
+    bg: "rgba(14,165,233,0.06)",
+    border: "rgba(14,165,233,0.22)",
+    color: "#7dd3fc",
+  },
+  {
+    bg: "rgba(236,72,153,0.06)",
+    border: "rgba(236,72,153,0.22)",
+    color: "#f472b6",
+  },
+  {
+    bg: "rgba(34,197,94,0.06)",
+    border: "rgba(34,197,94,0.22)",
+    color: "#86efac",
+  },
 ];
 
 // Helper to get styled tags
@@ -46,7 +105,8 @@ const TABS = [
       {
         titlePlain: "High-impact,",
         titleHighlight: "scroll-stopping content",
-        description: "Reels, shorts, and TikTok edits built to capture attention immediately.",
+        description:
+          "Reels, shorts, and TikTok edits built to capture attention immediately.",
         tags: [
           "Talking Head Videos",
           "Motion Graphics Videos",
@@ -55,12 +115,18 @@ const TABS = [
           "Reels / Shorts / TikTok Edits",
           "Hook-based Viral Edits",
           "Subtitle-driven Edits",
-          "Explainer Videos"
+          "Explainer Videos",
         ],
-        videos: ["ScMzIvxBSi4", "2Vv-BfVoq4g", "60ItHLz5WEA", "fJ9rUzIMcZQ", "RgKAFK5djSk"],
+        videos: [
+          "ScMzIvxBSi4",
+          "2Vv-BfVoq4g",
+          "60ItHLz5WEA",
+          "fJ9rUzIMcZQ",
+          "RgKAFK5djSk",
+        ],
         vertical: true,
-      }
-    ]
+      },
+    ],
   },
   {
     id: "long-form",
@@ -70,19 +136,20 @@ const TABS = [
       {
         titlePlain: "Trailers and",
         titleHighlight: "Long Form",
-        description: "YouTube videos, documentaries, cinematic trailers and more.",
+        description:
+          "YouTube videos, documentaries, cinematic trailers and more.",
         tags: [
           "Motion Graphics",
           "Color Grading",
           "Sound Design",
           "Thumbnail Design",
           "B-Roll Integration",
-          "Pacing & Cuts"
+          "Pacing & Cuts",
         ],
         videos: ["dQw4w9WgXcQ", "jNQXAC9IVRw", "9bZkp7q19f0", "kJQP7kiw5Fk"],
         vertical: false,
-      }
-    ]
+      },
+    ],
   },
   {
     id: "distribution",
@@ -92,19 +159,20 @@ const TABS = [
       {
         titlePlain: "Podcast & Social",
         titleHighlight: "Distribution",
-        description: "Punchy teasers across all platforms that pull viewers in.",
+        description:
+          "Punchy teasers across all platforms that pull viewers in.",
         tags: [
           "Cross-platform",
           "Brand Overlays",
           "CTA Cards",
           "Analytics Ready",
           "Story Format",
-          "Carousel Edits"
+          "Carousel Edits",
         ],
         videos: ["2Vv-BfVoq4g", "fJ9rUzIMcZQ", "kJQP7kiw5Fk"],
         vertical: false,
-      }
-    ]
+      },
+    ],
   },
   {
     id: "saas",
@@ -121,13 +189,13 @@ const TABS = [
           "Voiceover Sync",
           "CTA Integration",
           "Brand Assets",
-          "Conversion Focus"
+          "Conversion Focus",
         ],
         videos: ["ZK-rNEhJIDs", "dQw4w9WgXcQ", "jNQXAC9IVRw"],
         vertical: false,
-      }
-    ]
-  }
+      },
+    ],
+  },
 ];
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -143,13 +211,13 @@ function SectionTitle({ plain, highlight }) {
         color: "#fff",
         margin: 0,
         marginBottom: "1.5rem",
-        letterSpacing: "-0.03em"
+        letterSpacing: "-0.03em",
       }}
     >
       {plain ? plain + " " : ""}
       <span
         style={{
-          color: "#fff"
+          color: "#fff",
         }}
       >
         {highlight}
@@ -175,7 +243,7 @@ function Tag({ label, index }) {
         border: `1px solid ${style.border}`,
         whiteSpace: "nowrap",
         transition: "all 0.3s",
-        cursor: "default"
+        cursor: "default",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "translateY(-1px)";
@@ -202,7 +270,7 @@ function YouTubeEmbed({ videoId, vertical }) {
       ([entry]) => {
         setIsIntersecting(entry.isIntersecting);
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
     if (containerRef.current) {
       observer.observe(containerRef.current);
@@ -262,7 +330,10 @@ function Carousel({ videos, vertical, isShortForm }) {
   };
 
   return (
-    <div className="carousel-wrapper" style={{ position: "relative", width: "100%" }}>
+    <div
+      className="carousel-wrapper"
+      style={{ position: "relative", width: "100%" }}
+    >
       {/* Left nav */}
       <button
         className="carousel-nav carousel-nav-left"
@@ -344,7 +415,7 @@ function Carousel({ videos, vertical, isShortForm }) {
           overflowX: "auto",
           scrollbarWidth: "none",
           msOverflowStyle: "none",
-          paddingBottom: 12
+          paddingBottom: 12,
         }}
       >
         {videos.map((videoId, i) => (
@@ -363,7 +434,7 @@ function ServiceSection({ section, isShortForm }) {
           plain={section.titlePlain}
           highlight={section.titleHighlight}
         />
-        
+
         {/* Rounded tags matching screenshot */}
         <div
           style={{
@@ -371,7 +442,7 @@ function ServiceSection({ section, isShortForm }) {
             flexWrap: "wrap",
             gap: 10,
             maxWidth: "100%",
-            marginBottom: 36
+            marginBottom: 36,
           }}
         >
           {section.tags.map((tag, i) => (
@@ -380,7 +451,11 @@ function ServiceSection({ section, isShortForm }) {
         </div>
       </div>
 
-      <Carousel videos={section.videos} vertical={section.vertical} isShortForm={isShortForm} />
+      <Carousel
+        videos={section.videos}
+        vertical={section.vertical}
+        isShortForm={isShortForm}
+      />
     </div>
   );
 }
@@ -390,6 +465,68 @@ function ServiceSection({ section, isShortForm }) {
 export default function TabsSections() {
   const [activeTab, setActiveTab] = useState("short-form");
   const [dynamicTabs, setDynamicTabs] = useState(TABS);
+
+  // Helper function to build dynamic tabs structure from database video list
+  function getTabsWithData(videoList) {
+    const tabCategories = [
+      { id: "short-form", icon: Film, label: "Short-Form" },
+      { id: "long-form", icon: Scissors, label: "Long Form" },
+      { id: "distribution", icon: Mic, label: "Distribution" },
+      { id: "saas", icon: Film, label: "SaaS" },
+    ];
+
+    return tabCategories.map((tab) => {
+      const categoryVideos = videoList.filter((v) => v.category === tab.id);
+      const sectionsMap = {};
+
+      categoryVideos.forEach((v) => {
+        const titleKey =
+          v.title ||
+          (v.type === "reel"
+            ? "High-impact, scroll-stopping content"
+            : "Featured Videos");
+        if (!sectionsMap[titleKey]) {
+          sectionsMap[titleKey] = {
+            titlePlain: "",
+            titleHighlight: "",
+            description: v.description || "",
+            tags: v.tags || [],
+            videos: [],
+            vertical: v.type === "reel",
+          };
+
+          const words = titleKey.split(" ");
+          if (words.length <= 1) {
+            sectionsMap[titleKey].titlePlain = "";
+            sectionsMap[titleKey].titleHighlight = titleKey;
+          } else {
+            const highlightCount = words.length > 2 ? 2 : 1;
+            sectionsMap[titleKey].titlePlain = words
+              .slice(0, words.length - highlightCount)
+              .join(" ");
+            sectionsMap[titleKey].titleHighlight = words
+              .slice(words.length - highlightCount)
+              .join(" ");
+          }
+        }
+
+        sectionsMap[titleKey].videos.push(v.videoId);
+
+        if (v.tags && v.tags.length > 0) {
+          const uniqueTags = new Set([
+            ...sectionsMap[titleKey].tags,
+            ...v.tags,
+          ]);
+          sectionsMap[titleKey].tags = Array.from(uniqueTags);
+        }
+      });
+
+      return {
+        ...tab,
+        sections: Object.values(sectionsMap),
+      };
+    });
+  }
 
   useEffect(() => {
     getVideos()
@@ -402,58 +539,8 @@ export default function TabsSections() {
       .catch((err) => console.error("Error fetching videos:", err));
   }, []);
 
-  // Helper function to build dynamic tabs structure from database video list
-  function getTabsWithData(videoList) {
-    const tabCategories = [
-      { id: "short-form", icon: Film, label: "Short-Form" },
-      { id: "long-form", icon: Scissors, label: "Long Form" },
-      { id: "distribution", icon: Mic, label: "Distribution" },
-      { id: "saas", icon: Film, label: "SaaS" }
-    ];
-
-    return tabCategories.map(tab => {
-      const categoryVideos = videoList.filter(v => v.category === tab.id);
-      const sectionsMap = {};
-
-      categoryVideos.forEach(v => {
-        const titleKey = v.title || (v.type === "reel" ? "High-impact, scroll-stopping content" : "Featured Videos");
-        if (!sectionsMap[titleKey]) {
-          sectionsMap[titleKey] = {
-            titlePlain: "",
-            titleHighlight: "",
-            description: v.description || "",
-            tags: v.tags || [],
-            videos: [],
-            vertical: v.type === "reel"
-          };
-          
-          const words = titleKey.split(" ");
-          if (words.length <= 1) {
-            sectionsMap[titleKey].titlePlain = "";
-            sectionsMap[titleKey].titleHighlight = titleKey;
-          } else {
-            const highlightCount = words.length > 2 ? 2 : 1;
-            sectionsMap[titleKey].titlePlain = words.slice(0, words.length - highlightCount).join(" ");
-            sectionsMap[titleKey].titleHighlight = words.slice(words.length - highlightCount).join(" ");
-          }
-        }
-        
-        sectionsMap[titleKey].videos.push(v.videoId);
-        
-        if (v.tags && v.tags.length > 0) {
-          const uniqueTags = new Set([...sectionsMap[titleKey].tags, ...v.tags]);
-          sectionsMap[titleKey].tags = Array.from(uniqueTags);
-        }
-      });
-
-      return {
-        ...tab,
-        sections: Object.values(sectionsMap)
-      };
-    });
-  }
-
-  const currentTab = dynamicTabs.find((t) => t.id === activeTab) || dynamicTabs[0];
+  const currentTab =
+    dynamicTabs.find((t) => t.id === activeTab) || dynamicTabs[0];
 
   return (
     <section
@@ -572,7 +659,7 @@ export default function TabsSections() {
             lineHeight: 1.1,
             color: "#fff",
             margin: 0,
-            letterSpacing: "-0.02em"
+            letterSpacing: "-0.02em",
           }}
         >
           Our Services
@@ -605,7 +692,7 @@ export default function TabsSections() {
                 style={{
                   background: isActive ? "#ffffff" : "transparent",
                   color: isActive ? "#000000" : "rgba(255,255,255,0.45)",
-                  fontWeight: isActive ? 600 : 500
+                  fontWeight: isActive ? 600 : 500,
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive)
@@ -638,11 +725,21 @@ export default function TabsSections() {
             }}
           >
             {currentTab.sections.map((section, i) => (
-              <ServiceSection key={i} section={section} isShortForm={activeTab === "short-form"} />
+              <ServiceSection
+                key={i}
+                section={section}
+                isShortForm={activeTab === "short-form"}
+              />
             ))}
           </div>
         ) : (
-          <div style={{ textAlign: "center", padding: "40px", color: "rgba(255,255,255,0.3)" }}>
+          <div
+            style={{
+              textAlign: "center",
+              padding: "40px",
+              color: "rgba(255,255,255,0.3)",
+            }}
+          >
             No videos uploaded for this category yet.
           </div>
         )}

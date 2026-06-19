@@ -98,7 +98,11 @@ function TestimonialCard({ name, role, quote, avatarUrl, avatar }) {
       <div className="flex items-center gap-3">
         {/* Profile picture if available, otherwise fallback to first letter/initials */}
         {avatarSrc ? (
-          <img src={avatarSrc} alt={name} className="h-9 w-9 shrink-0 rounded-full object-cover border border-white/10" />
+          <img
+            src={avatarSrc}
+            alt={name}
+            className="h-9 w-9 shrink-0 rounded-full object-cover border border-white/10"
+          />
         ) : (
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/15 text-xs font-semibold text-white">
             {name
@@ -126,14 +130,22 @@ function TestimonialCard({ name, role, quote, avatarUrl, avatar }) {
  * direction "down" → animates -50% to 0  (scrolls downward)
  * Pauses on hover so users can read.
  */
-function InfiniteScrollColumn({ items, direction = "up", duration = 30, className = "" }) {
+function InfiniteScrollColumn({
+  items,
+  direction = "up",
+  duration = 30,
+  className = "",
+}) {
   // Duplicate items for seamless infinite loop
   const doubled = [...items, ...items];
 
   const animationName = direction === "up" ? "scrollUp" : "scrollDown";
 
   return (
-    <div className={`relative overflow-hidden ${className}`} style={{ height: "600px" }}>
+    <div
+      className={`relative overflow-hidden ${className}`}
+      style={{ height: "600px" }}
+    >
       {/* Top fade mask */}
       <div
         className="pointer-events-none absolute left-0 right-0 top-0 z-10 h-28"
@@ -155,8 +167,12 @@ function InfiniteScrollColumn({ items, direction = "up", duration = 30, classNam
         style={{
           animation: `${animationName} ${duration}s linear infinite`,
         }}
-        onMouseEnter={(e) => (e.currentTarget.style.animationPlayState = "paused")}
-        onMouseLeave={(e) => (e.currentTarget.style.animationPlayState = "running")}
+        onMouseEnter={(e) =>
+          (e.currentTarget.style.animationPlayState = "paused")
+        }
+        onMouseLeave={(e) =>
+          (e.currentTarget.style.animationPlayState = "running")
+        }
       >
         {doubled.map((item, i) => (
           <TestimonialCard key={i} {...item} />
@@ -183,7 +199,6 @@ export default function TestimonialsSection() {
 
   return (
     <section className="relative overflow-hidden bg-none px-6 py-10 sm:py-24">
-
       <style>{`
         @keyframes scrollUp {
           from { transform: translateY(0); }
@@ -222,9 +237,19 @@ export default function TestimonialsSection() {
 
       {/* Infinite scroll columns: up / down / up */}
       <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-3">
-        <InfiniteScrollColumn items={columns[0]} direction="up"   duration={28} />
-        <InfiniteScrollColumn items={columns[1]} direction="down" duration={34} className="hidden md:block" />
-        <InfiniteScrollColumn items={columns[2]} direction="up"   duration={30} className="hidden md:block" />
+        <InfiniteScrollColumn items={columns[0]} direction="up" duration={28} />
+        <InfiniteScrollColumn
+          items={columns[1]}
+          direction="down"
+          duration={34}
+          className="hidden md:block"
+        />
+        <InfiniteScrollColumn
+          items={columns[2]}
+          direction="up"
+          duration={30}
+          className="hidden md:block"
+        />
       </div>
     </section>
   );

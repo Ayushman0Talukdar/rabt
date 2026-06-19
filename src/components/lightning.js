@@ -1,6 +1,6 @@
 "use client";
-import { useRef, useEffect } from 'react';
-import './Lightning.css';
+import { useRef, useEffect } from "react";
+import "./Lightning.css";
 
 const VERT_SHADER = `attribute vec2 p; void main(){gl_Position=vec4(p,0.,1.);}`;
 const FRAG_SHADER = `
@@ -60,7 +60,9 @@ const FRAG_SHADER = `
     gl_FragColor = vec4(clamp(col, 0.0, 1.0), 1.0);
   }
 `;
-const QUAD_VERTICES = new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]);
+const QUAD_VERTICES = new Float32Array([
+  -1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1,
+]);
 
 const Lightning = ({
   hue = 210,
@@ -82,7 +84,10 @@ const Lightning = ({
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: false });
+    const gl = canvas.getContext("webgl", {
+      alpha: true,
+      premultipliedAlpha: false,
+    });
     if (!gl) return;
 
     const resizeCanvas = () => {
@@ -104,7 +109,7 @@ const Lightning = ({
     };
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
 
     const prog = gl.createProgram();
     gl.attachShader(prog, mkShader(VERT_SHADER, gl.VERTEX_SHADER));
@@ -116,25 +121,25 @@ const Lightning = ({
     gl.bindBuffer(gl.ARRAY_BUFFER, buf);
     gl.bufferData(gl.ARRAY_BUFFER, QUAD_VERTICES, gl.STATIC_DRAW);
 
-    const ap = gl.getAttribLocation(prog, 'p');
+    const ap = gl.getAttribLocation(prog, "p");
     gl.enableVertexAttribArray(ap);
     gl.vertexAttribPointer(ap, 2, gl.FLOAT, false, 0, 0);
 
     const locs = {
-      res: gl.getUniformLocation(prog, 'iRes'),
-      t: gl.getUniformLocation(prog, 'iTime'),
-      hue: gl.getUniformLocation(prog, 'uHue'),
-      sat: gl.getUniformLocation(prog, 'uSat'),
-      bright: gl.getUniformLocation(prog, 'uBright'),
-      thick: gl.getUniformLocation(prog, 'uThick'),
-      waver: gl.getUniformLocation(prog, 'uWaver'),
-      zoom: gl.getUniformLocation(prog, 'uZoom'),
-      speed: gl.getUniformLocation(prog, 'uSpeed'),
-      turb: gl.getUniformLocation(prog, 'uTurb'),
-      flicker: gl.getUniformLocation(prog, 'uFlicker'),
-      yoff: gl.getUniformLocation(prog, 'uYOff'),
-      oct: gl.getUniformLocation(prog, 'uOct'),
-      gpow: gl.getUniformLocation(prog, 'uGPow'),
+      res: gl.getUniformLocation(prog, "iRes"),
+      t: gl.getUniformLocation(prog, "iTime"),
+      hue: gl.getUniformLocation(prog, "uHue"),
+      sat: gl.getUniformLocation(prog, "uSat"),
+      bright: gl.getUniformLocation(prog, "uBright"),
+      thick: gl.getUniformLocation(prog, "uThick"),
+      waver: gl.getUniformLocation(prog, "uWaver"),
+      zoom: gl.getUniformLocation(prog, "uZoom"),
+      speed: gl.getUniformLocation(prog, "uSpeed"),
+      turb: gl.getUniformLocation(prog, "uTurb"),
+      flicker: gl.getUniformLocation(prog, "uFlicker"),
+      yoff: gl.getUniformLocation(prog, "uYOff"),
+      oct: gl.getUniformLocation(prog, "uOct"),
+      gpow: gl.getUniformLocation(prog, "uGPow"),
     };
 
     const start = performance.now();
@@ -163,10 +168,23 @@ const Lightning = ({
     frameId = requestAnimationFrame(render);
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(frameId);
     };
-  }, [hue, xOffset, speed, intensity, size, saturation, thickness, waver, turbulence, flicker, octaves, glowPower]);
+  }, [
+    hue,
+    xOffset,
+    speed,
+    intensity,
+    size,
+    saturation,
+    thickness,
+    waver,
+    turbulence,
+    flicker,
+    octaves,
+    glowPower,
+  ]);
 
   return <canvas ref={canvasRef} className="lightning-container" />;
 };

@@ -1,7 +1,7 @@
 "use client";
 import { BasilYoutubeOutline } from "@/components/icons/youtubeicon";
 import { FeInstagram } from "@/components/icons/instaicon";
-import {LineMdTiktok} from "@/components/icons/tiktokicon";
+import { LineMdTiktok } from "@/components/icons/tiktokicon";
 import { UitLinkedinAlt } from "@/components/icons/linkedin";
 import { RiTwitterXFill } from "@/components/icons/Xicon";
 import { LineMdSpotify } from "@/components/icons/spotifyicon";
@@ -11,17 +11,73 @@ import styles from "./ContentFlywheel.module.css";
 
 const NODE_SCALE = 0.85;
 const NODES = [
-  { id: "youtube",   label: "YouTube Shorts",  x:   0,   y: -240, bg: "#1e0808", ic: "#e03434", icon: "youtube"   },
-  { id: "instagram", label: "Instagram Reels", x:  208, y: -120, bg: "#1a060f", ic: "#d04070", icon: "instagram" },
-  { id: "tiktok",    label: "TikTok Videos",   x:  208, y:  120, bg: "#0c0c18", ic: "#a0a8d8", icon: "tiktok"    },
-  { id: "linkedin",  label: "LinkedIn Posts",  x:   0,   y:  240, bg: "#050c1a", ic: "#3a8fdd", icon: "linkedin"  },
-  { id: "xthreads",  label: "X Threads",       x: -208, y:  120, bg: "#0d0d0d", ic: "#c8c8c8", icon: "x"         },
-  { id: "podcast",   label: "Podcast",          x: -208, y: -120, bg: "#080d06", ic: "#58b058", icon: "podcast"   },
+  {
+    id: "youtube",
+    label: "YouTube Shorts",
+    x: 0,
+    y: -240,
+    bg: "#1e0808",
+    ic: "#e03434",
+    icon: "youtube",
+  },
+  {
+    id: "instagram",
+    label: "Instagram Reels",
+    x: 208,
+    y: -120,
+    bg: "#1a060f",
+    ic: "#d04070",
+    icon: "instagram",
+  },
+  {
+    id: "tiktok",
+    label: "TikTok Videos",
+    x: 208,
+    y: 120,
+    bg: "#0c0c18",
+    ic: "#a0a8d8",
+    icon: "tiktok",
+  },
+  {
+    id: "linkedin",
+    label: "LinkedIn Posts",
+    x: 0,
+    y: 240,
+    bg: "#050c1a",
+    ic: "#3a8fdd",
+    icon: "linkedin",
+  },
+  {
+    id: "xthreads",
+    label: "X Threads",
+    x: -208,
+    y: 120,
+    bg: "#0d0d0d",
+    ic: "#c8c8c8",
+    icon: "x",
+  },
+  {
+    id: "podcast",
+    label: "Podcast",
+    x: -208,
+    y: -120,
+    bg: "#080d06",
+    ic: "#58b058",
+    icon: "podcast",
+  },
 ].map((node) => ({ ...node, x: node.x * NODE_SCALE, y: node.y * NODE_SCALE }));
 
 function hexToRgba(hex, alpha) {
-  const cleaned = hex.replace('#', '');
-  const bigint = parseInt(cleaned.length === 3 ? cleaned.split('').map(c => c + c).join('') : cleaned, 16);
+  const cleaned = hex.replace("#", "");
+  const bigint = parseInt(
+    cleaned.length === 3
+      ? cleaned
+          .split("")
+          .map((c) => c + c)
+          .join("")
+      : cleaned,
+    16,
+  );
   const r = (bigint >> 16) & 255;
   const g = (bigint >> 8) & 255;
   const b = bigint & 255;
@@ -95,7 +151,7 @@ function paintStars(canvas) {
       Math.random() * canvas.height,
       Math.random() * 1.1,
       0,
-      Math.PI * 2
+      Math.PI * 2,
     );
     ctx.fillStyle = `rgba(255,255,255,${(Math.random() * 0.4 + 0.08).toFixed(2)})`;
     ctx.fill();
@@ -105,7 +161,18 @@ function paintStars(canvas) {
 function NodeIcon({ type, color }) {
   const glowRect = (
     <g filter="url(#nodeGlow)">
-      <rect x={-36} y={-36} width={72} height={72} rx={22} fill="none" stroke={color} strokeWidth="3" opacity="0.1" blur="0.5" />
+      <rect
+        x={-36}
+        y={-36}
+        width={72}
+        height={72}
+        rx={22}
+        fill="none"
+        stroke={color}
+        strokeWidth="3"
+        opacity="0.1"
+        blur="0.5"
+      />
     </g>
   );
 
@@ -114,7 +181,16 @@ function NodeIcon({ type, color }) {
       return (
         <g>
           {glowRect}
-          <rect x={-35} y={-35} width={70} height={70} rx={20} fill="#18181b" stroke="rgba(255,255,255,0.16)" strokeWidth="1.2" />
+          <rect
+            x={-35}
+            y={-35}
+            width={70}
+            height={70}
+            rx={20}
+            fill="#18181b"
+            stroke="rgba(255,255,255,0.16)"
+            strokeWidth="1.2"
+          />
           <BasilYoutubeOutline width={40} height={40} x={-19} y={-20} />
         </g>
       );
@@ -122,7 +198,16 @@ function NodeIcon({ type, color }) {
       return (
         <g>
           {glowRect}
-          <rect x={-35} y={-35} width={70} height={70} rx={20} fill="#18181b" stroke="rgba(255,255,255,0.16)" strokeWidth="1.2" />
+          <rect
+            x={-35}
+            y={-35}
+            width={70}
+            height={70}
+            rx={20}
+            fill="#18181b"
+            stroke="rgba(255,255,255,0.16)"
+            strokeWidth="1.2"
+          />
           <FeInstagram width={40} height={40} x={-19} y={-20} />
         </g>
       );
@@ -130,7 +215,16 @@ function NodeIcon({ type, color }) {
       return (
         <g>
           {glowRect}
-          <rect x={-35} y={-35} width={70} height={70} rx={20} fill="#18181b" stroke="rgba(255,255,255,0.16)" strokeWidth="1.2" />
+          <rect
+            x={-35}
+            y={-35}
+            width={70}
+            height={70}
+            rx={20}
+            fill="#18181b"
+            stroke="rgba(255,255,255,0.16)"
+            strokeWidth="1.2"
+          />
           <LineMdTiktok width={25} height={25} x={-12} y={-12} />
         </g>
       );
@@ -138,7 +232,16 @@ function NodeIcon({ type, color }) {
       return (
         <g>
           {glowRect}
-          <rect x={-35} y={-35} width={70} height={70} rx={20} fill="#18181b" stroke="rgba(255,255,255,0.16)" strokeWidth="1.2" />
+          <rect
+            x={-35}
+            y={-35}
+            width={70}
+            height={70}
+            rx={20}
+            fill="#18181b"
+            stroke="rgba(255,255,255,0.16)"
+            strokeWidth="1.2"
+          />
           <UitLinkedinAlt width={40} height={40} x={-19} y={-20} />
         </g>
       );
@@ -146,7 +249,16 @@ function NodeIcon({ type, color }) {
       return (
         <g>
           {glowRect}
-          <rect x={-35} y={-35} width={70} height={70} rx={20} fill="#18181b" stroke="rgba(255,255,255,0.16)" strokeWidth="1.2" />
+          <rect
+            x={-35}
+            y={-35}
+            width={70}
+            height={70}
+            rx={20}
+            fill="#18181b"
+            stroke="rgba(255,255,255,0.16)"
+            strokeWidth="1.2"
+          />
           <RiTwitterXFill width={40} height={40} x={-19} y={-20} />
         </g>
       );
@@ -154,7 +266,16 @@ function NodeIcon({ type, color }) {
       return (
         <g>
           {glowRect}
-          <rect x={-35} y={-35} width={70} height={70} rx={20} fill="#18181b" stroke="rgba(255,255,255,0.16)" strokeWidth="1.2" />
+          <rect
+            x={-35}
+            y={-35}
+            width={70}
+            height={70}
+            rx={20}
+            fill="#18181b"
+            stroke="rgba(255,255,255,0.16)"
+            strokeWidth="1.2"
+          />
           <LineMdSpotify width={40} height={40} x={-19} y={-20} />
         </g>
       );
@@ -177,10 +298,10 @@ export default function ContentFlywheel({
   const centerBlobRef = useRef(null);
 
   // Per-node imperative refs
-  const lineRefs = useRef([]);      // <path> elements for growing lines
-  const tipDotRefs = useRef([]);    // <circle> tip dots
+  const lineRefs = useRef([]); // <path> elements for growing lines
+  const tipDotRefs = useRef([]); // <circle> tip dots
   const nodeGroupRefs = useRef([]); // <g> circle+icon groups
-  const labelRefs = useRef([]);     // <text> labels
+  const labelRefs = useRef([]); // <text> labels
 
   const applyProgress = useCallback((progress) => {
     const header = headerRef.current;
@@ -194,10 +315,11 @@ export default function ContentFlywheel({
     header.style.transform = `translateY(${(1 - hP) * 10}px)`;
 
     // Scroll hint
-    scrollHint.style.opacity = progress < 0.06 ? String(1 - progress / 0.06) : "0";
+    scrollHint.style.opacity =
+      progress < 0.06 ? String(1 - progress / 0.06) : "0";
 
     // Center blob
-    const blobP = easeOut(Math.min(1, progress / 0.10));
+    const blobP = easeOut(Math.min(1, progress / 0.1));
     centerBlob.style.opacity = String(blobP);
     centerBlob.style.transform = `scale(${0.3 + 0.7 * blobP})`;
 
@@ -239,7 +361,10 @@ export default function ContentFlywheel({
       }
 
       // Label fades in after node
-      const labelRaw = Math.max(0, Math.min(1, (progress - (start + segSize * 0.4)) / (segSize * 0.6)));
+      const labelRaw = Math.max(
+        0,
+        Math.min(1, (progress - (start + segSize * 0.4)) / (segSize * 0.6)),
+      );
       const labelEl = labelRefs.current[i];
       if (labelEl) labelEl.setAttribute("opacity", String(easeOut(labelRaw)));
     });
@@ -259,7 +384,10 @@ export default function ContentFlywheel({
     }
 
     const onScroll = () => applyProgress(getProgress());
-    const onResize = () => { paintStars(canvas); applyProgress(getProgress()); };
+    const onResize = () => {
+      paintStars(canvas);
+      applyProgress(getProgress());
+    };
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize, { passive: true });
@@ -280,9 +408,15 @@ export default function ContentFlywheel({
       <div className={styles.stickyViewport}>
         <canvas ref={starsCanvasRef} className={styles.starsCanvas} />
 
-        <div ref={headerRef} className={styles.headerBlock} style={{ opacity: 0 }}>
+        <div
+          ref={headerRef}
+          className={styles.headerBlock}
+          style={{ opacity: 0 }}
+        >
           <p className={styles.eyebrow}>{eyebrow}</p>
-          <h2 className={`${styles.mainTitle}  bricolage-grotesque`}>{title}</h2>
+          <h2 className={`${styles.mainTitle}  bricolage-grotesque`}>
+            {title}
+          </h2>
           <p className={styles.subtitle}>{subtitle}</p>
         </div>
 
@@ -298,7 +432,11 @@ export default function ContentFlywheel({
               <circle cx="0" cy="0" r="34" />
             </clipPath>
             <filter id="nodeGlow" x="-80%" y="-80%" width="260%" height="260%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+              <feGaussianBlur
+                in="SourceGraphic"
+                stdDeviation="4"
+                result="blur"
+              />
               <feMerge>
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
@@ -323,7 +461,12 @@ export default function ContentFlywheel({
               </linearGradient>
             ))}
           </defs>
-          <g fill="none" stroke="rgba(255,255,255,0.24)" strokeWidth="1" opacity="0.45">
+          <g
+            fill="none"
+            stroke="rgba(255,255,255,0.24)"
+            strokeWidth="1"
+            opacity="0.45"
+          >
             <circle cx="0" cy="0" r="80" opacity="0.94" />
             <circle cx="0" cy="0" r="108" opacity="0.82" />
             <circle cx="0" cy="0" r="136" opacity="0.72" />
@@ -336,7 +479,9 @@ export default function ContentFlywheel({
             {NODES.map((node, i) => (
               <g key={`line-${node.id}`}>
                 <path
-                  ref={(el) => { lineRefs.current[i] = el; }}
+                  ref={(el) => {
+                    lineRefs.current[i] = el;
+                  }}
                   d=""
                   fill="none"
                   stroke={`url(#lineGradient-${node.id})`}
@@ -345,7 +490,9 @@ export default function ContentFlywheel({
                   opacity="0"
                 />
                 <circle
-                  ref={(el) => { tipDotRefs.current[i] = el; }}
+                  ref={(el) => {
+                    tipDotRefs.current[i] = el;
+                  }}
                   r="1.5"
                   fill={node.ic}
                   opacity="0"
@@ -361,7 +508,9 @@ export default function ContentFlywheel({
               return (
                 <g key={node.id}>
                   <g
-                    ref={(el) => { nodeGroupRefs.current[i] = el; }}
+                    ref={(el) => {
+                      nodeGroupRefs.current[i] = el;
+                    }}
                     style={{
                       opacity: 0,
                       transform: `translate(${node.x}px,${node.y}px) scale(0.2)`,
@@ -371,7 +520,9 @@ export default function ContentFlywheel({
                     <NodeIcon type={node.icon} color={node.ic} />
                   </g>
                   <text
-                    ref={(el) => { labelRefs.current[i] = el; }}
+                    ref={(el) => {
+                      labelRefs.current[i] = el;
+                    }}
                     x={node.x}
                     y={node.y + 42}
                     textAnchor="middle"
@@ -391,7 +542,11 @@ export default function ContentFlywheel({
           {/* Center blob */}
           <g
             ref={centerBlobRef}
-            style={{ opacity: 0, transform: "scale(0.3)", transformOrigin: "0px 0px" }}
+            style={{
+              opacity: 0,
+              transform: "scale(0.3)",
+              transformOrigin: "0px 0px",
+            }}
           >
             <circle r="55" fill="#000" stroke="#252525" strokeWidth="1.2" />
             <image

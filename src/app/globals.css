@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 @import "tailwindcss";
 
 @font-face {
@@ -27,14 +27,12 @@ body {
   font-family: "Bricolage Grotesque", system-ui, sans-serif;
 }
 
-
 .inter-400 {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 900;
   font-style: normal;
 }
-
 
 * {
   box-sizing: border-box;
@@ -56,8 +54,17 @@ select {
   pointer-events: none;
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at 50% 10%, rgba(255,255,255,0.08), transparent 20%),
-    radial-gradient(circle at 20% 20%, rgba(56,189,248,0.15), transparent 18%);
+  background-image:
+    radial-gradient(
+      circle at 50% 10%,
+      rgba(255, 255, 255, 0.08),
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(56, 189, 248, 0.15),
+      transparent 18%
+    );
 }
 
 .hero-line::before,
@@ -68,7 +75,12 @@ select {
   top: 30%;
   width: 110%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(56,189,248,0.45), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(56, 189, 248, 0.45),
+    transparent
+  );
   transform: translateX(-50%) rotate(5deg);
   filter: blur(2px);
 }
@@ -84,7 +96,7 @@ section {
 }
 
 ::selection {
-  background: rgba(56,189,248,0.35);
+  background: rgba(56, 189, 248, 0.35);
 }
 
 @media (max-width: 768px) {
@@ -94,14 +106,12 @@ section {
   }
 }
 
-
 .bricolage-grotesque {
   font-family: "Bricolage Grotesque", sans-serif;
   font-optical-sizing: auto;
   /* font-weight: 800; */
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+  font-variation-settings: "wdth" 100;
 }
 
 .plus-jakarta-sans {
@@ -111,14 +121,12 @@ section {
   font-style: normal;
 }
 
-
 .plus-jakarta-sans-700 {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
 }
-
 
 .plus-jakarta-sans-200 {
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -152,9 +160,8 @@ section {
   animation-play-state: paused;
 }
 
-  to {
-    transform: translateX(-33.333%);
-  
+to {
+  transform: translateX(-33.333%);
 }
 
 @keyframes scan {
@@ -167,14 +174,25 @@ section {
   }
 }
 
-
 @keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-33.333%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
 }
 @keyframes scroll-right {
-  0% { transform: translateX(-33.333%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
-.scroll-left  { animation: scroll-left  30s linear infinite; }
-.scroll-right { animation: scroll-right 30s linear infinite; }
+.scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
+.scroll-right {
+  animation: scroll-right 30s linear infinite;
+}

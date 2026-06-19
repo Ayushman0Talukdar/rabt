@@ -6,10 +6,15 @@ export const env = {
 };
 
 const missing = Object.entries(env)
-  .filter(([key, value]) => !value && key !== "apiToken" && typeof window === "undefined")
+  .filter(
+    ([key, value]) =>
+      !value && key !== "apiToken" && typeof window === "undefined",
+  )
   .map(([key]) => key);
 
 if (missing.length > 0) {
-  console.warn(`[Warning] Missing environment variables: ${missing.join(", ")}`);
+  console.warn(
+    `[Warning] Missing environment variables: ${missing.join(", ")}`,
+  );
 }
 export default env;

@@ -1,12 +1,9 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { useState } from "react"
+import * as React from "react";
+import { useState } from "react";
 
-import {
-  Example,
-  ExampleWrapper,
-} from "@/components/example"
+import { Example, ExampleWrapper } from "@/components/example";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -18,16 +15,16 @@ import {
   AlertDialogMedia,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
+} from "@/components/ui/alert-dialog";
 import {
   Avatar,
   AvatarFallback,
   AvatarGroup,
   AvatarImage,
-} from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { ButtonGroup } from "@/components/ui/button-group"
+} from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ButtonGroup } from "@/components/ui/button-group";
 import {
   Card,
   CardAction,
@@ -36,8 +33,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Checkbox } from "@/components/ui/checkbox"
+} from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Combobox,
   ComboboxContent,
@@ -45,7 +42,7 @@ import {
   ComboboxInput,
   ComboboxItem,
   ComboboxList,
-} from "@/components/ui/combobox"
+} from "@/components/ui/combobox";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -62,7 +59,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import {
   Empty,
   EmptyContent,
@@ -70,7 +67,7 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/components/ui/empty"
+} from "@/components/ui/empty";
 import {
   Field,
   FieldContent,
@@ -81,8 +78,8 @@ import {
   FieldSeparator,
   FieldSet,
   FieldTitle,
-} from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
 import {
   InputGroup,
   InputGroupAddon,
@@ -90,7 +87,7 @@ import {
   InputGroupInput,
   InputGroupText,
   InputGroupTextarea,
-} from "@/components/ui/input-group"
+} from "@/components/ui/input-group";
 import {
   Item,
   ItemActions,
@@ -98,8 +95,8 @@ import {
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from "@/components/ui/item"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/item";
+import { Label } from "@/components/ui/label";
 import {
   Popover,
   PopoverContent,
@@ -107,11 +104,8 @@ import {
   PopoverHeader,
   PopoverTitle,
   PopoverTrigger,
-} from "@/components/ui/popover"
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/components/ui/radio-group"
+} from "@/components/ui/popover";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
   Select,
   SelectContent,
@@ -119,8 +113,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Separator } from "@/components/ui/separator"
+} from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
 import {
   Sheet,
   SheetClose,
@@ -130,17 +124,63 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
-import { Slider } from "@/components/ui/slider"
-import { Spinner } from "@/components/ui/spinner"
-import { Switch } from "@/components/ui/switch"
-import { Textarea } from "@/components/ui/textarea"
+} from "@/components/ui/sheet";
+import { Slider } from "@/components/ui/slider";
+import { Spinner } from "@/components/ui/spinner";
+import { Switch } from "@/components/ui/switch";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
-import { MinusIcon, PlusIcon, ArrowLeftIcon, ChevronDownIcon, MailCheckIcon, ArchiveIcon, ClockIcon, CalendarPlusIcon, ListFilterIcon, TagIcon, Trash2Icon, ArrowRightIcon, VolumeX, CheckIcon, UserRoundXIcon, ShareIcon, CopyIcon, AlertTriangleIcon, TrashIcon, BotIcon, SearchIcon, InfoIcon, StarIcon, AudioLinesIcon, ArrowUpIcon, BluetoothIcon, MoreVerticalIcon, FileIcon, FolderIcon, FolderOpenIcon, FileCodeIcon, MoreHorizontalIcon, FolderSearchIcon, SaveIcon, DownloadIcon, EyeIcon, LayoutIcon, PaletteIcon, SunIcon, MoonIcon, MonitorIcon, HelpCircleIcon, FileTextIcon, LogOutIcon, ShoppingBagIcon } from "lucide-react"
+} from "@/components/ui/tooltip";
+import {
+  MinusIcon,
+  PlusIcon,
+  ArrowLeftIcon,
+  ChevronDownIcon,
+  MailCheckIcon,
+  ArchiveIcon,
+  ClockIcon,
+  CalendarPlusIcon,
+  ListFilterIcon,
+  TagIcon,
+  Trash2Icon,
+  ArrowRightIcon,
+  VolumeX,
+  CheckIcon,
+  UserRoundXIcon,
+  ShareIcon,
+  CopyIcon,
+  AlertTriangleIcon,
+  TrashIcon,
+  BotIcon,
+  SearchIcon,
+  InfoIcon,
+  StarIcon,
+  AudioLinesIcon,
+  ArrowUpIcon,
+  BluetoothIcon,
+  MoreVerticalIcon,
+  FileIcon,
+  FolderIcon,
+  FolderOpenIcon,
+  FileCodeIcon,
+  MoreHorizontalIcon,
+  FolderSearchIcon,
+  SaveIcon,
+  DownloadIcon,
+  EyeIcon,
+  LayoutIcon,
+  PaletteIcon,
+  SunIcon,
+  MoonIcon,
+  MonitorIcon,
+  HelpCircleIcon,
+  FileTextIcon,
+  LogOutIcon,
+  ShoppingBagIcon,
+} from "lucide-react";
 
 export default function CoverExample() {
   return (
@@ -160,19 +200,20 @@ export default function CoverExample() {
 }
 
 function FieldExamples() {
-  const [gpuCount, setGpuCount] = React.useState(8)
-  const [value, setValue] = useState([200, 800])
+  const [gpuCount, setGpuCount] = React.useState(8);
+  const [value, setValue] = useState([200, 800]);
   const handleGpuAdjustment = React.useCallback((adjustment) => {
     setGpuCount((prevCount) =>
-      Math.max(1, Math.min(99, prevCount + adjustment)))
-  }, [])
+      Math.max(1, Math.min(99, prevCount + adjustment)),
+    );
+  }, []);
 
   const handleGpuInputChange = React.useCallback((e) => {
-    const value = parseInt(e.target.value, 10)
+    const value = parseInt(e.target.value, 10);
     if (!isNaN(value) && value >= 1 && value <= 99) {
-      setGpuCount(value)
+      setGpuCount(value);
     }
-  }, [])
+  }, []);
 
   return (
     <Example title="Fields">
@@ -193,7 +234,11 @@ function FieldExamples() {
                       default.
                     </FieldDescription>
                   </FieldContent>
-                  <RadioGroupItem value="kubernetes" id="kubernetes-r2h" aria-label="Kubernetes" />
+                  <RadioGroupItem
+                    value="kubernetes"
+                    id="kubernetes-r2h"
+                    aria-label="Kubernetes"
+                  />
                 </Field>
               </FieldLabel>
               <FieldLabel htmlFor="vm-z4k">
@@ -205,7 +250,11 @@ function FieldExamples() {
                       soon)
                     </FieldDescription>
                   </FieldContent>
-                  <RadioGroupItem value="vm" id="vm-z4k" aria-label="Virtual Machine" />
+                  <RadioGroupItem
+                    value="vm"
+                    id="vm-z4k"
+                    aria-label="Virtual Machine"
+                  />
                 </Field>
               </FieldLabel>
             </RadioGroup>
@@ -224,14 +273,16 @@ function FieldExamples() {
                 value={gpuCount}
                 onChange={handleGpuInputChange}
                 size={3}
-                maxLength={3} />
+                maxLength={3}
+              />
               <Button
                 variant="outline"
                 size="icon"
                 type="button"
                 aria-label="Decrement"
                 onClick={() => handleGpuAdjustment(-1)}
-                disabled={gpuCount <= 1}>
+                disabled={gpuCount <= 1}
+              >
                 <MinusIcon />
               </Button>
               <Button
@@ -240,7 +291,8 @@ function FieldExamples() {
                 type="button"
                 aria-label="Increment"
                 onClick={() => handleGpuAdjustment(1)}
-                disabled={gpuCount >= 99}>
+                disabled={gpuCount >= 99}
+              >
                 <PlusIcon />
               </Button>
             </ButtonGroup>
@@ -281,7 +333,8 @@ function FieldExamples() {
               min={0}
               step={10}
               className="mt-2 w-full"
-              aria-label="Price Range" />
+              aria-label="Price Range"
+            />
           </Field>
           <Field orientation="horizontal">
             <Button type="submit">Submit</Button>
@@ -296,7 +349,7 @@ function FieldExamples() {
 }
 
 function ButtonGroupExamples() {
-  const [label, setLabel] = React.useState("personal")
+  const [label, setLabel] = React.useState("personal");
 
   return (
     <Example title="Button Group" className="items-center justify-center">
@@ -321,7 +374,11 @@ function ButtonGroupExamples() {
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="icon-sm" aria-label="More Options">
+                <Button
+                  variant="outline"
+                  size="icon-sm"
+                  aria-label="More Options"
+                >
                   <ChevronDownIcon />
                 </Button>
               </DropdownMenuTrigger>
@@ -356,7 +413,10 @@ function ButtonGroupExamples() {
                       Label As...
                     </DropdownMenuSubTrigger>
                     <DropdownMenuSubContent>
-                      <DropdownMenuRadioGroup value={label} onValueChange={setLabel}>
+                      <DropdownMenuRadioGroup
+                        value={label}
+                        onValueChange={setLabel}
+                      >
                         <DropdownMenuRadioItem value="personal">
                           Personal
                         </DropdownMenuRadioItem>
@@ -450,12 +510,15 @@ function ButtonGroupExamples() {
             </ButtonGroup>
             <ButtonGroup>
               <Button variant="outline">
-                <BotIcon />{" "}
-                Copilot
+                <BotIcon /> Copilot
               </Button>
               <Popover>
                 <PopoverTrigger asChild>
-                  <Button variant="outline" size="icon" aria-label="Open Popover">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    aria-label="Open Popover"
+                  >
                     <ChevronDownIcon />
                   </Button>
                 </PopoverTrigger>
@@ -470,7 +533,8 @@ function ButtonGroupExamples() {
                   <div className="text-sm *:[p:not(:last-child)]:mb-2">
                     <Textarea
                       placeholder="Describe your task in natural language."
-                      className="min-h-32 resize-none" />
+                      className="min-h-32 resize-none"
+                    />
                   </div>
                 </PopoverContent>
               </Popover>
@@ -483,8 +547,8 @@ function ButtonGroupExamples() {
 }
 
 function InputGroupExamples() {
-  const [isFavorite, setIsFavorite] = React.useState(false)
-  const [voiceEnabled, setVoiceEnabled] = React.useState(false)
+  const [isFavorite, setIsFavorite] = React.useState(false);
+  const [voiceEnabled, setVoiceEnabled] = React.useState(false);
 
   return (
     <Example title="Input Group">
@@ -504,7 +568,11 @@ function InputGroupExamples() {
           <InputGroupAddon align="inline-end">
             <Tooltip>
               <TooltipTrigger asChild>
-                <InputGroupButton className="rounded-full" size="icon-xs" aria-label="Info">
+                <InputGroupButton
+                  className="rounded-full"
+                  size="icon-xs"
+                  aria-label="Info"
+                >
                   <InfoIcon />
                 </InputGroupButton>
               </TooltipTrigger>
@@ -521,7 +589,11 @@ function InputGroupExamples() {
             <Popover>
               <PopoverTrigger asChild>
                 <InputGroupAddon>
-                  <InputGroupButton variant="secondary" size="icon-xs" aria-label="Info">
+                  <InputGroupButton
+                    variant="secondary"
+                    size="icon-xs"
+                    aria-label="Info"
+                  >
                     <InfoIcon />
                   </InputGroupButton>
                 </InputGroupAddon>
@@ -529,7 +601,8 @@ function InputGroupExamples() {
               <PopoverContent
                 align="start"
                 alignOffset={10}
-                className="flex flex-col gap-1 rounded-xl text-sm">
+                className="flex flex-col gap-1 rounded-xl text-sm"
+              >
                 <p className="font-medium">Your connection is not secure.</p>
                 <p>
                   You should not enter any sensitive information on this site.
@@ -543,10 +616,12 @@ function InputGroupExamples() {
               <InputGroupButton
                 onClick={() => setIsFavorite(!isFavorite)}
                 size="icon-xs"
-                aria-label="Favorite">
+                aria-label="Favorite"
+              >
                 <StarIcon
                   data-favorite={isFavorite}
-                  className="data-[favorite=true]:fill-primary data-[favorite=true]:stroke-primary" />
+                  className="data-[favorite=true]:fill-primary data-[favorite=true]:stroke-primary"
+                />
               </InputGroupButton>
             </InputGroupAddon>
           </InputGroup>
@@ -565,7 +640,8 @@ function InputGroupExamples() {
                     ? "Record and send audio..."
                     : "Send a message..."
                 }
-                disabled={voiceEnabled} />
+                disabled={voiceEnabled}
+              />
               <InputGroupAddon align="inline-end">
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -575,7 +651,8 @@ function InputGroupExamples() {
                       className="data-[active=true]:bg-primary data-[active=true]:text-primary-foreground"
                       aria-pressed={voiceEnabled}
                       size="icon-xs"
-                      aria-label="Voice Mode">
+                      aria-label="Voice Mode"
+                    >
                       <AudioLinesIcon />
                     </InputGroupButton>
                   </TooltipTrigger>
@@ -592,14 +669,19 @@ function InputGroupExamples() {
               variant="outline"
               className="style-lyra:rounded-none rounded-full"
               size="icon-xs"
-              aria-label="Add">
+              aria-label="Add"
+            >
               <PlusIcon />
             </InputGroupButton>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <InputGroupButton variant="ghost">Auto</InputGroupButton>
               </DropdownMenuTrigger>
-              <DropdownMenuContent side="top" align="start" className="[--radius:0.95rem]">
+              <DropdownMenuContent
+                side="top"
+                align="start"
+                className="[--radius:0.95rem]"
+              >
                 <DropdownMenuItem>Auto</DropdownMenuItem>
                 <DropdownMenuItem>Agent</DropdownMenuItem>
                 <DropdownMenuItem>Manual</DropdownMenuItem>
@@ -610,7 +692,8 @@ function InputGroupExamples() {
             <InputGroupButton
               variant="default"
               className="style-lyra:rounded-none rounded-full"
-              size="icon-xs">
+              size="icon-xs"
+            >
               <ArrowUpIcon />
               <span className="sr-only">Send</span>
             </InputGroupButton>
@@ -629,15 +712,24 @@ function EmptyAvatarGroup() {
           <EmptyMedia>
             <AvatarGroup className="grayscale">
               <Avatar size="lg">
-                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                <AvatarImage
+                  src="https://github.com/shadcn.png"
+                  alt="@shadcn"
+                />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               <Avatar size="lg">
-                <AvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
+                <AvatarImage
+                  src="https://github.com/maxleiter.png"
+                  alt="@maxleiter"
+                />
                 <AvatarFallback>LR</AvatarFallback>
               </Avatar>
               <Avatar size="lg">
-                <AvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
+                <AvatarImage
+                  src="https://github.com/evilrabbit.png"
+                  alt="@evilrabbit"
+                />
                 <AvatarFallback>ER</AvatarFallback>
               </Avatar>
             </AvatarGroup>
@@ -716,7 +808,11 @@ function FormExample() {
                     <FieldLabel htmlFor="checkout-7j9-card-name-43j">
                       Name on Card
                     </FieldLabel>
-                    <Input id="checkout-7j9-card-name-43j" placeholder="John Doe" required />
+                    <Input
+                      id="checkout-7j9-card-name-43j"
+                      placeholder="John Doe"
+                      required
+                    />
                   </Field>
                   <div className="grid grid-cols-3 gap-4">
                     <Field className="col-span-2">
@@ -726,7 +822,8 @@ function FormExample() {
                       <Input
                         id="checkout-7j9-card-number-uw1"
                         placeholder="1234 5678 9012 3456"
-                        required />
+                        required
+                      />
                       <FieldDescription>
                         Enter your 16-digit number.
                       </FieldDescription>
@@ -794,8 +891,14 @@ function FormExample() {
                 </FieldDescription>
                 <FieldGroup>
                   <Field orientation="horizontal">
-                    <Checkbox id="checkout-7j9-same-as-shipping-wgm" defaultChecked />
-                    <FieldLabel htmlFor="checkout-7j9-same-as-shipping-wgm" className="font-normal">
+                    <Checkbox
+                      id="checkout-7j9-same-as-shipping-wgm"
+                      defaultChecked
+                    />
+                    <FieldLabel
+                      htmlFor="checkout-7j9-same-as-shipping-wgm"
+                      className="font-normal"
+                    >
                       Same as shipping address
                     </FieldLabel>
                   </Field>
@@ -810,7 +913,8 @@ function FormExample() {
                     </FieldLabel>
                     <Textarea
                       id="checkout-7j9-optional-comments"
-                      placeholder="Add any additional comments" />
+                      placeholder="Add any additional comments"
+                    />
                   </Field>
                 </FieldGroup>
               </FieldSet>
@@ -828,15 +932,15 @@ function FormExample() {
   );
 }
 
-const frameworks = ["Next.js", "SvelteKit", "Nuxt.js", "Remix", "Astro"]
+const frameworks = ["Next.js", "SvelteKit", "Nuxt.js", "Remix", "Astro"];
 
 function SmallFormExample() {
   const [notifications, setNotifications] = React.useState({
     email: true,
     sms: false,
     push: true,
-  })
-  const [theme, setTheme] = React.useState("light")
+  });
+  const [theme, setTheme] = React.useState("light");
 
   return (
     <Example title="Form">
@@ -854,7 +958,8 @@ function SmallFormExample() {
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 align="end"
-                className="style-maia:w-56 style-mira:w-48 style-nova:w-48 style-vega:w-56 style-lyra:w-48">
+                className="style-maia:w-56 style-mira:w-48 style-nova:w-48 style-vega:w-56 style-lyra:w-48"
+              >
                 <DropdownMenuGroup>
                   <DropdownMenuLabel>File</DropdownMenuLabel>
                   <DropdownMenuItem>
@@ -935,7 +1040,8 @@ function SmallFormExample() {
                         ...notifications,
                         email: checked === true,
                       })
-                    }>
+                    }
+                  >
                     <EyeIcon />
                     Show Sidebar
                   </DropdownMenuCheckboxItem>
@@ -946,7 +1052,8 @@ function SmallFormExample() {
                         ...notifications,
                         sms: checked === true,
                       })
-                    }>
+                    }
+                  >
                     <LayoutIcon />
                     Show Status Bar
                   </DropdownMenuCheckboxItem>
@@ -959,7 +1066,10 @@ function SmallFormExample() {
                       <DropdownMenuSubContent>
                         <DropdownMenuGroup>
                           <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-                          <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
+                          <DropdownMenuRadioGroup
+                            value={theme}
+                            onValueChange={setTheme}
+                          >
                             <DropdownMenuRadioItem value="light">
                               <SunIcon />
                               Light
@@ -1007,7 +1117,11 @@ function SmallFormExample() {
               <div className="grid grid-cols-2 gap-4">
                 <Field>
                   <FieldLabel htmlFor="small-form-name">Name</FieldLabel>
-                  <Input id="small-form-name" placeholder="Enter your name" required />
+                  <Input
+                    id="small-form-name"
+                    placeholder="Enter your name"
+                    required
+                  />
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="small-form-role">Role</FieldLabel>
@@ -1031,7 +1145,11 @@ function SmallFormExample() {
                   Framework
                 </FieldLabel>
                 <Combobox items={frameworks}>
-                  <ComboboxInput id="small-form-framework" placeholder="Select a framework" required />
+                  <ComboboxInput
+                    id="small-form-framework"
+                    placeholder="Select a framework"
+                    required
+                  />
                   <ComboboxContent>
                     <ComboboxEmpty>No frameworks found.</ComboboxEmpty>
                     <ComboboxList>
@@ -1046,7 +1164,10 @@ function SmallFormExample() {
               </Field>
               <Field>
                 <FieldLabel htmlFor="small-form-comments">Comments</FieldLabel>
-                <Textarea id="small-form-comments" placeholder="Add any additional comments" />
+                <Textarea
+                  id="small-form-comments"
+                  placeholder="Add any additional comments"
+                />
               </Field>
               <Field orientation="horizontal">
                 <Button type="submit">Submit</Button>
@@ -1066,13 +1187,13 @@ function ObservabilityCard() {
   return (
     <Example title="Card" className="items-center justify-center">
       <Card className="relative w-full max-w-sm overflow-hidden pt-0">
-        <div
-          className="bg-primary absolute inset-0 z-30 aspect-video opacity-50 mix-blend-color" />
+        <div className="bg-primary absolute inset-0 z-30 aspect-video opacity-50 mix-blend-color" />
         <img
           src="https://images.unsplash.com/photo-1604076850742-4c7221f3101b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Photo by mymind on Unsplash"
           title="Photo by mymind on Unsplash"
-          className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale" />
+          className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale"
+        />
         <CardHeader>
           <CardTitle>Observability Plus is replacing Monitoring</CardTitle>
           <CardDescription>
@@ -1083,8 +1204,7 @@ function ObservabilityCard() {
         </CardHeader>
         <CardFooter>
           <Button>
-            Create Query{" "}
-            <PlusIcon data-icon="inline-end" />
+            Create Query <PlusIcon data-icon="inline-end" />
           </Button>
           <Badge variant="secondary" className="ml-auto">
             Warning
@@ -1096,7 +1216,7 @@ function ObservabilityCard() {
 }
 
 function FieldSlider() {
-  const [value, setValue] = useState([200, 800])
+  const [value, setValue] = useState([200, 800]);
   return (
     <Example title="Field Slider">
       <div className="w-full max-w-md">
@@ -1114,7 +1234,8 @@ function FieldSlider() {
             min={0}
             step={10}
             className="mt-2 w-full"
-            aria-label="Price Range" />
+            aria-label="Price Range"
+          />
         </Field>
       </div>
     </Example>
@@ -1204,7 +1325,7 @@ function EmptyWithSpinner() {
   );
 }
 
-const SHEET_SIDES = ["top", "right", "bottom", "left"]
+const SHEET_SIDES = ["top", "right", "bottom", "left"];
 
 function SheetExample() {
   return (
@@ -1219,7 +1340,8 @@ function SheetExample() {
             </SheetTrigger>
             <SheetContent
               side={side}
-              className="data-[side=bottom]:max-h-[50vh] data-[side=top]:max-h-[50vh]">
+              className="data-[side=bottom]:max-h-[50vh] data-[side=top]:max-h-[50vh]"
+            >
               <SheetHeader>
                 <SheetTitle>Edit profile</SheetTitle>
                 <SheetDescription>
@@ -1231,7 +1353,8 @@ function SheetExample() {
                 {Array.from({ length: 10 }).map((_, index) => (
                   <p
                     key={index}
-                    className="style-lyra:mb-2 style-lyra:leading-relaxed mb-4 leading-normal">
+                    className="style-lyra:mb-2 style-lyra:leading-relaxed mb-4 leading-normal"
+                  >
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation

@@ -10,17 +10,19 @@
   font-optical-sizing: auto;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #050507;
   --foreground: #f8fafc;
 }
 
 body {
+  background-color: #050507;
   min-height: 100vh;
   margin: 0;
-  background: radial-gradient(circle at top, rgba(56, 189, 248, 0.08), transparent 32%),
-    radial-gradient(circle at 20% 20%, rgba(125, 211, 252, 0.06), transparent 18%),
-    linear-gradient(180deg, #050507 0%, #090a0f 100%);
   color: var(--foreground);
   font-family: "Bricolage Grotesque", system-ui, sans-serif;
 }
@@ -96,7 +98,7 @@ section {
 .bricolage-grotesque {
   font-family: "Bricolage Grotesque", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 800;
+  /* font-weight: 800; */
   font-style: normal;
   font-variation-settings:
     "wdth" 100;
@@ -117,3 +119,62 @@ section {
   font-style: normal;
 }
 
+
+.plus-jakarta-sans-200 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.carousel-track {
+  display: flex;
+  flex-wrap: nowrap;
+  animation: marquee 70s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    animation: none;
+  }
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+  to {
+    transform: translateX(-33.333%);
+  
+}
+
+@keyframes scan {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(420%);
+  }
+}
+
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+@keyframes scroll-right {
+  0% { transform: translateX(-33.333%); }
+  100% { transform: translateX(0); }
+}
+.scroll-left  { animation: scroll-left  30s linear infinite; }
+.scroll-right { animation: scroll-right 30s linear infinite; }

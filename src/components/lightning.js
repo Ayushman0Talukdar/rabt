@@ -64,13 +64,13 @@ const QUAD_VERTICES = new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]);
 
 const Lightning = ({
   hue = 210,
-  xOffset = 0.1,
-  speed = 0.42,
+  xOffset = 0.2,
+  speed = 1,
   intensity = 1.05,
   size = 4.6,
   saturation = 1,
   thickness = 0.05,
-  waver = 0.54,
+  waver = 0.5,
   turbulence = 0.5,
   flicker = 0,
   octaves = 10,

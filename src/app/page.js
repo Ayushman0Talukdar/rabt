@@ -1,19 +1,80 @@
+'use client';
+
+import { useState, useEffect } from "react";
 import Lightning from "@/components/lightning";
 import { MaterialSymbolsStarRounded } from "@/components/icons/staricon";
 import { MaterialSymbolsPlayArrowRounded } from "@/components/icons/resumebtnicon";
 import Navbar from "@/components/Navbar";
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Clock, Eye, Video } from 'lucide-react';
+import { motion } from 'framer-motion';
 import "./globals.css";
+import ContentFlywheel from "./flywheel/flywheel";
+import CountUp from '@/components/CountUp'
+import Workwith from "./workwith/workwith";
+import CreatorCard from "./marquee/marguee";
+import Tabssections from "./tabs/tabs";
+import TestimonialCard from "./scrolls/TestimonialCard";
+import FAQSection from "./FAQsection/FAQsection";
+import Footer from "./Footer/Footer";
+
+import { getWorkCards } from "@/lib/cms/workCards";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const logos = ["Figma", "Slack", "Discord", "Spotify", "YouTube", "Netflix", "Adobe", "Shopify", "Stripe", "Notion"];
+
+// Duplicate for seamless loop
+const marqueeItems = [...logos, ...logos];
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const creatorSectionVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const statsSectionVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
 
 const creatorCards = [
-  { name: "David Wilson", role: "Gaming Creator", metric: "850K", highlight: "Fast turnaround" },
-  { name: "Avery Lee", role: "Shop Ad", metric: "$4.2M", highlight: "Conversion first" },
-  { name: "Mia & Studio", role: "Brand Launch", metric: "12M", highlight: "Viral hooks" },
-  { name: "Alex Snow", role: "Documentaries", metric: "2.1M", highlight: "Cinematic style" },
-  { name: "Jordan Kai", role: "Music Visuals", metric: "48K", highlight: "Bold edits" },
-  { name: "Sofia Park", role: "Creator Growth", metric: "1.3M", highlight: "Repeatable assets" },
-  { name: "Rico Hart", role: "Live Events", metric: "780K", highlight: "Audience-first" },
-  { name: "Nina Reed", role: "Premium Film", metric: "$1.8M", highlight: "High fidelity" },
+  { name: "David Wilson", role: "Gaming Creator", metric: "850K", highlight: "Fast turnaround", platform: "Youtube", image:"https://cdn.britannica.com/96/257896-159-9D7F077F/Close-up-of-blogger-filming-video-with-smartphone-on-tripod-for-online-vlog.jpg?w=385", growth: "305%" },
+  { name: "Avery Lee", role: "Shop Ad", metric: "$4.2M", highlight: "Conversion first", platform: "TikTok", image: "https://media.istockphoto.com/id/2035048820/photo/online-beauty-influencer-presenting-products.jpg?s=2048x2048&w=is&k=20&c=WpD0gSwGiDoHYacYrfSWpF6w_o7U8tlfERezaSifP04=", growth: "305%" },
+  { name: "Mia & Studio", role: "Brand Launch", metric: "12M", highlight: "Viral hooks", platform: "Instagram", image: "https://media.istockphoto.com/id/1313649311/photo/smiling-young-african-female-influencer-doing-a-vlog-post-at-home.jpg?s=2048x2048&w=is&k=20&c=TlLW2kz03XgY3UQhZrKGpZtGgiSyEZvzO9JJ5-lMyao=", growth: "305%" },
+  { name: "Alex Snow", role: "Documentaries", metric: "2.1M", highlight: "Cinematic style", platform: "YouTube", image: "https://media.istockphoto.com/id/1069995244/photo/young-man-making-a-video-blog.jpg?s=612x612&w=0&k=20&c=7LC_z7o5gZcQXbKaidQDYxC54rCloepWcfJxd5-Q3b0=", growth: "305%" },
+  { name: "Jordan Kai", role: "Music Visuals", metric: "48K", highlight: "Bold edits", platform: "TikTok", image: "https://media.istockphoto.com/id/2192390668/photo/travel-influencer.jpg?s=612x612&w=0&k=20&c=9InFbfqWRaS3Nzc6zkbJsefKGBa-QeHROG8Wr4gVirY=", growth: "305%" },
+  { name: "Sofia Park", role: "Creator Growth", metric: "1.3M", highlight: "Repeatable assets", platform: "Instagram", image: "https://media.istockphoto.com/id/1320761320/photo/silhouette-of-an-indian-teen-vlogging-while-holding-camera-in-his-hand-teenager-vlogging-for.jpg?s=612x612&w=0&k=20&c=3uqkXTKTxcx3adickr-kt1M58TB6te2qqu508ntfsKU=", growth: "305%" },
+  { name: "Rico Hart", role: "Live Events", metric: "780K", highlight: "Audience-first", platform: "YouTube", image: "https://media.istockphoto.com/id/1448293643/photo/gym-social-media-and-fitness-influencer-with-phone-live-streaming-workout-for-interactive.jpg?s=612x612&w=0&k=20&c=z-PnJ1B1VRNeowHIHFwfCyU9JV5ZrIvH_g0DP7LjDhk=", growth: "305%" },
+  { name: "Nina Reed", role: "Premium Film", metric: "$1.8M", highlight: "High fidelity", platform: "YouTube", image: "https://media.istockphoto.com/id/1311101155/photo/young-social-media-influencer-recording-his-podcast-on-mobile-phone-concept-of-vlogging.jpg?s=612x612&w=0&k=20&c=c018bB0OVigKtvPUq3Z1xJj3tomD88k75kSS-mw19dk=", growth: "305%" },
 ];
 
 const services = [
@@ -31,20 +92,46 @@ const faqs = [
 ];
 
 export default function Home() {
+  const [cards, setCards] = useState(creatorCards);
+
+  useEffect(() => {
+    getWorkCards()
+      .then((data) => {
+        if (data && data.length > 0) {
+          setCards(data);
+        }
+      })
+      .catch((err) => console.error("Error fetching work cards:", err));
+  }, []);
+
+  const rowA = cards.slice(0, Math.ceil(cards.length / 2));
+  const rowB = cards.slice(Math.ceil(cards.length / 2));
+
   return (
     <main className="min-h-screen bg-hero bg-cover text-white">
         <Navbar />
-      <section className="relative overflow-hidden px-6 pb-16 pt-6">
-        <div className="absolute -z-10 left-1/2 top-0 h-full w-screen -translate-x-1/2 opacity-50 ">
+      <section className="relative overflow-hidden px-6 pb-16">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="absolute -z-10 left-1/2 top-0 h-full w-screen -translate-x-1/2 opacity-100"
+        >
           <Lightning />
-        </div>
+        </motion.div>
         <div className="mx-auto flex min-h-screen w-full flex-col items-center justify-center text-center">
-          <div className="mb-5 flex flex-col items-center gap-2 text-xs text-slate-300 sm:flex-row sm:gap-3">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="w-full flex flex-col items-center"
+          >
+            <motion.div variants={itemVariants} className="mb-5 flex flex-col items-center gap-2 text-xs text-slate-300 sm:flex-row sm:gap-3">
             <div className="flex -space-x-1">
-              <span className="inline-flex h-6 w-6 rounded-full border border-slate-950 bg-white" />
-              <span className="inline-flex h-6 w-6 rounded-full border border-slate-950 bg-slate-700" />
-              <span className="inline-flex h-6 w-6 rounded-full border border-slate-950 bg-slate-600" />
-              <span className="inline-flex h-6 w-6 rounded-full border border-slate-950 bg-slate-800" />
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&h=100&q=80" alt="avatar" className="inline-flex h-6 w-6 rounded-full border border-slate-950 object-cover" />
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80" alt="avatar" className="inline-flex h-6 w-6 rounded-full border border-slate-950 object-cover" />
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100&q=80" alt="avatar" className="inline-flex h-6 w-6 rounded-full border border-slate-950 object-cover" />
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=80" alt="avatar" className="inline-flex h-6 w-6 rounded-full border border-slate-950 object-cover" />
             </div>
             <div className="flex items-center gap-2">
               <div className="flex items-center text-amber-300 gap-[2px]">
@@ -56,187 +143,262 @@ export default function Home() {
               </div>
               <span className="text-neutral-500 font-semibold plus-jakarta-sans">Trusted by 40+ brands & creators</span>
             </div>
-          </div>
+            </motion.div>
 
-          <h1 className="mx-auto max-w-[18ch] text-3xl bricolage-grotesque font-black tracking-tighter text-white sm:text-6xl sm:leading-[1.05]">
+          <motion.h1 variants={itemVariants} className="mx-auto max-w-[18ch] text-3xl bricolage-grotesque font-black tracking-tighter text-white sm:text-6xl sm:leading-[1.05]">
             Premium video edits,
             <br />
             crafted & delivered fast.
-          </h1>
+          </motion.h1>
 
-          <p className="mt-4 max-w-2xl text-sm leading-6 text-neutral-500 sm:text-base font-semibold plus-jakarta-sans">
+          <motion.p variants={itemVariants} className="mt-4 max-w-2xl text-sm leading-6 text-neutral-500 sm:text-base font-semibold plus-jakarta-sans">
             Affordable, fast, human powered video edits.
             <br />
             Real editors, no AI fillers, always on time.
-          </p>
+          </motion.p>
 
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a href="#contact" className="inline-flex gap-1 items-center plus-jakarta-sans font-normal justify-center rounded-full bg-white px-9 py-3.75 text-sm text-slate-950 shadow-[0_15px_30px_rgba(15,23,42,0.18)] transition hover:bg-slate-100">
+          <motion.div variants={itemVariants} className="flex flex-col items-center justify-center gap-3 sm:flex-row mt-20">
+            <a href="#contact" className="inline-flex gap-1 items-center plus-jakarta-sans font-normal justify-center rounded-full bg-white px-9 py-3.75 text-sm text-slate-950 shadow-[0_15px_30px_rgba(15,23,42,0.18)] hover:bg-slate-100 hover:gap-4 transition-[gap] duration-700">
               Book a Call <ArrowUp className="w-4 rotate-90"/>
             </a>
-            <a href="#work" className="inline-flex items-center justify-center backdrop-blur-2xl gap-1 rounded-full border border-white/15 bg-white/10 px-9 py-3.75 text-sm font-semibold text-white transition hover:border-white/10 hover:bg-white/15">
+            <a href="#work" className="inline-flex items-center justify-center backdrop-blur-[5px] gap-1 rounded-full border border-white/15 bg-black/10 px-9 py-3.75 text-sm font-semibold text-white hover:border-white/10 hover:bg-white/15  hover:gap-4 transition-[gap] duration-700">
              <MaterialSymbolsPlayArrowRounded/> View Our Work 
             </a>
-          </div>
+          </motion.div>
+          </motion.div>
         </div>
       </section>
+      <section>
+  <Workwith></Workwith>
+</section>
+<motion.section
+  id="work"
+  initial="hidden"
+  whileInView="visible"
+  variants={creatorSectionVariants}
+  viewport={{ once: true, amount: 0.3 }}
+  className="relative bg-black w-screen overflow-hidden py-10 sm:py-24"
+>
+  <div className="pointer-events-none absolute inset-0">
+    <div
+      className="absolute inset-0 opacity-[0.05]"
+      style={{
+        backgroundImage: `
+          linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)
+        `,
+        backgroundSize: "80px 80px",
+        maskImage: "radial-gradient(circle at center, white, transparent 85%)",
+      }}
+    />
+  </div>
 
-      <section className="border-t border-white/10 px-6 pb-20 pt-16">
-        <div className="container mx-auto space-y-8">
-          <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-slate-400">
-            <span>Trusted by creators, studios, founders, and brands</span>
-            <span className="inline-flex h-1 w-1 rounded-full bg-slate-500" />
-            <span>Fast delivery</span>
-            <span className="inline-flex h-1 w-1 rounded-full bg-slate-500" />
-            <span>Cinematic edits</span>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-3 md:grid-cols-5">
-            {['Creators', 'Founders', 'Studios', 'Directors', 'Brands', 'Agencies', 'Publishers', 'Entrepreneurs', 'Retailers'].slice(0, 5).map((label) => (
-              <div key={label} className="rounded-3xl border border-white/10 bg-white/5 px-4 py-3 text-center text-sm text-slate-200">
-                {label}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+  <div className="relative mx-auto w-full max-w-none px-6 lg:px-10">
+    <motion.div variants={itemVariants} className="w-full flex justify-center text-center plus-jakarta-sans-200 text-neutral-500 tracking-[2px] text-[10px] sm:text-xs">OUR CLIENTS</motion.div>
+    <motion.div variants={itemVariants} className="w-full flex justify-center text-center bricolage-grotesque text-white tracking-[1px] sm:tracking-[2px] text-3xl sm:text-5xl font-black mt-2">Creators Who Trust Us</motion.div>
+    <motion.div variants={itemVariants} className="w-full flex justify-center text-center plus-jakarta-sans-200 text-neutral-500 text-xs sm:text-sm mt-3 max-w-md mx-auto">Real results from real creators. Here's what we've helped them achieve.</motion.div>
 
-      <section id="work" className="container mx-auto px-6 pb-20">
-        <div className="space-y-4 text-center">
-          <p className="text-sm uppercase tracking-[0.28em] text-slate-400">Creators who trust us</p>
-          <h2 className="text-3xl font-semibold sm:text-4xl">Stories that drive views, revenue, and momentum.</h2>
-        </div>
-        <div className="mt-10 grid gap-6 xl:grid-cols-4 lg:grid-cols-2">
-          {creatorCards.map((creator) => (
-            <article key={creator.name} className="group overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:bg-white/10">
-              <div className="mb-5 h-48 rounded-3xl bg-slate-900/90" />
-              <div className="space-y-3">
-                <div className="flex items-center justify-between text-sm text-slate-400">
-                  <span>{creator.role}</span>
-                  <span className="rounded-full bg-white/5 px-3 py-1">{creator.metric}</span>
-                </div>
-                <h3 className="text-xl font-semibold">{creator.name}</h3>
-                <p className="text-slate-400">{creator.highlight}</p>
-              </div>
-            </article>
+    <motion.div variants={itemVariants} className="relative overflow-hidden flex flex-col gap-6 py-10">
+
+      {/* Row 1 — left */}
+      <div className="overflow-hidden">
+        <div className="scroll-left flex w-max gap-6">
+          {[...rowA, ...rowA, ...rowA].map((card, idx) => (
+            <CreatorCard key={`a-${card.name}-${idx}`} card={card} />
           ))}
         </div>
-      </section>
+      </div>
 
-      <section className="container mx-auto px-6 pb-20">
-        <div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
-          <div className="space-y-6 rounded-4xl border border-white/10 bg-white/5 p-8 shadow-[0_40px_120px_rgba(0,0,0,0.35)]">
-            <div className="inline-flex items-center gap-2 rounded-full bg-slate-950/80 px-4 py-2 text-sm text-slate-300">
-              9M+ views across launches
-            </div>
-            <h2 className="text-3xl font-semibold">Every edit is built to perform.</h2>
-            <p className="max-w-2xl text-slate-300">From hero campaigns to rapid social drops, our work pairs cinematic polish with data-led storytelling.</p>
-            <div className="grid gap-4 md:grid-cols-3">
-              {[
-                { value: '9M+', label: 'Views delivered' },
-                { value: '0+', label: 'Content brands' },
-                { value: '94+', label: 'Video clients' },
-              ].map((item) => (
-                <div key={item.label} className="rounded-3xl border border-white/10 bg-slate-950/80 p-5">
-                  <p className="text-3xl font-semibold">{item.value}</p>
-                  <p className="mt-2 text-sm text-slate-400">{item.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="space-y-4">
-            <div className="rounded-4xl border border-white/10 bg-slate-950/70 p-7">
-              <h3 className="text-xl font-semibold">What our clients say</h3>
-              <p className="mt-3 text-slate-400">Honest feedback from teams who use our edits to launch products, grow channels, and increase conversions.</p>
-            </div>
-            <div className="space-y-4">
-              {[
-                { name: 'Amina Rivera', role: 'Founder', quote: 'They turned our launch into a story that scaled immediately. Fast, polished, and easy to work with.' },
-                { name: 'Noah Carter', role: 'Content Lead', quote: 'The edits felt premium and still moved quickly. Every asset landed better than expected.' },
-              ].map((item) => (
-                <div key={item.name} className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
-                  <p className="text-slate-300">“{item.quote}”</p>
-                  <div className="mt-5 flex items-center justify-between text-sm text-slate-400">
-                    <span>{item.name}</span>
-                    <span>{item.role}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="services" className="container mx-auto px-6 pb-20">
-        <div className="space-y-4 text-center">
-          <p className="text-sm uppercase tracking-[0.28em] text-slate-400">Our services</p>
-          <h2 className="text-3xl font-semibold sm:text-4xl">Built for creators, launches, and brands.</h2>
-        </div>
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {services.map((service) => (
-            <article key={service.title} className="overflow-hidden rounded-4xl border border-white/10 bg-white/5 shadow-[0_20px_60px_rgba(8,10,24,0.35)] transition hover:-translate-y-1">
-              <div className="h-56 bg-slate-900/90" />
-              <div className="space-y-4 p-6">
-                <div className="flex flex-wrap gap-2">
-                  {service.tags.map((tag) => (
-                    <span key={tag} className="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300">{tag}</span>
-                  ))}
-                </div>
-                <h3 className="text-2xl font-semibold">{service.title}</h3>
-                <p className="text-slate-400">{service.description}</p>
-                <a href="#contact" className="inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-slate-100">
-                  Learn more →
-                </a>
-              </div>
-            </article>
+      {/* Row 2 — right */}
+      <div className="overflow-hidden">
+        <div className="scroll-right flex w-max gap-6">
+          {[...rowB, ...rowB, ...rowB].map((card, idx) => (
+            <CreatorCard key={`b-${card.name}-${idx}`} card={card} />
           ))}
         </div>
-      </section>
+      </div>
 
-      <section id="faq" className="border-t border-white/10 px-6 pb-24 pt-20">
-        <div className="container mx-auto max-w-3xl space-y-6 text-center">
-          <p className="text-sm uppercase tracking-[0.28em] text-slate-400">Got questions?</p>
-          <h2 className="text-3xl font-semibold sm:text-4xl">Everything clients ask before launch.</h2>
-          <div className="space-y-4">
-            {faqs.map((item) => (
-              <details key={item.question} className="rounded-3xl border border-white/10 bg-white/5 p-6">
-                <summary className="cursor-pointer text-left text-lg font-semibold text-white">{item.question}</summary>
-                <p className="mt-3 text-slate-400">{item.answer}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+    </motion.div>
+  </div>
+</motion.section>
 
-      <section id="contact" className="bg-linear-to-b from-slate-950/90 to-slate-900 px-6 py-24">
-        <div className="container mx-auto rounded-[3rem] border border-white/10 bg-white/5 p-12 text-center shadow-[0_40px_120px_rgba(0,0,0,0.4)]">
-          <p className="text-sm uppercase tracking-[0.28em] text-slate-400">Ready to level up?</p>
-          <h2 className="mt-4 text-4xl font-semibold sm:text-5xl">Launch your next video campaign with confidence.</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-slate-300">Book a discovery call and see how our edits can speed your launch and amplify your results.</p>
-          <a href="mailto:hello@rabt.com" className="mt-8 inline-flex rounded-full bg-white px-10 py-4 font-semibold text-slate-950 transition hover:bg-slate-100">
-            Book a discovery call
-          </a>
-        </div>
-      </section>
+      <motion.section
+  initial="hidden"
+  whileInView="visible"
+  variants={statsSectionVariants}
+  viewport={{ amount: 0.3 }}
+  className="mb-2 sm:mb-10"
+>
+  <div className="relative w-full flex flex-row justify-center items-center bricolage-grotesque gap-0.5 sm:gap-10 font-black py-4 sm:py-16 mt-4 sm:mt-16 mb-4 sm:mb-16">
+    {/* Top border line */}
+    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent" />
+    {/* Bottom border line */}
+    <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent" />
 
-      <footer className="border-t border-white/10 bg-slate-950/70 px-6 py-12 text-slate-400">
-        <div className="container mx-auto grid gap-6 lg:grid-cols-[1.4fr_0.6fr_0.8fr]">
-          <div className="space-y-4">
-            <div className="text-xl font-semibold text-red">RABT</div>
-            <p className="bricolage-grotesque">Premium video edits, crafted for creators and brands who need speed, polish, and results.</p>
-          </div>
-          <div className="space-y-3">
-            <h3 className="text-sm uppercase tracking-[0.3em] text-slate-400">Quick links</h3>
-            <a href="#services" className="block hover:text-white">Services</a>
-            <a href="#work" className="block hover:text-white">Creators</a>
-            <a href="#faq" className="block hover:text-white">FAQ</a>
-          </div>
-          <div className="space-y-3">
-            <h3 className="text-sm uppercase tracking-[0.3em] text-slate-400">Contact</h3>
-            <p>hello@rabt.com</p>
-            <p>© 2026 RABT</p>
-          </div>
+    {/* Stat 1 */}
+    <motion.div
+      variants={itemVariants}
+      className="flex flex-col items-center flex-1 px-1 sm:px-20"
+    >
+      <Clock color="#292929" className="mb-2 sm:mb-5 w-3.5 h-3.5 sm:w-6 sm:h-6" />
+      <div className="text-lg xs:text-xl sm:text-6xl flex justify-center">
+        <CountUp from={0} to={50} separator="," direction="up" duration={1} className="count-up-text" delay={0} />
+        M+
+      </div>
+      <div className="text-[8px] xs:text-[10px] sm:text-sm text-neutral-500 mt-1.5 text-center">View Generated</div>
+    </motion.div>
+
+    {/* Stat 2 */}
+    <motion.div
+      variants={itemVariants}
+      className="flex flex-col items-center flex-1 px-1 sm:px-20 border-l border-r border-white/10"
+    >
+      <Clock color="#292929" className="mb-2 sm:mb-5 w-3.5 h-3.5 sm:w-6 sm:h-6" />
+      <div className="text-lg xs:text-xl sm:text-6xl flex justify-center">
+        <CountUp from={0} to={5} separator="," direction="up" duration={1} className="count-up-text" delay={0} />
+        +
+      </div>
+      <div className="text-[8px] xs:text-[10px] sm:text-sm text-neutral-500 mt-1.5 text-center">Experience</div>
+    </motion.div>
+
+    {/* Stat 3 */}
+    <motion.div
+      variants={itemVariants}
+      className="flex flex-col items-center flex-1 px-1 sm:px-20"
+    >
+      <Video color="#292929" className="mb-2 sm:mb-5 w-3.5 h-3.5 sm:w-6 sm:h-6" />
+      <div className="text-lg xs:text-xl sm:text-6xl flex justify-center">
+        <CountUp from={0} to={500} separator="," direction="up" duration={1} className="count-up-text" delay={0} />
+        +
+      </div>
+      <div className="text-[8px] xs:text-[10px] sm:text-sm text-neutral-500 mt-1.5 text-center">Videos Created</div>
+    </motion.div>
+  </div>
+</motion.section>
+<section className="relative bg-black w-full overflow-hidden py-8 sm:py-16">
+      {/* Section label */}
+      <p
+        style={{
+          textAlign: "center",
+          letterSpacing: "0.2em",
+          fontSize: "11px",
+          color: "#555",
+          marginBottom: "28px",
+          fontFamily: "sans-serif",
+          textTransform: "uppercase",
+        }}
+
+        className="mt-4 sm:mt-10"
+      >
+        Trusted by Industry Leaders
+      </p>
+
+      {/* Left fade */}
+      <div
+        style={{
+          position: "absolute",
+          left: 0,
+          top: 0,
+          bottom: 0,
+          width: "120px",
+          background: "linear-gradient(to right, black, transparent)",
+          zIndex: 2,
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Right fade */}
+      <div
+        style={{
+          position: "absolute",
+          right: 0,
+          top: 0,
+          bottom: 0,
+          width: "120px",
+          background: "linear-gradient(to left, black, transparent)",
+          zIndex: 2,
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Scrolling track */}
+      <div style={{ overflow: "hidden", width: "100%" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "72px",
+            width: "max-content",
+            animation: "marquee-scroll 30s linear infinite",
+          }}
+        >
+          {marqueeItems.map((name, index) => (
+            <span
+              key={index}
+              style={{
+                fontFamily: "Bricolage Grotesque, sans-serif",
+                fontWeight: "700",
+                fontSize: "28px",
+                color: "#2a2a2a",
+                whiteSpace: "nowrap",
+                userSelect: "none",
+              }}
+            >
+              {name}
+            </span>
+          ))}
         </div>
-      </footer>
+      </div>
+
+      {/* Keyframe injection */}
+      <style>{`
+        @keyframes marquee-scroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
+    </section>
+    <section id="reviews">
+      <TestimonialCard />
+    </section>
+    <section id="services">
+      <Tabssections />
+    </section>
+    <section id="contact" className="py-10 sm:py-24 px-6 relative bg-[#050507]">
+      <div className="mx-auto max-w-4xl text-center mb-10">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
+          SCHEDULE
+        </p>
+        <h2
+          className="text-3xl sm:text-5xl font-extrabold text-white"
+          style={{
+            fontFamily: '"Bricolage Grotesque", sans-serif',
+            fontOpticalSizing: "auto",
+            fontStyle: "normal",
+            fontVariationSettings: '"wdth" 100',
+            fontWeight: 800,
+          }}
+        >
+          Book a Discovery Call
+        </h2>
+      </div>
+      <div className="mx-auto max-w-4xl rounded-2xl overflow-hidden border border-white/10 bg-white shadow-2xl">
+        <iframe
+          src="https://calendly.com/flare-exc/30min?background_color=08080a&text_color=ffffff&primary_color=ffffff"
+          width="100%"
+          height="950px"
+          frameBorder="0"
+          scrolling="no"
+          style={{ minWidth: "320px", height: "950px", border: "none", overflow: "hidden" }}
+        />
+      </div>
+    </section>
+    <section>
+      <ContentFlywheel />
+    </section>
+    <section id="faq">
+      <FAQSection />
+    </section>
+    <Footer />
     </main>
   );
 }

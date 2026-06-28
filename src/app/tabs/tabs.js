@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import {
   Film,
   Scissors,
@@ -8,13 +9,64 @@ import {
   ChevronLeft,
   ChevronRight,
   Play,
+  MoreVertical,
+  ThumbsUp,
+  ThumbsDown,
+  MessageSquare,
+  Share2,
+  RotateCw,
 } from "lucide-react";
 import { getVideos } from "@/lib/cms/videos";
+
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const BG = "#000000"; // Pure black background matching screenshot
 const CARD_BG = "#0c0c0e"; // Dark premium card background
+
+const ShortsLogo = () => (
+  <svg viewBox="0 0 24 24" style={{ width: 24, height: 24, fill: "#FF0000" }}>
+    <path d="m18.931 9.99l-1.441-.601l1.717-.913a4.48 4.48 0 0 0 1.874-6.078a4.506 4.506 0 0 0-6.09-1.874L4.792 5.929a4.5 4.5 0 0 0-2.402 4.193a4.52 4.52 0 0 0 2.666 3.904c.036.012 1.442.6 1.442.6l-1.706.901a4.51 4.51 0 0 0-2.369 3.967A4.53 4.53 0 0 0 6.93 24c.725 0 1.437-.174 2.08-.508l10.21-5.406a4.49 4.49 0 0 0 2.39-4.192a4.53 4.53 0 0 0-2.678-3.904Zm-9.334 5.2V8.824l6.007 3.184z" />
+  </svg>
+);
+
+const YoutubeLogo = () => (
+  <svg viewBox="0 0 24 24" style={{ width: 28, height: 28, fill: "#FF0000" }}>
+    <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.387.507 9.387.507s7.517 0 9.387-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+  </svg>
+);
+
+const mockViews = ["61k views", "18k views", "134k views", "4.6k views", "1.8m views"];
+
+const mockChannels = [
+  {
+    avatar: "https://picsum.photos/seed/techno/100/100",
+    name: "Technoblade",
+    verified: true,
+    duration: "28:43",
+    views: "24m views • 6 years ago",
+    ambience: "rgba(244, 63, 94, 0.08)", // Red/pink dominant tint
+    border: "rgba(244, 63, 94, 0.25)"
+  },
+  {
+    avatar: "https://picsum.photos/seed/notyourtype/100/100",
+    name: "NOT YOUR TYPE",
+    verified: true,
+    duration: "8:03",
+    views: "23m views • 9 months ago",
+    ambience: "rgba(56, 189, 248, 0.08)", // Blue dominant tint
+    border: "rgba(56, 189, 248, 0.25)"
+  },
+  {
+    avatar: "https://picsum.photos/seed/alexa/100/100",
+    name: "alexa hare",
+    verified: false,
+    duration: "1:57",
+    views: "218k views • 2 weeks ago",
+    ambience: "rgba(251, 146, 60, 0.08)", // Orange dominant tint
+    border: "rgba(251, 146, 60, 0.25)"
+  }
+];
 
 const TAG_COLOR_MAP = {
   "talking head videos": {
@@ -103,8 +155,8 @@ const TABS = [
     label: "Short-Form",
     sections: [
       {
-        titlePlain: "High-impact,",
-        titleHighlight: "scroll-stopping content",
+        titlePlain: "Short-form content designed for attention.",
+        titleHighlight: "",
         description:
           "Reels, shorts, and TikTok edits built to capture attention immediately.",
         tags: [
@@ -118,11 +170,9 @@ const TABS = [
           "Explainer Videos",
         ],
         videos: [
-          "ScMzIvxBSi4",
-          "2Vv-BfVoq4g",
-          "60ItHLz5WEA",
-          "fJ9rUzIMcZQ",
-          "RgKAFK5djSk",
+          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
         ],
         vertical: true,
       },
@@ -146,7 +196,11 @@ const TABS = [
           "B-Roll Integration",
           "Pacing & Cuts",
         ],
-        videos: ["dQw4w9WgXcQ", "jNQXAC9IVRw", "9bZkp7q19f0", "kJQP7kiw5Fk"],
+        videos: [
+          "https://res.cloudinary.com/demo/video/upload/dog.mp4",
+          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+        ],
         vertical: false,
       },
     ],
@@ -169,7 +223,10 @@ const TABS = [
           "Story Format",
           "Carousel Edits",
         ],
-        videos: ["2Vv-BfVoq4g", "fJ9rUzIMcZQ", "kJQP7kiw5Fk"],
+        videos: [
+          "https://res.cloudinary.com/demo/video/upload/dog.mp4",
+          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        ],
         vertical: false,
       },
     ],
@@ -191,7 +248,10 @@ const TABS = [
           "Brand Assets",
           "Conversion Focus",
         ],
-        videos: ["ZK-rNEhJIDs", "dQw4w9WgXcQ", "jNQXAC9IVRw"],
+        videos: [
+          "https://res.cloudinary.com/demo/video/upload/dog.mp4",
+          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+        ],
         vertical: false,
       },
     ],
@@ -233,9 +293,9 @@ function Tag({ label, index }) {
       style={{
         display: "inline-flex",
         alignItems: "center",
-        padding: "8px 16px",
+        padding: "9px 0",
         borderRadius: "9999px",
-        fontSize: "12.5px",
+        fontSize: "13.5px",
         fontWeight: 500,
         fontFamily: '"Plus Jakarta Sans", sans-serif',
         color: style.color,
@@ -247,7 +307,7 @@ function Tag({ label, index }) {
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "translateY(-1px)";
-        e.currentTarget.style.boxShadow = `0 4px 12px ${style.border}`;
+        e.currentTarget.style.boxShadow = `0 4px 4px ${style.border}`;
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = "none";
@@ -259,10 +319,67 @@ function Tag({ label, index }) {
   );
 }
 
-function YouTubeEmbed({ videoId, vertical }) {
+function getOptimizedCloudinaryUrl(url) {
+  if (!url || !url.includes("cloudinary.com")) return url;
+  if (url.includes("/upload/")) {
+    if (!url.includes("/w_480")) {
+      return url.replace("/upload/", "/upload/f_auto,q_auto,w_480/");
+    }
+  }
+  return url;
+}
+
+function NativeVideoEmbed({ videoUrl, isIntersecting, videoRef }) {
+  const optimizedVideoUrl = getOptimizedCloudinaryUrl(videoUrl);
+  const baseUrl = optimizedVideoUrl.split("?")[0];
+  const posterUrl = baseUrl.includes("cloudinary.com")
+    ? baseUrl.replace(/\.[^/.]+$/, ".jpg")
+    : undefined;
+
+  const isImg = videoUrl.match(/\.(jpeg|jpg|gif|png|webp|svg)($|\?)/i) || videoUrl.includes("/image/upload/");
+
+  if (isImg) {
+    return (
+      <img
+        src={optimizedVideoUrl}
+        alt="Thumbnail placeholder"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
+    );
+  }
+
+  return (
+    <video
+      ref={videoRef}
+      src={optimizedVideoUrl}
+      poster={posterUrl}
+      preload={isIntersecting ? "auto" : "none"}
+      autoPlay
+      muted
+      loop
+      playsInline
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+      }}
+      onError={(e) => {
+        const target = e.currentTarget;
+        console.warn("Video failed to load:", target.src);
+      }}
+    />
+  );
+}
+
+function VideoPlayer({ video, vertical }) {
   const containerRef = useRef(null);
+  const videoRef = useRef(null);
   const [isIntersecting, setIsIntersecting] = useState(false);
-  const width = vertical ? 200 : 460;
+  const width = vertical ? 250 : 520;
   const aspectRatio = vertical ? "9 / 16" : "16 / 10";
 
   useEffect(() => {
@@ -270,13 +387,38 @@ function YouTubeEmbed({ videoId, vertical }) {
       ([entry]) => {
         setIsIntersecting(entry.isIntersecting);
       },
-      { threshold: 0.3 },
+      {
+        threshold: 0.01,
+        rootMargin: "0px 00px 0px 300px"
+      },
     );
     if (containerRef.current) {
       observer.observe(containerRef.current);
     }
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    const videoEl = videoRef.current;
+    if (!videoEl) return;
+
+    if (isIntersecting) {
+      videoEl.play().catch((err) => {
+        // Safe catch if browser blocks autoplay or play interrupts
+        console.log("Play interrupted:", err.message);
+      });
+    } else {
+      videoEl.pause();
+    }
+  }, [isIntersecting]);
+
+  let videoUrl = "";
+
+  if (typeof video === "string") {
+    videoUrl = video;
+  } else if (video && typeof video === "object") {
+    videoUrl = video.videoUrl || "";
+  }
 
   return (
     <div
@@ -290,28 +432,20 @@ function YouTubeEmbed({ videoId, vertical }) {
         border: "1px solid rgba(255,255,255,0.06)",
         background: CARD_BG,
         position: "relative",
-        pointerEvents: "none", // Disables all hover events and click interactions
+        cursor: "pointer",
+        pointerEvents: "auto",
+        transition: "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s",
       }}
+      className="service-card-hover"
     >
-      {isIntersecting ? (
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&playsinline=1&rel=0&modestbranding=1&enablejsapi=1`}
-          title="YouTube video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          style={{
-            width: "100%",
-            height: "100%",
-            border: "none",
-          }}
-        />
+      {videoUrl ? (
+        <NativeVideoEmbed videoUrl={videoUrl} isIntersecting={isIntersecting} videoRef={videoRef} />
       ) : (
-        <img
-          src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
-          alt="YouTube thumbnail"
+        <div
           style={{
             width: "100%",
             height: "100%",
-            objectFit: "cover",
+            background: "#121214",
           }}
         />
       )}
@@ -319,143 +453,541 @@ function YouTubeEmbed({ videoId, vertical }) {
   );
 }
 
-function Carousel({ videos, vertical, isShortForm }) {
-  const scrollRef = useRef(null);
-
-  const scrollBy = (direction) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const amount = direction === "left" ? -400 : 400;
-    el.scrollBy({ left: amount, behavior: "smooth" });
-  };
-
-  return (
-    <div
-      className="carousel-wrapper"
-      style={{ position: "relative", width: "100%" }}
-    >
-      {/* Left nav */}
-      <button
-        className="carousel-nav carousel-nav-left"
-        onClick={() => scrollBy("left")}
-        style={{
-          position: "absolute",
-          left: -20,
-          top: "50%",
-          transform: "translateY(-50%)",
-          zIndex: 10,
-          width: 40,
-          height: 40,
-          borderRadius: "50%",
-          background: "rgba(10,10,12,0.80)",
-          backdropFilter: "blur(8px)",
-          border: "1px solid rgba(255,255,255,0.08)",
-          color: "rgba(255,255,255,0.70)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-          opacity: 0,
-          transition: "opacity 0.2s, color 0.2s, transform 0.2s",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.color = "#fff";
-          e.currentTarget.style.transform = "translateY(-50%) scale(1.05)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.color = "rgba(255,255,255,0.70)";
-          e.currentTarget.style.transform = "translateY(-50%) scale(1)";
-        }}
-      >
-        <ChevronLeft size={20} />
-      </button>
-
-      {/* Right nav */}
-      <button
-        className="carousel-nav carousel-nav-right"
-        onClick={() => scrollBy("right")}
-        style={{
-          position: "absolute",
-          right: -20,
-          top: "50%",
-          transform: "translateY(-50%)",
-          zIndex: 10,
-          width: 40,
-          height: 40,
-          borderRadius: "50%",
-          background: "rgba(10,10,12,0.80)",
-          backdropFilter: "blur(8px)",
-          border: "1px solid rgba(255,255,255,0.08)",
-          color: "rgba(255,255,255,0.70)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-          opacity: 0,
-          transition: "opacity 0.2s, color 0.2s, transform 0.2s",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.color = "#fff";
-          e.currentTarget.style.transform = "translateY(-50%) scale(1.05)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.color = "rgba(255,255,255,0.70)";
-          e.currentTarget.style.transform = "translateY(-50%) scale(1)";
-        }}
-      >
-        <ChevronRight size={20} />
-      </button>
-
-      {/* Scrollable track */}
-      <div
-        ref={scrollRef}
-        style={{
-          display: "flex",
-          gap: 16,
-          overflowX: "auto",
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-          paddingBottom: 12,
-        }}
-      >
-        {videos.map((videoId, i) => (
-          <YouTubeEmbed key={i} videoId={videoId} vertical={vertical} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function ServiceSection({ section, isShortForm }) {
-  return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
-      <div>
-        <SectionTitle
-          plain={section.titlePlain}
-          highlight={section.titleHighlight}
-        />
+  const [hoveredIdx, setHoveredIdx] = useState(null);
+  const [selectedTag, setSelectedTag] = useState("All");
 
-        {/* Rounded tags matching screenshot */}
+  // Filter video items based on selectedTag
+  const filteredVideos = section.videos.filter((video, idx) => {
+    if (selectedTag === "All") return true;
+
+    // Check if the video object itself contains the tag
+    if (video && typeof video === "object" && video.tags) {
+      return video.tags.includes(selectedTag);
+    }
+
+    // Fallback static mapping for mock video URLs
+    const mockTagsMap = [
+      ["Motion Graphics", "Color Grading", "Sound Design"],
+      ["B-Roll Integration", "Pacing & Cuts", "Sound Design"],
+      ["Thumbnail Design", "Motion Graphics", "Color Grading"],
+    ];
+    const tags = mockTagsMap[idx % mockTagsMap.length];
+    return tags.includes(selectedTag);
+  });
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: section.vertical ? 24 : 20 }}>
+      {/* YouTube Shorts style Header or Standard Header */}
+      {section.vertical ? (
+        <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "0 20px" }}>
+          <ShortsLogo />
+          <h3 style={{ fontSize: 24, fontWeight: 700, color: "#fff", fontFamily: '"Plus Jakarta Sans", sans-serif', margin: 0 }}>
+            Shorts
+          </h3>
+        </div>
+      ) : (
+        (section.titlePlain || section.titleHighlight || section.description) && (
+          <div style={{ padding: "0 20px", display: "flex", flexDirection: "column", gap: 6 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <YoutubeLogo />
+              {section.titlePlain && (
+                <h3 style={{ fontSize: 24, fontWeight: 700, color: "#fff", margin: 0, fontFamily: '"Plus Jakarta Sans", sans-serif' }}>
+                  {section.titlePlain} <span style={{ color: "#fa3c23" }}>{section.titleHighlight}</span>
+                </h3>
+              )}
+            </div>
+            {section.description && (
+              <p style={{ color: "rgba(255, 255, 255, 0.6)", fontSize: 16, lineHeight: 1.5, maxWidth: "600px", margin: 0 }}>
+                {section.description}
+              </p>
+            )}
+          </div>
+        )
+      )}
+
+      {/* YouTube-style Filter Pills (only on long-form / horizontal grids) */}
+      {!section.vertical && section.tags && section.tags.length > 0 && (
         <div
           style={{
             display: "flex",
-            flexWrap: "wrap",
-            gap: 10,
-            maxWidth: "100%",
-            marginBottom: 36,
+            gap: 8,
+            overflowX: "auto",
+            padding: "0 20px",
+            width: "100%",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
           }}
+          className="tag-pills-row"
         >
-          {section.tags.map((tag, i) => (
-            <Tag key={tag} label={tag} index={i} />
-          ))}
+          {["All", ...section.tags].map((tag) => {
+            const isActive = selectedTag === tag;
+            return (
+              <button
+                key={tag}
+                onClick={() => setSelectedTag(tag)}
+                style={{
+                  background: isActive ? "#ffffff" : "rgba(255, 255, 255, 0.08)",
+                  color: isActive ? "#000000" : "#ffffff",
+                  fontFamily: '"Plus Jakarta Sans", sans-serif',
+                  fontSize: 14,
+                  fontWeight: isActive ? 600 : 500,
+                  padding: "6px 12px",
+                  borderRadius: 8,
+                  border: "none",
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                  transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive) e.currentTarget.style.background = "rgba(255, 255, 255, 0.15)";
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
+                }}
+              >
+                {tag}
+              </button>
+            );
+          })}
         </div>
-      </div>
+      )}
 
-      <Carousel
-        videos={section.videos}
-        vertical={section.vertical}
-        isShortForm={isShortForm}
-      />
+      {/* Grid of video cards */}
+      <div
+        className={section.vertical ? "grid-short-form" : "grid-large-form"}
+        style={{
+          display: "grid",
+          gap: 20,
+          padding: "0 20px",
+          width: "100%",
+        }}
+      >
+        {filteredVideos.map((video, idx) => {
+          let url = "";
+          let title = "";
+          if (typeof video === "string") {
+            url = video;
+          } else if (video && typeof video === "object") {
+            url = video.videoUrl || "";
+            title = video.title || "";
+          }
+
+          if (section.vertical) {
+            // YouTube Shorts high-fidelity layout
+            return (
+              <div key={idx} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                <div
+                  className="service-card-hover"
+                  style={{
+                    background: CARD_BG,
+                    borderRadius: 12,
+                    border: "1px solid rgba(255, 255, 255, 0.05)",
+                    overflow: "hidden",
+                    position: "relative",
+                    aspectRatio: "9/16",
+                    transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
+                  }}
+                >
+                  {/* "New" Badge Overlay */}
+                  <span
+                    style={{
+                      position: "absolute",
+                      top: 12,
+                      left: 12,
+                      background: "rgba(0, 0, 0, 0.6)",
+                      color: "#fff",
+                      fontSize: 11,
+                      fontWeight: 700,
+                      padding: "3px 8px",
+                      borderRadius: 4,
+                      zIndex: 10,
+                      fontFamily: '"Plus Jakarta Sans", sans-serif',
+                    }}
+                  >
+                    New
+                  </span>
+
+                  <div
+                    style={{
+                      position: "absolute",
+                      right: 8,
+                      bottom: 12,
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: 6,
+                      zIndex: 10,
+                    }}
+                  >
+                    {/* Like */}
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                      <div
+                        style={{
+                          width: 32,
+                          height: 32,
+                          borderRadius: "50%",
+                          background: "rgba(0, 0, 0, 0.6)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "#fff",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <ThumbsUp size={16} />
+                      </div>
+                      <span style={{ fontSize: 9, color: "#fff", fontWeight: 600, marginTop: 2, textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                        79k
+                      </span>
+                    </div>
+
+                    {/* Dislike */}
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                      <div
+                        style={{
+                          width: 32,
+                          height: 32,
+                          borderRadius: "50%",
+                          background: "rgba(0, 0, 0, 0.6)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "#fff",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <ThumbsDown size={16} />
+                      </div>
+                      <span style={{ fontSize: 9, color: "#fff", fontWeight: 600, marginTop: 2, textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                        Dislike
+                      </span>
+                    </div>
+
+                    {/* Comment */}
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                      <div
+                        style={{
+                          width: 32,
+                          height: 32,
+                          borderRadius: "50%",
+                          background: "rgba(0, 0, 0, 0.6)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "#fff",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <MessageSquare size={16} />
+                      </div>
+                      <span style={{ fontSize: 9, color: "#fff", fontWeight: 600, marginTop: 2, textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                        917
+                      </span>
+                    </div>
+
+                    {/* Share */}
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                      <div
+                        style={{
+                          width: 32,
+                          height: 32,
+                          borderRadius: "50%",
+                          background: "rgba(0, 0, 0, 0.6)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "#fff",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <Share2 size={16} />
+                      </div>
+                      <span style={{ fontSize: 9, color: "#fff", fontWeight: 600, marginTop: 2, textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                        Share
+                      </span>
+                    </div>
+
+                    {/* Remix */}
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                      <div
+                        style={{
+                          width: 32,
+                          height: 32,
+                          borderRadius: "50%",
+                          background: "rgba(0, 0, 0, 0.6)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "#fff",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <RotateCw size={14} />
+                      </div>
+                      <span style={{ fontSize: 9, color: "#fff", fontWeight: 600, marginTop: 2, textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                        Remix
+                      </span>
+                    </div>
+
+                    {/* Channel Profile Icon */}
+                    <div
+                      style={{
+                        width: 26,
+                        height: 26,
+                        borderRadius: 4,
+                        overflow: "hidden",
+                        border: "1px solid rgba(255,255,255,0.3)",
+                        cursor: "pointer",
+                        marginTop: 4,
+                      }}
+                    >
+                      <img
+                        src="https://picsum.photos/seed/shortsavatar/100/100"
+                        alt="avatar"
+                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                      />
+                    </div>
+                  </div>
+
+                  <video
+                    src={url}
+                    loop
+                    muted
+                    playsInline
+                    autoPlay
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      display: "block",
+                    }}
+                  />
+                </div>
+
+                {/* Title, options menu, and views metadata below card */}
+                <div style={{ display: "flex", flexDirection: "column", gap: 4, padding: "0 4px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 8 }}>
+                    <p
+                      style={{
+                        color: "#fff",
+                        fontSize: 14,
+                        fontWeight: 600,
+                        margin: 0,
+                        lineHeight: 1.3,
+                        fontFamily: '"Plus Jakarta Sans", sans-serif',
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                      }}
+                    >
+                      {title || "Short video showing premium visual editing"}
+                    </p>
+                    <button
+                      style={{
+                        background: "transparent",
+                        border: "none",
+                        color: "rgba(255, 255, 255, 0.6)",
+                        cursor: "pointer",
+                        padding: 2,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <MoreVertical size={16} />
+                    </button>
+                  </div>
+                  <span
+                    style={{
+                      color: "rgba(255, 255, 255, 0.4)",
+                      fontSize: 12,
+                      fontWeight: 500,
+                      fontFamily: '"Plus Jakarta Sans", sans-serif',
+                    }}
+                  >
+                    {mockViews[idx % mockViews.length]}
+                  </span>
+                </div>
+              </div>
+            );
+          }
+
+          // Standard horizontal layout
+          const channel = mockChannels[idx % mockChannels.length];
+          const isHovered = hoveredIdx === idx;
+
+          return (
+            <div
+              key={idx}
+              onMouseEnter={() => setHoveredIdx(idx)}
+              onMouseLeave={() => setHoveredIdx(null)}
+              style={{
+                background: isHovered ? channel.ambience : "transparent",
+                border: "1px solid",
+                borderColor: isHovered ? channel.border : "transparent",
+                borderRadius: 16,
+                padding: 12,
+                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                display: "flex",
+                flexDirection: "column",
+                gap: 12,
+                cursor: "pointer",
+              }}
+            >
+              {/* Video container */}
+              <div
+                className="service-card-hover"
+                style={{
+                  width: "100%",
+                  aspectRatio: "16/9",
+                  borderRadius: 12,
+                  overflow: "hidden",
+                  position: "relative",
+                  border: "1px solid rgba(255, 255, 255, 0.05)",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
+                }}
+              >
+                <video
+                  src={url}
+                  loop
+                  muted
+                  playsInline
+                  autoPlay
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    display: "block",
+                  }}
+                />
+
+                {/* Duration Badge */}
+                <span
+                  style={{
+                    position: "absolute",
+                    bottom: 8,
+                    right: 8,
+                    background: "rgba(0, 0, 0, 0.75)",
+                    color: "#fff",
+                    fontSize: 11,
+                    fontWeight: 700,
+                    padding: "3px 6px",
+                    borderRadius: 4,
+                    zIndex: 10,
+                    fontFamily: '"Plus Jakarta Sans", sans-serif',
+                  }}
+                >
+                  {channel.duration}
+                </span>
+              </div>
+
+              {/* Metadata block below video */}
+              <div style={{ display: "flex", gap: 12, padding: "0 4px" }}>
+                {/* Channel avatar */}
+                <div style={{ flexShrink: 0 }}>
+                  <img
+                    src={channel.avatar}
+                    alt={channel.name}
+                    style={{
+                      width: 36,
+                      height: 36,
+                      borderRadius: "50%",
+                      objectFit: "cover",
+                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                    }}
+                  />
+                </div>
+
+                {/* Details */}
+                <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", gap: 2 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 8 }}>
+                    <p
+                      style={{
+                        color: "#fff",
+                        fontSize: 14,
+                        fontWeight: 600,
+                        margin: 0,
+                        lineHeight: 1.3,
+                        fontFamily: '"Plus Jakarta Sans", sans-serif',
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                      }}
+                    >
+                      {title || "Premium video showing custom high-quality editing"}
+                    </p>
+                    <button
+                      style={{
+                        background: "transparent",
+                        border: "none",
+                        color: "rgba(255, 255, 255, 0.6)",
+                        cursor: "pointer",
+                        padding: 0,
+                        marginTop: 2,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <MoreVertical size={16} />
+                    </button>
+                  </div>
+
+                  {/* Channel name & verified check badge */}
+                  <div style={{ display: "flex", alignItems: "center", gap: 4, marginTop: 2 }}>
+                    <span
+                      style={{
+                        color: "rgba(255, 255, 255, 0.6)",
+                        fontSize: 12,
+                        fontWeight: 500,
+                        fontFamily: '"Plus Jakarta Sans", sans-serif',
+                      }}
+                    >
+                      {channel.name}
+                    </span>
+                    {channel.verified && (
+                      <span
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          width: 12,
+                          height: 12,
+                          borderRadius: "50%",
+                          background: "rgba(255, 255, 255, 0.25)",
+                          color: "#fff",
+                          fontSize: 8,
+                          fontWeight: 900,
+                        }}
+                      >
+                        ✓
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Views count */}
+                  <span
+                    style={{
+                      color: "rgba(255, 255, 255, 0.4)",
+                      fontSize: 12,
+                      fontWeight: 500,
+                      fontFamily: '"Plus Jakarta Sans", sans-serif',
+                    }}
+                  >
+                    {channel.views}
+                  </span>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -487,7 +1019,7 @@ export default function TabsSections() {
             : "Featured Videos");
         if (!sectionsMap[titleKey]) {
           sectionsMap[titleKey] = {
-            titlePlain: "",
+            titlePlain: tab.id === "short-form" ? "Short-form content designed for attention." : "",
             titleHighlight: "",
             description: v.description || "",
             tags: v.tags || [],
@@ -495,22 +1027,27 @@ export default function TabsSections() {
             vertical: v.type === "reel",
           };
 
-          const words = titleKey.split(" ");
-          if (words.length <= 1) {
-            sectionsMap[titleKey].titlePlain = "";
-            sectionsMap[titleKey].titleHighlight = titleKey;
-          } else {
-            const highlightCount = words.length > 2 ? 2 : 1;
-            sectionsMap[titleKey].titlePlain = words
-              .slice(0, words.length - highlightCount)
-              .join(" ");
-            sectionsMap[titleKey].titleHighlight = words
-              .slice(words.length - highlightCount)
-              .join(" ");
+          if (tab.id !== "short-form") {
+            const words = titleKey.split(" ");
+            if (words.length <= 1) {
+              sectionsMap[titleKey].titlePlain = "";
+              sectionsMap[titleKey].titleHighlight = titleKey;
+            } else {
+              const highlightCount = words.length > 2 ? 2 : 1;
+              sectionsMap[titleKey].titlePlain = words
+                .slice(0, words.length - highlightCount)
+                .join(" ");
+              sectionsMap[titleKey].titleHighlight = words
+                .slice(words.length - highlightCount)
+                .join(" ");
+            }
           }
         }
 
-        sectionsMap[titleKey].videos.push(v.videoId);
+        sectionsMap[titleKey].videos.push({
+          videoId: v.videoId,
+          videoUrl: v.videoUrl,
+        });
 
         if (v.tags && v.tags.length > 0) {
           const uniqueTags = new Set([
@@ -553,17 +1090,15 @@ export default function TabsSections() {
     >
       {/* Injected styles */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
-        
         ::-webkit-scrollbar { display: none; }
         .carousel-wrapper:hover .carousel-nav { opacity: 1 !important; }
 
         .services-section-wrapper {
-          padding: 64px 20px;
+          padding: 0px 20px;
         }
-        @media (min-width: 640px) {
+        @media (min-width: 1024px) {
           .services-section-wrapper {
-            padding: 96px 48px;
+            padding: 0px 200px;
           }
         }
 
@@ -573,9 +1108,9 @@ export default function TabsSections() {
         }
 
         .tabs-content-container {
-          max-width: 1200px;
+          max-width: 100%;
           width: 100%;
-          margin: 0 auto;
+          margin: 0;
         }
 
         .tab-btn-responsive {
@@ -583,12 +1118,12 @@ export default function TabsSections() {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 8px;
-          padding: 8px 20px;
+          gap: 10px;
+          padding: 10px 22px;
           border-radius: 9999px;
           border: none;
           cursor: pointer;
-          font-size: 13px;
+          font-size: 14px;
           font-weight: 500;
           font-family: "Plus Jakarta Sans", sans-serif;
           transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -596,8 +1131,8 @@ export default function TabsSections() {
 
         @media (min-width: 640px) {
           .tab-btn-responsive {
-            padding: 10px 24px;
-            font-size: 14px;
+            padding: 12px 28px;
+            font-size: 15.5px;
           }
         }
 
@@ -637,7 +1172,7 @@ export default function TabsSections() {
       `}</style>
 
       {/* Header */}
-      <div style={{ textAlign: "center", marginBottom: 40 }}>
+      <div style={{ textAlign: "center", marginBottom: 40, padding: "0 24px" }}>
         <span
           style={{
             color: "rgba(255,255,255,0.40)",
@@ -668,7 +1203,7 @@ export default function TabsSections() {
 
       {/* Tab switcher */}
       <div
-        style={{ display: "flex", justifyContent: "center", marginBottom: 56 }}
+        style={{ display: "flex", justifyContent: "center", marginBottom: 0, padding: "0 20px" }}
       >
         <div
           style={{
@@ -676,7 +1211,7 @@ export default function TabsSections() {
             borderRadius: 9999,
             border: "1px solid rgba(255,255,255,0.06)",
             background: "rgba(255,255,255,0.02)",
-            padding: 4,
+            padding: 0,
             backdropFilter: "blur(12px)",
             gap: 4,
           }}

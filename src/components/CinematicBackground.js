@@ -187,8 +187,9 @@ function RadarSystem({ scrollYProgress }) {
           fill="#38bdf8"
           style={{
             opacity: base.to([0, 0.08, 0.18, 1], [0, 0.18, 0.32, 0.12]),
+            filter: "blur(18px)",
+            willChange: "opacity",
           }}
-          filter="blur(18px)"
         />
         {/* Main Radar Rings */}
         {rings.map((ring, i) => {
@@ -207,8 +208,9 @@ function RadarSystem({ scrollYProgress }) {
                 rotate: ring.rotate,
                 scale: ring.scale,
                 opacity: ring.opacity,
+                filter: "drop-shadow(0 0 3.5px #60a5fa)",
+                willChange: "transform, opacity",
               }}
-              filter="url(#glow)"
             />
           );
         })}
@@ -229,21 +231,14 @@ function RadarSystem({ scrollYProgress }) {
               strokeWidth={0.7}
               strokeDasharray={`${dash} ${Math.PI * 2 * r - dash}`}
               strokeDashoffset={base.to((v) => (1 - v) * dash)}
-              style={{ opacity: base.to([0, 0.3, 1], [0, 0.13, 0.09]) }}
-              filter="url(#glow)"
+              style={{
+                opacity: base.to([0, 0.3, 1], [0, 0.13, 0.09]),
+                filter: "drop-shadow(0 0 3.5px #7dd3fc)",
+                willChange: "opacity",
+              }}
             />
           );
         })}
-        {/* SVG filter for glow */}
-        <defs>
-          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3.5" result="coloredBlur" />
-            <feMerge>
-              <feMergeNode in="coloredBlur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
       </svg>
     </div>
   );
@@ -279,8 +274,11 @@ function ConnectionLines({ scrollYProgress }) {
             strokeLinejoin="round"
             strokeDasharray={length}
             strokeDashoffset={base.to((v) => (1 - v) * length)}
-            style={{ opacity: base.to([0, 0.2, 1], [0, 0.18, 0.12]) }}
-            filter="url(#glow)"
+            style={{
+              opacity: base.to([0, 0.2, 1], [0, 0.18, 0.12]),
+              filter: "drop-shadow(0 0 3.5px #38bdf8)",
+              willChange: "opacity",
+            }}
           />
         );
       })}
@@ -315,8 +313,9 @@ function Particles({ scrollYProgress }) {
             style={{
               opacity: base.to([0, 0.3, 1], [0, 0.22, 0.13]),
               scale: base.to([0, 0.5, 1], [0.7, 1.1, 1]),
+              filter: "drop-shadow(0 0 3.5px #7dd3fc)",
+              willChange: "transform, opacity",
             }}
-            filter="url(#glow)"
           />
         );
       })}

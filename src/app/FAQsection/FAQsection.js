@@ -42,7 +42,7 @@ function FAQItem({ question, answer, isOpen, onToggle }) {
     <div className="rounded-2xl border border-white/10 overflow-hidden">
       <button
         onClick={onToggle}
-        className="flex w-full items-center justify-between px-6 py-5 text-left"
+        className="flex w-full items-center rounded-2xl justify-between px-6 py-5 text-left"
       >
         <span className="text-base text-white">{question}</span>
 
@@ -129,7 +129,7 @@ export default function FAQSection() {
             fontWeight: 800,
           }}
         >
-          Got questions?
+          Everything you need to know
         </h2>
 
         {/* Accordion — each item is its own card with gap between */}

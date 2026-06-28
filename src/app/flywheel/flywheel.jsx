@@ -4,10 +4,12 @@ import { FeInstagram } from "@/components/icons/instaicon";
 import { LineMdTiktok } from "@/components/icons/tiktokicon";
 import { UitLinkedinAlt } from "@/components/icons/linkedin";
 import { RiTwitterXFill } from "@/components/icons/Xicon";
-import { LineMdSpotify } from "@/components/icons/spotifyicon";
+import { RiThreadsFill } from "@/components/icons/threadsicon";
 
 import { useEffect, useRef, useCallback } from "react";
 import styles from "./ContentFlywheel.module.css";
+// import { Particles } from "@/components/ui/particles";
+import Strands from "@/components/Strands";
 
 const NODE_SCALE = 0.85;
 const NODES = [
@@ -48,8 +50,8 @@ const NODES = [
     icon: "linkedin",
   },
   {
-    id: "xthreads",
-    label: "X Threads",
+    id: "xPosts",
+    label: "X Posts",
     x: -208,
     y: 120,
     bg: "#0d0d0d",
@@ -57,8 +59,8 @@ const NODES = [
     icon: "x",
   },
   {
-    id: "podcast",
-    label: "Podcast",
+    id: "Threads",
+    label: "Threads",
     x: -208,
     y: -120,
     bg: "#080d06",
@@ -72,9 +74,9 @@ function hexToRgba(hex, alpha) {
   const bigint = parseInt(
     cleaned.length === 3
       ? cleaned
-          .split("")
-          .map((c) => c + c)
-          .join("")
+        .split("")
+        .map((c) => c + c)
+        .join("")
       : cleaned,
     16,
   );
@@ -136,26 +138,6 @@ function textAnchor(x) {
 function dominantBaseline(node) {
   if (Math.abs(node.x) < 20) return node.y < 0 ? "auto" : "hanging";
   return "central";
-}
-
-function paintStars(canvas) {
-  const ctx = canvas.getContext("2d");
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
-  const count = Math.floor((canvas.width * canvas.height) / 8000);
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (let i = 0; i < count; i++) {
-    ctx.beginPath();
-    ctx.arc(
-      Math.random() * canvas.width,
-      Math.random() * canvas.height,
-      Math.random() * 1.1,
-      0,
-      Math.PI * 2,
-    );
-    ctx.fillStyle = `rgba(255,255,255,${(Math.random() * 0.4 + 0.08).toFixed(2)})`;
-    ctx.fill();
-  }
 }
 
 function NodeIcon({ type, color }) {
@@ -276,7 +258,7 @@ function NodeIcon({ type, color }) {
             stroke="rgba(255,255,255,0.16)"
             strokeWidth="1.2"
           />
-          <LineMdSpotify width={40} height={40} x={-19} y={-20} />
+          <RiThreadsFill width={40} height={40} x={-19} y={-20} />
         </g>
       );
     default:
@@ -286,15 +268,14 @@ function NodeIcon({ type, color }) {
 
 export default function ContentFlywheel({
   centerLabel = "rabt.",
-  eyebrow = "Content Strategy",
-  title = "Content Flywheel",
+  eyebrow = "Turn your recording into dozens of assets",
+  title = "Content System",
   subtitle = "One piece of content, repurposed across every platform — optimized for each algorithm.",
   scrollMultiplier = 5,
 }) {
   const sectionRef = useRef(null);
   const headerRef = useRef(null);
   const scrollHintRef = useRef(null);
-  const starsCanvasRef = useRef(null);
   const centerBlobRef = useRef(null);
 
   // Per-node imperative refs
@@ -344,11 +325,11 @@ export default function ContentFlywheel({
           tipEl.setAttribute("opacity", "0");
         } else {
           lineEl.setAttribute("d", partialBezierPath(node.x, node.y, np));
-          lineEl.setAttribute("opacity", "0.55");
+          lineEl.setAttribute("opacity", "0.9");
           const tip = bezierPoint(node.x, node.y, np);
           tipEl.setAttribute("cx", tip.x.toFixed(2));
           tipEl.setAttribute("cy", tip.y.toFixed(2));
-          tipEl.setAttribute("opacity", np < 1 ? String(np * 0.6) : "0");
+          tipEl.setAttribute("opacity", np < 1 ? String(np * 0.9) : "0");
         }
       }
 
@@ -372,10 +353,16 @@ export default function ContentFlywheel({
 
   useEffect(() => {
     const section = sectionRef.current;
-    const canvas = starsCanvasRef.current;
-    if (!section || !canvas) return;
+    if (!section) return;
 
-    paintStars(canvas);
+    let isVisible = false;
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      if (isVisible) {
+        applyProgress(getProgress());
+      }
+    }, { threshold: 0.01 });
+    observer.observe(section);
 
     function getProgress() {
       const rect = section.getBoundingClientRect();
@@ -383,10 +370,22 @@ export default function ContentFlywheel({
       return Math.max(0, Math.min(1, -rect.top / Math.max(1, zone)));
     }
 
-    const onScroll = () => applyProgress(getProgress());
+    let ticking = false;
+    const onScroll = () => {
+      if (!isVisible) return;
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          applyProgress(getProgress());
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
     const onResize = () => {
-      paintStars(canvas);
-      applyProgress(getProgress());
+      if (isVisible) {
+        applyProgress(getProgress());
+      }
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -396,6 +395,7 @@ export default function ContentFlywheel({
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
+      observer.disconnect();
     };
   }, [applyProgress]);
 
@@ -406,7 +406,29 @@ export default function ContentFlywheel({
       style={{ height: `${scrollMultiplier * 100}vh` }}
     >
       <div className={styles.stickyViewport}>
-        <canvas ref={starsCanvasRef} className={styles.starsCanvas} />
+
+        <div style={{ width: '100%', height: '100%', position: 'absolute', top: 100, pointerEvents: 'none', zIndex: 0 }}>
+          {/* <Strands
+            colors={["#e8e8e8", "#0051f1", "#1c004f"]}
+            count={15}
+            speed={0.3}
+            amplitude={0.5}
+            waviness={0.1}
+            thickness={0.5}
+            glow={0.3}
+            taper={0}
+            spread={0.7}
+            intensity={0.85}
+            saturation={2}
+            opacity={0.2}
+            scale={3}
+            glass={false}
+            refraction={1}
+            dispersion={1}
+            glassSize={1}
+            hueShift={0}
+          /> */}
+        </div>
 
         <div
           ref={headerRef}
@@ -446,7 +468,7 @@ export default function ContentFlywheel({
               <stop offset="0%" stopColor="rgba(255,255,255,0.16)" />
               <stop offset="100%" stopColor="rgba(255,255,255,0.03)" />
             </linearGradient>
-            {NODES.map((node) => (
+            {NODES.map((node, i) => (
               <linearGradient
                 key={`lineGradient-${node.id}`}
                 id={`lineGradient-${node.id}`}
@@ -456,8 +478,17 @@ export default function ContentFlywheel({
                 x2={node.x}
                 y2={node.y}
               >
-                <stop offset="0%" stopColor={node.ic} stopOpacity="0" />
-                <stop offset="100%" stopColor={node.ic} stopOpacity="1" />
+                <stop offset="0%" stopColor={node.ic} stopOpacity="0.5" />
+                <stop offset="0%" stopColor={node.ic} stopOpacity="0.5">
+                  <animate attributeName="offset" values="-0.3; 1.0" dur="2.2s" begin={`${i * 0.35}s`} repeatCount="indefinite" />
+                </stop>
+                <stop offset="0%" stopColor="#ffffff" stopOpacity="1">
+                  <animate attributeName="offset" values="-0.15; 1.15" dur="2.2s" begin={`${i * 0.35}s`} repeatCount="indefinite" />
+                </stop>
+                <stop offset="0%" stopColor={node.ic} stopOpacity="0.5">
+                  <animate attributeName="offset" values="0.0; 1.3" dur="2.2s" begin={`${i * 0.35}s`} repeatCount="indefinite" />
+                </stop>
+                <stop offset="100%" stopColor={node.ic} stopOpacity="0.5" />
               </linearGradient>
             ))}
           </defs>
@@ -557,6 +588,7 @@ export default function ContentFlywheel({
               height="68"
               preserveAspectRatio="xMidYMid slice"
               clipPath="url(#centerImageClip)"
+              className="invert"
             />
           </g>
         </svg>

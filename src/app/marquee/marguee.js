@@ -1,4 +1,5 @@
 import { resolveImageUrl } from "@/lib/sanity";
+import Image from "next/image";
 
 const CreatorCard = ({ card }) => (
   <div
@@ -10,11 +11,13 @@ const CreatorCard = ({ card }) => (
       background: "rgba(255,255,255,0.02)",
     }}
   >
-    <div className="relative overflow-hidden" style={{ height: "256px" }}>
-      <img
+    <div className="relative overflow-hidden user-select-none" style={{ height: "256px" }}>
+      <Image
         src={resolveImageUrl(card.image)}
         alt={card.name}
-        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+        fill
+        sizes="380px"
+        className="w-full user-select-none h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
       />
       <div
         className="absolute inset-0"
@@ -24,7 +27,7 @@ const CreatorCard = ({ card }) => (
         }}
       />
       <span
-        className="absolute top-3 right-3 rounded-full border border-white/[0.1] bg-black/50 backdrop-blur-md text-white/60"
+        className="absolute user-select-none top-3 right-3 rounded-full border border-white/[0.1] bg-black/50 backdrop-blur-md text-white/60"
         style={{
           fontSize: "10px",
           fontWeight: 600,
@@ -34,9 +37,9 @@ const CreatorCard = ({ card }) => (
       >
         {card.platform}
       </span>
-      <div className="absolute bottom-3 left-4">
+      <div className="absolute user-select-none bottom-3 left-4">
         <div
-          className="text-white"
+          className="text-white user-select-none"
           style={{
             fontFamily: '"Bricolage Grotesque", sans-serif',
             fontWeight: 600,
@@ -45,12 +48,12 @@ const CreatorCard = ({ card }) => (
         >
           {card.name}
         </div>
-        <div className="text-white/40" style={{ fontSize: "12px" }}>
+        <div className="text-white/40 user-select-none" style={{ fontSize: "12px" }}>
           {card.role}
         </div>
       </div>
     </div>
-    <div className="p-4">
+    <div className="p-4 user-select-none">
       <div className="flex items-center justify-between mb-1">
         <div className="flex items-center gap-2">
           <svg

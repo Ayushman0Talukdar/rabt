@@ -90,8 +90,21 @@ const Lightning = ({
     });
     if (!gl) return;
 
+    let frameId = 0;
+    let mouse = { x: 0, y: 0 };
+    let currentTranslate = { x: 0, y: 0 };
+
+    const handleMouseMove = (e) => {
+      const rx = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
+      const ry = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
+      // Panning offset magnitude: -35px to create depth
+      mouse.x = rx * -35;
+      mouse.y = ry * -35;
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+
     const resizeCanvas = () => {
-      const ratio = window.devicePixelRatio || 1;
+      const ratio = (window.devicePixelRatio || 1) * 0.75;
       const width = Math.max(1, Math.floor(canvas.clientWidth * ratio));
       const height = Math.max(1, Math.floor(canvas.clientHeight * ratio));
       if (canvas.width !== width || canvas.height !== height) {
@@ -143,9 +156,13 @@ const Lightning = ({
     };
 
     const start = performance.now();
-    let frameId = 0;
 
     const render = () => {
+      // Interpolate values for smooth easing
+      currentTranslate.x += (mouse.x - currentTranslate.x) * 0.05;
+      currentTranslate.y += (mouse.y - currentTranslate.y) * 0.05;
+      canvas.style.transform = `translate3d(${currentTranslate.x}px, ${currentTranslate.y}px, 0)`;
+
       gl.viewport(0, 0, canvas.width, canvas.height);
       gl.uniform2f(locs.res, canvas.width, canvas.height);
       gl.uniform1f(locs.t, (performance.now() - start) * 0.001);
@@ -169,6 +186,7 @@ const Lightning = ({
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(frameId);
     };
   }, [
@@ -186,7 +204,7 @@ const Lightning = ({
     glowPower,
   ]);
 
-  return <canvas ref={canvasRef} className="lightning-container" />;
+  return <canvas ref={canvasRef} className="lightning-container bg-blend-screen" />;
 };
 
 export default Lightning;

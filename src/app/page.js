@@ -1,21 +1,28 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Lightning from "@/components/lightning";
+import { Particles } from "@/components/ui/particles";
 import { MaterialSymbolsStarRounded } from "@/components/icons/staricon";
 import { MaterialSymbolsPlayArrowRounded } from "@/components/icons/resumebtnicon";
 import Navbar from "@/components/Navbar";
 import { ArrowUp, Clock, Eye, Video } from "lucide-react";
 import { motion } from "framer-motion";
 import "./globals.css";
-import ContentFlywheel from "./flywheel/flywheel";
 import CountUp from "@/components/CountUp";
-import Workwith from "./workwith/workwith";
 import CreatorCard from "./marquee/marguee";
-import Tabssections from "./tabs/tabs";
-import TestimonialCard from "./scrolls/TestimonialCard";
-import FAQSection from "./FAQsection/FAQsection";
 import Footer from "./Footer/Footer";
+import dynamic from "next/dynamic";
+import { KineticText } from "@/components/ui/kinetic-text";
+import { ScrollVelocityContainer, ScrollVelocityRow } from "@/components/ui/scroll-based-velocity";
+
+
+const ContentFlywheel = dynamic(() => import("./flywheel/flywheel"), { ssr: false });
+const Workwith = dynamic(() => import("./workwith/workwith"), { ssr: false });
+const Tabssections = dynamic(() => import("./tabs/tabs"), { ssr: false });
+const TestimonialCard = dynamic(() => import("./scrolls/TestimonialCard"), { ssr: false });
+const FAQSection = dynamic(() => import("./FAQsection/FAQsection"), { ssr: false });
 
 import { getWorkCards } from "@/lib/cms/workCards";
 
@@ -225,12 +232,31 @@ export default function Home() {
       .catch((err) => console.error("Error fetching work cards:", err));
   }, []);
 
+
+
   const rowA = cards.slice(0, Math.ceil(cards.length / 2));
   const rowB = cards.slice(Math.ceil(cards.length / 2));
 
   return (
     <main className="min-h-screen bg-hero bg-cover text-white">
-      <Navbar />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Rabt",
+            "image": "https://rabt.in/Rabt.png",
+            "url": "https://rabt.in",
+            "description": "Premium video edits, crafted & delivered fast. Real editors, no AI fillers, always on time.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "IN"
+            }
+          }),
+        }}
+      />
+      <Navbar onClaimTrial={() => setIsPopupOpen(true)} />
       <section className="relative overflow-hidden px-6 pb-16">
         <motion.div
           initial={{ opacity: 0 }}
@@ -239,6 +265,15 @@ export default function Home() {
           className="absolute -z-10 left-1/2 top-0 h-full w-screen -translate-x-1/2 opacity-100"
         >
           <Lightning />
+          <Particles
+            className="absolute inset-0 z-10"
+            quantity={100}
+            ease={80}
+            color="#ffffff"
+            size={1.5}
+            refresh
+            canvasOpacity={1}
+          />
         </motion.div>
         <div className="mx-auto flex min-h-screen w-full flex-col items-center justify-center text-center">
           <motion.div
@@ -249,77 +284,96 @@ export default function Home() {
           >
             <motion.div
               variants={itemVariants}
-              className="mb-5 flex flex-col items-center gap-2 text-xs text-slate-300 sm:flex-row sm:gap-3"
+              className="mb-6 flex flex-col items-center gap-3 text-sm text-slate-300 sm:flex-row sm:gap-4"
             >
-              <div className="flex -space-x-1">
-                <img
+              <div className="flex -space-x-1.5">
+                <Image
                   src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&h=100&q=80"
                   alt="avatar"
-                  className="inline-flex h-6 w-6 rounded-full border border-slate-950 object-cover"
+                  width={32}
+                  height={32}
+                  priority
+                  fetchPriority="high"
+                  className="inline-flex h-8 w-8 rounded-full border border-slate-950 object-cover"
                 />
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80"
                   alt="avatar"
-                  className="inline-flex h-6 w-6 rounded-full border border-slate-950 object-cover"
+                  width={32}
+                  height={32}
+                  priority
+                  fetchPriority="high"
+                  className="inline-flex h-8 w-8 rounded-full border border-slate-950 object-cover"
                 />
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100&q=80"
                   alt="avatar"
-                  className="inline-flex h-6 w-6 rounded-full border border-slate-950 object-cover"
+                  width={32}
+                  height={32}
+                  priority
+                  fetchPriority="high"
+                  className="inline-flex h-8 w-8 rounded-full border border-slate-950 object-cover"
                 />
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=80"
                   alt="avatar"
-                  className="inline-flex h-6 w-6 rounded-full border border-slate-950 object-cover"
+                  width={32}
+                  height={32}
+                  priority
+                  fetchPriority="high"
+                  className="inline-flex h-8 w-8 rounded-full border border-slate-950 object-cover"
                 />
               </div>
-              <div className="flex items-center gap-2">
-                <div className="flex items-center text-amber-300 gap-[2px]">
+              <div className="flex items-center gap-2.5">
+                <div className="flex items-center text-amber-300 gap-[2.5px] scale-110">
                   <MaterialSymbolsStarRounded />
                   <MaterialSymbolsStarRounded />
                   <MaterialSymbolsStarRounded />
                   <MaterialSymbolsStarRounded />
                   <MaterialSymbolsStarRounded />
                 </div>
-                <span className="text-neutral-500 font-semibold plus-jakarta-sans">
-                  Trusted by 40+ brands & creators
+                <span className="text-neutral-400 font-semibold plus-jakarta-sans text-sm sm:text-base">
+                  Trusted by agencies, brands, and creators
                 </span>
               </div>
             </motion.div>
 
-            <motion.h1
+            <motion.div
               variants={itemVariants}
-              className="mx-auto max-w-[18ch] text-3xl bricolage-grotesque font-black tracking-tighter text-white sm:text-6xl sm:leading-[1.05]"
+              className="mx-auto flex flex-col items-center text-3xl public-sans font-bold tracking-tight text-white sm:text-6xl sm:leading-[1.05] select-none cursor-default"
             >
-              Premium video edits,
-              <br />
-              crafted & delivered fast.
-            </motion.h1>
+              <KineticText
+                text="Get world-class content"
+                className="justify-center text-3xl sm:text-6xl font-bold public-sans tracking-tight text-white sm:leading-[1.05]"
+              />
+              <KineticText
+                text="without building an in-house team."
+                className="justify-center text-3xl sm:text-6xl font-bold public-sans tracking-tight text-white sm:leading-[1.05]"
+              />
+            </motion.div>
 
             <motion.p
               variants={itemVariants}
-              className="mt-4 max-w-2xl text-sm leading-6 text-neutral-500 sm:text-base font-semibold plus-jakarta-sans"
+              className="mt-6 max-w-3xl text-base leading-7 text-neutral-400 sm:text-lg font-semibold plus-jakarta-sans"
             >
-              Affordable, fast, human powered video edits.
-              <br />
-              Real editors, no AI fillers, always on time.
+              Access a dedicated team of professionals <br />without the cost, hiring, or management headaches.
             </motion.p>
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-col items-center justify-center gap-3 sm:flex-row mt-20"
+              className="flex flex-col items-center justify-center gap-4 sm:flex-row mt-16"
             >
-              <a
-                href="#contact"
-                className="inline-flex gap-1 items-center plus-jakarta-sans font-normal justify-center rounded-full bg-white px-9 py-3.75 text-sm text-slate-950 shadow-[0_15px_30px_rgba(15,23,42,0.18)] hover:bg-slate-100 hover:gap-4 transition-[gap] duration-700"
+              <button
+                onClick={() => setIsPopupOpen(true)}
+                className="inline-flex gap-1 items-center plus-jakarta-sans font-semibold justify-center rounded-full bg-white px-11 py-[18px] text-[16px] text-slate-950 shadow-[0_15px_30px_rgba(15,23,42,0.18)] hover:bg-slate-100 hover:gap-4 transition-[gap] duration-700"
               >
-                Book a Call <ArrowUp className="w-4 rotate-90" />
-              </a>
+                Lets get connected<ArrowUp className="w-4 rotate-90" />
+              </button>
               <a
                 href="#work"
-                className="inline-flex items-center justify-center backdrop-blur-[5px] gap-1 rounded-full border border-white/15 bg-black/10 px-9 py-3.75 text-sm font-semibold text-white hover:border-white/10 hover:bg-white/15  hover:gap-4 transition-[gap] duration-700"
+                className="inline-flex items-center justify-center backdrop-blur-[5px] gap-1 rounded-full border border-white/15 bg-black/10 px-11 py-[18px] text-[16px] font-semibold text-white hover:border-white/10 hover:bg-white/15  hover:gap-4 transition-[gap] duration-700"
               >
-                <MaterialSymbolsPlayArrowRounded /> View Our Work
+                <MaterialSymbolsPlayArrowRounded />See how we deliver
               </a>
             </motion.div>
           </motion.div>
@@ -334,7 +388,7 @@ export default function Home() {
         whileInView="visible"
         variants={creatorSectionVariants}
         viewport={{ once: true, amount: 0.3 }}
-        className="relative bg-black w-screen overflow-hidden py-10 sm:py-24"
+        className="relative bg-black w-screen overflow-hidden pt-20 pb-0 sm:pt-24 sm:pb-0"
       >
         <div className="pointer-events-none absolute inset-0">
           <div
@@ -351,49 +405,45 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative mx-auto w-full max-w-none px-6 lg:px-10">
+        <div className="relative mx-auto w-full user-select-none max-w-none px-6 lg:px-10">
           <motion.div
             variants={itemVariants}
-            className="w-full flex justify-center text-center plus-jakarta-sans-200 text-neutral-500 tracking-[2px] text-[10px] sm:text-xs"
+            className="w-full flex justify-center uppercase text-center plus-jakarta-sans-200 text-neutral-500 tracking-[2px] text-[10px] sm:text-xs"
           >
-            OUR CLIENTS
+            Worldclass content. Proven impact.
           </motion.div>
           <motion.div
             variants={itemVariants}
             className="w-full flex justify-center text-center bricolage-grotesque text-white tracking-[1px] sm:tracking-[2px] text-3xl sm:text-5xl font-black mt-2"
           >
-            Creators Who Trust Us
+            Trusted By
           </motion.div>
           <motion.div
             variants={itemVariants}
             className="w-full flex justify-center text-center plus-jakarta-sans-200 text-neutral-500 text-xs sm:text-sm mt-3 max-w-md mx-auto"
           >
-            Real results from real creators. Here&apos;s what we&apos;ve helped them
-            achieve.
+            Those who take their content seriously.
           </motion.div>
 
-          <motion.div
-            variants={itemVariants}
-            className="relative overflow-hidden flex flex-col gap-6 py-10"
-          >
+          <ScrollVelocityContainer className="relative overflow-hidden flex flex-col gap-6 pt-20 pb-0">
             {/* Row 1 — left */}
-            <div className="overflow-hidden">
-              <div className="scroll-left flex w-max gap-6">
-                {[...rowA, ...rowA, ...rowA].map((card, idx) => (
-                  <CreatorCard key={`a-${card.name}-${idx}`} card={card} />
-                ))}
-              </div>
-            </div>
+            <ScrollVelocityRow baseVelocity={6} direction={1}>
+              {rowA.map((card, idx) => (
+                <div key={`a-${card.name}-${idx}`} className="px-3">
+                  <CreatorCard card={card} />
+                </div>
+              ))}
+            </ScrollVelocityRow>
 
             {/* Row 2 — right */}
-            <div className="overflow-hidden">
-              <div className="scroll-right flex w-max gap-6">
-                {[...rowB, ...rowB, ...rowB].map((card, idx) => (
-                  <CreatorCard key={`b-${card.name}-${idx}`} card={card} />
-                ))}
-              </div>
-            </div>
-          </motion.div>
+            <ScrollVelocityRow baseVelocity={6} direction={-1}>
+              {rowB.map((card, idx) => (
+                <div key={`b-${card.name}-${idx}`} className="px-3">
+                  <CreatorCard card={card} />
+                </div>
+              ))}
+            </ScrollVelocityRow>
+          </ScrollVelocityContainer>
         </div>
       </motion.section>
 
@@ -402,9 +452,9 @@ export default function Home() {
         whileInView="visible"
         variants={statsSectionVariants}
         viewport={{ amount: 0.3 }}
-        className="mb-2 sm:mb-10"
+        className="mt-[100px] mb-2 sm:mb-4"
       >
-        <div className="relative w-full flex flex-row justify-center items-center bricolage-grotesque gap-0.5 sm:gap-10 font-black py-4 sm:py-16 mt-4 sm:mt-16 mb-4 sm:mb-16">
+        <div className="relative w-full flex flex-row justify-center items-center bricolage-grotesque gap-0.5 sm:gap-10 font-black py-4 sm:py-10 mb-2 sm:mb-6">
           {/* Top border line */}
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent" />
           {/* Bottom border line */}
@@ -416,13 +466,13 @@ export default function Home() {
             className="flex flex-col items-center flex-1 px-1 sm:px-20"
           >
             <Clock
-              color="#292929"
+              color="#fff"
               className="mb-2 sm:mb-5 w-3.5 h-3.5 sm:w-6 sm:h-6"
             />
             <div className="text-lg xs:text-xl sm:text-6xl flex justify-center">
               <CountUp
                 from={0}
-                to={50}
+                to={300}
                 separator=","
                 direction="up"
                 duration={1}
@@ -442,20 +492,20 @@ export default function Home() {
             className="flex flex-col items-center flex-1 px-1 sm:px-20 border-l border-r border-white/10"
           >
             <Clock
-              color="#292929"
+              color="#fff"
               className="mb-2 sm:mb-5 w-3.5 h-3.5 sm:w-6 sm:h-6"
             />
             <div className="text-lg xs:text-xl sm:text-6xl flex justify-center">
               <CountUp
                 from={0}
-                to={5}
+                to={2}
                 separator=","
                 direction="up"
                 duration={1}
                 className="count-up-text"
                 delay={0}
               />
-              +
+              + Years
             </div>
             <div className="text-[8px] xs:text-[10px] sm:text-sm text-neutral-500 mt-1.5 text-center">
               Experience
@@ -468,13 +518,13 @@ export default function Home() {
             className="flex flex-col items-center flex-1 px-1 sm:px-20"
           >
             <Video
-              color="#292929"
+              color="#fff"
               className="mb-2 sm:mb-5 w-3.5 h-3.5 sm:w-6 sm:h-6"
             />
             <div className="text-lg xs:text-xl sm:text-6xl flex justify-center">
               <CountUp
                 from={0}
-                to={500}
+                to={20000}
                 separator=","
                 direction="up"
                 duration={1}
@@ -503,7 +553,7 @@ export default function Home() {
           }}
           className="mt-4 sm:mt-10"
         >
-          Trusted by Industry Leaders
+          Trusted by partners
         </p>
 
         {/* Left fade */}
@@ -576,6 +626,9 @@ export default function Home() {
       <section id="services">
         <Tabssections />
       </section>
+      <section>
+        <ContentFlywheel />
+      </section>
       <section
         id="contact"
         className="py-10 sm:py-24 px-6 relative bg-[#050507]"
@@ -597,7 +650,7 @@ export default function Home() {
             Book a Discovery Call
           </h2>
         </div>
-        <div className="mx-auto max-w-4xl rounded-2xl overflow-hidden border border-white/10 bg-white shadow-2xl">
+        {/* <div className="mx-auto max-w-4xl rounded-2xl overflow-hidden border border-white/10 bg-white shadow-2xl">
           <iframe
             src="https://calendly.com/flare-exc/30min?background_color=08080a&text_color=ffffff&primary_color=ffffff"
             width="100%"
@@ -611,10 +664,7 @@ export default function Home() {
               overflow: "hidden",
             }}
           />
-        </div>
-      </section>
-      <section>
-        <ContentFlywheel />
+        </div> */}
       </section>
       <section id="faq">
         <FAQSection />

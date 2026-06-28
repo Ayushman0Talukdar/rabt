@@ -1,23 +1,53 @@
+import { Meteors } from "@/components/ui/meteors";
+import Grainient from "@/components/ui/Grainient";
+
 export default function Footer() {
   return (
-    <footer className="bg-[#000] px-8 pt-16 pb-12 w-full relative z-10">
+    <footer className="bg-[#000] px-8 pt-16 pb-12 w-full relative z-10 overflow-hidden">
+      <div className="absolute inset-0 -z-10 pointer-events-none opacity-40">
+        <Grainient
+          color1="#3b82f6"
+          color2="#1e3a8a"
+          color3="#ffffff"
+          timeSpeed={0.25}
+          colorBalance={0}
+          warpStrength={1}
+          warpFrequency={5}
+          warpSpeed={2}
+          warpAmplitude={50}
+          blendAngle={0}
+          blendSoftness={0.05}
+          rotationAmount={500}
+          noiseScale={2}
+          grainAmount={0.1}
+          grainScale={2}
+          grainAnimated={false}
+          contrast={1.5}
+          gamma={1}
+          saturation={1}
+          centerX={0}
+          centerY={0}
+          zoom={0.9}
+        />
+      </div>
       {/* Ready to level up? Card */}
       <div className="mx-auto max-w-6xl mb-20 rounded-3xl border border-white/10 bg-gradient-to-b from-neutral-900/40 to-neutral-950/40 px-6 py-16 text-center relative overflow-hidden shadow-2xl">
+        <Meteors number={30} />
         {/* Glow effect at the bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-[80px] bg-gradient-to-t from-blue-600/15 via-indigo-500/5 to-transparent blur-md pointer-events-none" />
         <div className="absolute bottom-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
 
         <h2 className="text-3xl sm:text-5xl font-black text-white bricolage-grotesque tracking-tight mb-4">
-          Ready to level up?
+          Ready to create world-class content?
         </h2>
         <p className="text-white/60 text-sm sm:text-base max-w-md mx-auto mb-8 plus-jakarta-sans">
-          Let&apos;s create content that makes your audience stop scrolling.
+          Let's turn ideas into content that get noticed.
         </p>
         <a
           href="#contact"
           className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-slate-950 transition-all hover:bg-slate-100 hover:gap-3 shadow-lg"
         >
-          Book a Discovery Call <span className="text-lg">→</span>
+          Claim Your Free Trial <span className="text-lg">→</span>
         </a>
       </div>
 
@@ -26,14 +56,13 @@ export default function Footer() {
         {/* Col 1 — tagline */}
         <div className="flex flex-col gap-4">
           <p className="text-sm leading-relaxed text-white/50 max-w-[240px] plus-jakarta-sans">
-            A premium design & video editing agency helping brands create
-            scroll-stopping content that converts.
+            RABT is a world-class video editing agency helping other agencies, brands and creators produce content that builds trust, authority, and growth.
           </p>
         </div>
 
         {/* Col 2 — Quick Links */}
         <div>
-          <p className="mb-5 text-sm font-semibold text-white">Quick Links</p>
+          <p className="mb-5 text-sm font-semibold text-white">Explore</p>
           <ul className="flex flex-col gap-3">
             {["Home", "About Us", "Services", "Portfolio", "Contact"].map(
               (link) => (
@@ -53,7 +82,7 @@ export default function Footer() {
         {/* Col 3 — Contact Us & Follow Us */}
         <div className="flex flex-col gap-8">
           <div>
-            <p className="mb-5 text-sm font-semibold text-white">Contact Us</p>
+            <p className="mb-5 text-sm font-semibold text-white">Let's talk</p>
             <ul className="flex flex-col gap-3">
               <li>
                 <a
@@ -75,7 +104,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="mb-4 text-sm font-semibold text-white">Follow Us</p>
+            <p className="mb-4 text-sm font-semibold text-white">Get in touch</p>
             <div className="flex items-center gap-3">
               {/* Twitter / X */}
               <a
@@ -161,19 +190,19 @@ export default function Footer() {
         {/* Col 4 — Newsletter */}
         <div>
           <p className="mb-4 text-sm font-semibold text-white">
-            Subscribe to our newsletter
+            Stay ahead
           </p>
           <p className="mb-6 text-sm text-white/60 plus-jakarta-sans leading-relaxed">
-            Get the latest content strategies, trends & insights.
+            Get the latest insights on content, branding, and growth.
           </p>
-          <div className="relative flex items-center bg-white w-full h-14 rounded-full">
+          <div className="relative flex items-center bg-white w-full h-14 rounded-l-3xl rounded-b-0 rounded-tr-0">
             <input
               type="email"
               placeholder="Enter email address"
               className="flex-1 bg-transparent pl-5 pr-4 h-full text-sm text-black placeholder:text-neutral-400 focus:outline-none"
             />
             <button className="min-w-max h-full rounded-full bg-[#2a2a2c] hover:bg-[#1d1d1f] px-7 text-sm font-semibold text-white transition-colors">
-              Subscribe
+              Join now
             </button>
           </div>
         </div>

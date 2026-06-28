@@ -4,6 +4,14 @@ export default {
   name: "video",
   title: "Video",
   type: "document",
+  validation: (Rule: any) =>
+    Rule.custom((fields: any) => {
+      if (!fields) return true;
+      if (!fields.videoId && !fields.videoUrl) {
+        return "You must provide either a YouTube Video ID or a Video URL.";
+      }
+      return true;
+    }),
   fields: [
     orderRankField({ type: "video" }),
     {
@@ -15,7 +23,11 @@ export default {
       name: "videoId",
       title: "YouTube Video ID",
       type: "string",
-      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: "videoUrl",
+      title: "Video URL (Cloudinary, etc.)",
+      type: "string",
     },
     {
       name: "category",

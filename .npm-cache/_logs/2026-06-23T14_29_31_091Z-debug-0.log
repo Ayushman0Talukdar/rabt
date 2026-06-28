@@ -1,0 +1,2547 @@
+0 verbose cli /opt/homebrew/Cellar/node@20/20.20.2/bin/node /opt/homebrew/bin/npm
+1 info using npm@10.8.2
+2 info using node@v20.20.2
+3 silly config load:file:/opt/homebrew/Cellar/node@20/20.20.2/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/.npmrc
+5 silly config load:file:/Users/ayushmantalukdar/.npmrc
+6 silly config load:file:/opt/homebrew/etc/npmrc
+7 verbose title npm install ogl@^1.0.11
+8 verbose argv "install" "ogl@^1.0.11"
+9 verbose logfile logs-max:10 dir:/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/.npm-cache/_logs/2026-06-23T14_29_31_091Z-
+10 verbose logfile /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/.npm-cache/_logs/2026-06-23T14_29_31_091Z-debug-0.log
+11 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+12 silly logfile start cleaning logs, removing 1 files
+13 silly logfile done cleaning log files
+14 silly idealTree buildDeps
+15 silly fetch manifest ogl@^1.0.11
+16 silly packumentCache full:https://registry.npmjs.org/ogl cache-miss
+17 http fetch GET 200 https://registry.npmjs.org/ogl 6474ms (cache miss)
+18 silly packumentCache full:https://registry.npmjs.org/ogl set size:undefined disposed:false
+19 silly placeDep ROOT ogl@1.0.11 OK for: rabt@0.1.0 want: ^1.0.11
+20 warn EBADENGINE Unsupported engine {
+20 warn EBADENGINE   package: 'groq@6.1.0',
+20 warn EBADENGINE   required: { node: '>=22.12' },
+20 warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+20 warn EBADENGINE }
+21 silly reify moves {}
+22 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-wasm32-wasi
+23 silly reify mark deleted [
+23 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-wasm32-wasi'
+23 silly reify ]
+24 silly audit bulk request {
+24 silly audit   '@acemir/cssom': [ '0.9.31' ],
+24 silly audit   '@actions/core': [ '3.0.1' ],
+24 silly audit   '@actions/exec': [ '3.0.0' ],
+24 silly audit   '@actions/github': [ '9.1.1' ],
+24 silly audit   '@actions/http-client': [ '3.0.2', '4.0.1' ],
+24 silly audit   '@actions/io': [ '3.0.2' ],
+24 silly audit   '@algorithm.ts/lcs': [ '4.0.6' ],
+24 silly audit   '@alloc/quick-lru': [ '5.2.0' ],
+24 silly audit   '@architect/asap': [ '7.0.10' ],
+24 silly audit   '@aws-lite/client': [ '0.21.10', '0.23.7' ],
+24 silly audit   '@architect/hydrate': [ '5.0.2' ],
+24 silly audit   esquery: [ '1.6.0', '1.7.0' ],
+24 silly audit   '@architect/inventory': [ '5.0.0' ],
+24 silly audit   '@architect/parser': [ '8.0.1' ],
+24 silly audit   '@architect/utils': [ '5.0.2' ],
+24 silly audit   '@asamuzakjp/css-color': [ '5.1.11', '3.2.0' ],
+24 silly audit   '@asamuzakjp/dom-selector': [ '7.1.1', '6.8.1' ],
+24 silly audit   '@asamuzakjp/generational-cache': [ '1.0.1' ],
+24 silly audit   '@asamuzakjp/nwsapi': [ '2.3.9' ],
+24 silly audit   '@aws-lite/s3': [ '0.1.22' ],
+24 silly audit   '@aws-lite/ssm': [ '0.2.5' ],
+24 silly audit   '@babel/code-frame': [ '7.29.7' ],
+24 silly audit   '@babel/compat-data': [ '7.29.7' ],
+24 silly audit   '@babel/core': [ '7.29.0' ],
+24 silly audit   '@babel/generator': [ '7.29.7' ],
+24 silly audit   '@babel/helper-annotate-as-pure': [ '7.29.7' ],
+24 silly audit   '@babel/helper-compilation-targets': [ '7.29.7' ],
+24 silly audit   '@babel/helper-create-class-features-plugin': [ '7.29.7' ],
+24 silly audit   '@babel/helper-create-regexp-features-plugin': [ '7.29.7' ],
+24 silly audit   '@babel/helper-define-polyfill-provider': [ '0.6.8' ],
+24 silly audit   resolve: [ '1.22.12', '2.0.0-next.7' ],
+24 silly audit   '@babel/helper-globals': [ '7.29.7' ],
+24 silly audit   '@babel/helper-member-expression-to-functions': [ '7.29.7' ],
+24 silly audit   '@babel/helper-module-imports': [ '7.29.7' ],
+24 silly audit   '@babel/helper-module-transforms': [ '7.29.7' ],
+24 silly audit   '@babel/helper-optimise-call-expression': [ '7.29.7' ],
+24 silly audit   '@babel/helper-plugin-utils': [ '7.29.7' ],
+24 silly audit   '@babel/helper-remap-async-to-generator': [ '7.29.7' ],
+24 silly audit   '@babel/helper-replace-supers': [ '7.29.7' ],
+24 silly audit   '@babel/helper-skip-transparent-expression-wrappers': [ '7.29.7' ],
+24 silly audit   '@babel/helper-string-parser': [ '7.29.7' ],
+24 silly audit   '@babel/helper-validator-identifier': [ '7.29.7' ],
+24 silly audit   '@babel/helper-validator-option': [ '7.29.7' ],
+24 silly audit   '@babel/helper-wrap-function': [ '7.29.7' ],
+24 silly audit   '@babel/helpers': [ '7.29.2' ],
+24 silly audit   '@babel/parser': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-bugfix-firefox-class-in-computed-class-key': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-bugfix-safari-class-field-initializer-scope': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-bugfix-safari-rest-destructuring-rhs-array': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-bugfix-v8-static-class-fields-redefine-readonly': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-proposal-private-property-in-object': [ '7.21.0-placeholder-for-preset-env.2' ],
+24 silly audit   '@babel/plugin-syntax-import-assertions': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-syntax-import-attributes': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-syntax-jsx': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-syntax-typescript': [ '7.28.6' ],
+24 silly audit   '@babel/plugin-syntax-unicode-sets-regex': [ '7.18.6' ],
+24 silly audit   '@babel/plugin-transform-arrow-functions': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-async-generator-functions': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-async-to-generator': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-block-scoped-functions': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-block-scoping': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-class-properties': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-class-static-block': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-classes': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-computed-properties': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-destructuring': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-dotall-regex': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-duplicate-keys': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-duplicate-named-capturing-groups-regex': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-dynamic-import': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-explicit-resource-management': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-exponentiation-operator': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-export-namespace-from': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-for-of': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-function-name': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-json-strings': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-literals': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-logical-assignment-operators': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-member-expression-literals': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-modules-amd': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-modules-commonjs': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-modules-systemjs': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-modules-umd': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-named-capturing-groups-regex': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-new-target': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-nullish-coalescing-operator': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-numeric-separator': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-object-rest-spread': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-object-super': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-optional-catch-binding': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-optional-chaining': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-parameters': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-private-methods': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-private-property-in-object': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-property-literals': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-react-display-name': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-react-jsx': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-react-jsx-development': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-react-jsx-self': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-react-jsx-source': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-react-pure-annotations': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-regenerator': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-regexp-modifiers': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-reserved-words': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-shorthand-properties': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-spread': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-sticky-regex': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-template-literals': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-typeof-symbol': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-typescript': [ '7.28.6' ],
+24 silly audit   '@babel/plugin-transform-unicode-escapes': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-unicode-property-regex': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-unicode-regex': [ '7.29.7' ],
+24 silly audit   '@babel/plugin-transform-unicode-sets-regex': [ '7.29.7' ],
+24 silly audit   '@babel/preset-env': [ '7.29.7' ],
+24 silly audit   '@babel/preset-modules': [ '0.1.6-no-external-plugins' ],
+24 silly audit   '@babel/preset-react': [ '7.29.7' ],
+24 silly audit   '@babel/preset-typescript': [ '7.28.5' ],
+24 silly audit   '@babel/register': [ '7.29.7' ],
+24 silly audit   '@babel/runtime': [ '7.29.2' ],
+24 silly audit   '@babel/template': [ '7.29.7' ],
+24 silly audit   '@babel/traverse': [ '7.29.7' ],
+24 silly audit   '@babel/types': [ '7.29.7' ],
+24 silly audit   '@base-ui/react': [ '1.5.0' ],
+24 silly audit   '@base-ui/utils': [ '0.2.9' ],
+24 silly audit   '@bramus/specificity': [ '2.4.2' ],
+24 silly audit   '@csstools/color-helpers': [ '6.0.2', '5.1.0' ],
+24 silly audit   '@csstools/css-calc': [ '3.2.1', '2.1.4' ],
+24 silly audit   '@csstools/css-color-parser': [ '4.1.8', '3.1.0' ],
+24 silly audit   '@csstools/css-parser-algorithms': [ '4.0.0', '3.0.5' ],
+24 silly audit   '@csstools/css-syntax-patches-for-csstree': [ '1.1.5' ],
+24 silly audit   '@csstools/css-tokenizer': [ '4.0.0', '3.0.4' ],
+24 silly audit   '@date-fns/tz': [ '1.5.0' ],
+24 silly audit   '@date-fns/utc': [ '2.1.1' ],
+24 silly audit   '@dnd-kit/accessibility': [ '3.1.1' ],
+24 silly audit   '@dnd-kit/core': [ '6.3.1' ],
+24 silly audit   '@dnd-kit/modifiers': [ '6.0.1' ],
+24 silly audit   '@dnd-kit/sortable': [ '7.0.2' ],
+24 silly audit   '@dnd-kit/utilities': [ '3.2.2' ],
+24 silly audit   '@dotenvx/dotenvx': [ '1.66.0' ],
+24 silly audit   commander: [ '11.1.0', '14.0.3' ],
+24 silly audit   execa: [ '5.1.1', '9.6.1' ],
+24 silly audit   fdir: [ '6.5.0' ],
+24 silly audit   'get-stream': [ '6.0.1', '9.0.1' ],
+24 silly audit   'human-signals': [ '2.1.0', '8.0.1' ],
+24 silly audit   'is-stream': [ '2.0.1', '4.0.1' ],
+24 silly audit   isexe: [ '3.1.5', '4.0.0', '2.0.0' ],
+24 silly audit   'npm-run-path': [ '4.0.1', '6.0.0' ],
+24 silly audit   onetime: [ '5.1.2', '7.0.0' ],
+24 silly audit   picomatch: [ '4.0.4', '2.3.2' ],
+24 silly audit   'signal-exit': [ '3.0.7', '4.1.0' ],
+24 silly audit   'strip-final-newline': [ '2.0.0', '4.0.0' ],
+24 silly audit   which: [ '4.0.0', '6.0.1', '2.0.2' ],
+24 silly audit   '@ecies/ciphers': [ '0.2.6' ],
+24 silly audit   '@emnapi/core': [ '1.10.0' ],
+24 silly audit   '@emnapi/runtime': [ '1.10.0' ],
+24 silly audit   '@emnapi/wasi-threads': [ '1.2.1' ],
+24 silly audit   '@emotion/is-prop-valid': [ '1.4.0' ],
+24 silly audit   '@emotion/memoize': [ '0.9.0' ],
+24 silly audit   '@esbuild/aix-ppc64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/android-arm': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/android-arm64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/android-x64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/darwin-arm64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/darwin-x64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/freebsd-arm64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/freebsd-x64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/linux-arm': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/linux-arm64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/linux-ia32': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/linux-loong64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/linux-mips64el': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/linux-ppc64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/linux-riscv64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/linux-s390x': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/linux-x64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/netbsd-arm64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/netbsd-x64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/openbsd-arm64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/openbsd-x64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/openharmony-arm64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/sunos-x64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/win32-arm64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/win32-ia32': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@esbuild/win32-x64': [ '0.28.1', '0.27.7' ],
+24 silly audit   '@eslint-community/eslint-utils': [ '4.9.1' ],
+24 silly audit   'eslint-visitor-keys': [ '3.4.3', '5.0.1', '4.2.1' ],
+24 silly audit   '@eslint-community/regexpp': [ '4.12.2' ],
+24 silly audit   '@eslint/config-array': [ '0.21.2' ],
+24 silly audit   '@eslint/config-helpers': [ '0.4.2' ],
+24 silly audit   '@eslint/core': [ '0.17.0' ],
+24 silly audit   '@eslint/eslintrc': [ '3.3.5' ],
+24 silly audit   '@eslint/js': [ '9.39.4' ],
+24 silly audit   '@eslint/object-schema': [ '2.1.7' ],
+24 silly audit   '@eslint/plugin-kit': [ '0.4.1' ],
+24 silly audit   '@exodus/bytes': [ '1.15.1' ],
+24 silly audit   '@floating-ui/core': [ '1.7.5' ],
+24 silly audit   '@floating-ui/dom': [ '1.7.6' ],
+24 silly audit   '@floating-ui/react-dom': [ '2.1.8' ],
+24 silly audit   '@floating-ui/utils': [ '0.2.11' ],
+24 silly audit   '@hello-pangea/dnd': [ '18.0.1' ],
+24 silly audit   '@hono/node-server': [ '1.19.14' ],
+24 silly audit   '@humanfs/core': [ '0.19.2' ],
+24 silly audit   '@humanfs/node': [ '0.16.8' ],
+24 silly audit   '@humanfs/types': [ '0.15.0' ],
+24 silly audit   '@humanwhocodes/module-importer': [ '1.0.1' ],
+24 silly audit   '@humanwhocodes/retry': [ '0.4.3' ],
+24 silly audit   '@iarna/toml': [ '2.2.3' ],
+24 silly audit   '@img/colour': [ '1.1.0' ],
+24 silly audit   '@img/sharp-darwin-arm64': [ '0.34.5' ],
+24 silly audit   '@img/sharp-darwin-x64': [ '0.34.5' ],
+24 silly audit   '@img/sharp-libvips-darwin-arm64': [ '1.2.4' ],
+24 silly audit   '@img/sharp-libvips-darwin-x64': [ '1.2.4' ],
+24 silly audit   '@img/sharp-libvips-linux-arm': [ '1.2.4' ],
+24 silly audit   '@img/sharp-libvips-linux-arm64': [ '1.2.4' ],
+24 silly audit   '@img/sharp-libvips-linux-ppc64': [ '1.2.4' ],
+24 silly audit   '@img/sharp-libvips-linux-riscv64': [ '1.2.4' ],
+24 silly audit   '@img/sharp-libvips-linux-s390x': [ '1.2.4' ],
+24 silly audit   '@img/sharp-libvips-linux-x64': [ '1.2.4' ],
+24 silly audit   '@img/sharp-libvips-linuxmusl-arm64': [ '1.2.4' ],
+24 silly audit   '@img/sharp-libvips-linuxmusl-x64': [ '1.2.4' ],
+24 silly audit   '@img/sharp-linux-arm': [ '0.34.5' ],
+24 silly audit   '@img/sharp-linux-arm64': [ '0.34.5' ],
+24 silly audit   '@img/sharp-linux-ppc64': [ '0.34.5' ],
+24 silly audit   '@img/sharp-linux-riscv64': [ '0.34.5' ],
+24 silly audit   '@img/sharp-linux-s390x': [ '0.34.5' ],
+24 silly audit   '@img/sharp-linux-x64': [ '0.34.5' ],
+24 silly audit   '@img/sharp-linuxmusl-arm64': [ '0.34.5' ],
+24 silly audit   '@img/sharp-linuxmusl-x64': [ '0.34.5' ],
+24 silly audit   '@img/sharp-wasm32': [ '0.34.5' ],
+24 silly audit   '@img/sharp-win32-arm64': [ '0.34.5' ],
+24 silly audit   '@img/sharp-win32-ia32': [ '0.34.5' ],
+24 silly audit   '@img/sharp-win32-x64': [ '0.34.5' ],
+24 silly audit   '@inquirer/ansi': [ '2.0.7', '1.0.2' ],
+24 silly audit   '@inquirer/checkbox': [ '4.3.2', '5.2.1' ],
+24 silly audit   '@inquirer/core': [ '10.3.2', '11.2.1' ],
+24 silly audit   '@inquirer/figures': [ '1.0.15', '2.0.7' ],
+24 silly audit   '@inquirer/type': [ '3.0.10', '4.0.7' ],
+24 silly audit   'ansi-regex': [ '5.0.1', '6.2.2' ],
+24 silly audit   'emoji-regex': [ '8.0.0', '9.2.2', '10.6.0' ],
+24 silly audit   'mute-stream': [ '2.0.0', '3.0.0' ],
+24 silly audit   'string-width': [ '4.2.3', '8.2.1', '7.2.0' ],
+24 silly audit   'strip-ansi': [ '6.0.1', '7.2.0' ],
+24 silly audit   'wrap-ansi': [ '6.2.0', '9.0.2', '7.0.0' ],
+24 silly audit   '@inquirer/confirm': [ '6.1.1', '5.1.21' ],
+24 silly audit   '@inquirer/editor': [ '4.2.23', '5.2.2' ],
+24 silly audit   '@inquirer/expand': [ '4.0.23', '5.1.1' ],
+24 silly audit   '@inquirer/external-editor': [ '1.0.3', '3.0.3' ],
+24 silly audit   '@inquirer/input': [ '4.3.1', '5.1.2' ],
+24 silly audit   '@inquirer/number': [ '3.0.23', '4.1.1' ],
+24 silly audit   '@inquirer/password': [ '4.0.23', '5.1.1' ],
+24 silly audit   '@inquirer/prompts': [ '7.10.1', '8.5.2' ],
+24 silly audit   '@inquirer/rawlist': [ '4.1.11', '5.3.1' ],
+24 silly audit   '@inquirer/search': [ '3.2.2', '4.2.1' ],
+24 silly audit   '@inquirer/select': [ '4.4.2', '5.2.1' ],
+24 silly audit   '@isaacs/fs-minipass': [ '4.0.1' ],
+24 silly audit   '@isaacs/ttlcache': [ '2.1.5', '1.4.1' ],
+24 silly audit   '@jridgewell/gen-mapping': [ '0.3.13' ],
+24 silly audit   '@jridgewell/remapping': [ '2.3.5' ],
+24 silly audit   '@jridgewell/resolve-uri': [ '3.1.2' ],
+24 silly audit   '@jridgewell/sourcemap-codec': [ '1.5.5' ],
+24 silly audit   '@jridgewell/trace-mapping': [ '0.3.31' ],
+24 silly audit   '@juggle/resize-observer': [ '3.4.0' ],
+24 silly audit   '@mdit/plugin-alert': [ '0.23.2' ],
+24 silly audit   '@modelcontextprotocol/sdk': [ '1.29.0' ],
+24 silly audit   ajv: [ '8.20.0', '6.15.0' ],
+24 silly audit   'json-schema-traverse': [ '1.0.0', '0.4.1' ],
+24 silly audit   '@mswjs/interceptors': [ '0.41.9' ],
+24 silly audit   '@open-draft/deferred-promise': [ '2.2.0', '3.0.0' ],
+24 silly audit   '@mux/mux-data-google-ima': [ '0.3.17' ],
+24 silly audit   '@mux/mux-player': [ '3.13.0' ],
+24 silly audit   '@mux/mux-player-react': [ '3.13.0' ],
+24 silly audit   'player.style': [ '0.3.4', '0.1.10' ],
+24 silly audit   '@mux/mux-video': [ '0.31.0' ],
+24 silly audit   '@mux/playback-core': [ '0.35.0' ],
+24 silly audit   '@napi-rs/wasm-runtime': [ '1.1.4' ],
+24 silly audit   '@next/env': [ '16.2.6' ],
+24 silly audit   '@next/eslint-plugin-next': [ '16.2.6' ],
+24 silly audit   '@next/swc-darwin-arm64': [ '16.2.6' ],
+24 silly audit   '@next/swc-darwin-x64': [ '16.2.6' ],
+24 silly audit   '@next/swc-linux-arm64-gnu': [ '16.2.6' ],
+24 silly audit   '@next/swc-linux-arm64-musl': [ '16.2.6' ],
+24 silly audit   '@next/swc-linux-x64-gnu': [ '16.2.6' ],
+24 silly audit   '@next/swc-linux-x64-musl': [ '16.2.6' ],
+24 silly audit   '@next/swc-win32-arm64-msvc': [ '16.2.6' ],
+24 silly audit   '@next/swc-win32-x64-msvc': [ '16.2.6' ],
+24 silly audit   '@noble/ciphers': [ '1.3.0' ],
+24 silly audit   '@noble/curves': [ '1.9.7' ],
+24 silly audit   '@noble/ed25519': [ '3.1.0' ],
+24 silly audit   '@noble/hashes': [ '1.8.0', '2.2.0' ],
+24 silly audit   '@nodelib/fs.scandir': [ '2.1.5' ],
+24 silly audit   '@nodelib/fs.stat': [ '2.0.5' ],
+24 silly audit   '@nodelib/fs.walk': [ '1.2.8' ],
+24 silly audit   '@nolyfill/is-core-module': [ '1.0.39' ],
+24 silly audit   '@oclif/core': [ '4.11.7' ],
+24 silly audit   'balanced-match': [ '4.0.4', '1.0.2' ],
+24 silly audit   'brace-expansion': [ '5.0.6', '1.1.14', '2.1.1' ],
+24 silly audit   'is-docker': [ '2.2.1', '3.0.0' ],
+24 silly audit   'is-wsl': [ '2.2.0', '3.1.1' ],
+24 silly audit   minimatch: [ '10.2.5', '5.1.9', '3.1.5' ],
+24 silly audit   semver: [ '7.8.4', '7.8.0', '5.7.2', '6.3.1' ],
+24 silly audit   'supports-color': [ '8.1.1', '7.2.0' ],
+24 silly audit   '@oclif/plugin-help': [ '6.2.50' ],
+24 silly audit   '@oclif/plugin-not-found': [ '3.2.87' ],
+24 silly audit   'fast-levenshtein': [ '3.0.0', '2.0.6' ],
+24 silly audit   '@octokit/auth-token': [ '6.0.0' ],
+24 silly audit   '@octokit/core': [ '7.0.6' ],
+24 silly audit   '@octokit/endpoint': [ '11.0.3' ],
+24 silly audit   '@octokit/graphql': [ '9.0.3' ],
+24 silly audit   '@octokit/openapi-types': [ '27.0.0' ],
+24 silly audit   '@octokit/plugin-paginate-rest': [ '14.0.0' ],
+24 silly audit   '@octokit/plugin-rest-endpoint-methods': [ '17.0.0' ],
+24 silly audit   '@octokit/request': [ '10.0.10' ],
+24 silly audit   '@octokit/request-error': [ '7.1.0' ],
+24 silly audit   'content-type': [ '2.0.0', '1.0.5' ],
+24 silly audit   '@octokit/types': [ '16.0.0' ],
+24 silly audit   '@open-draft/logger': [ '0.3.0' ],
+24 silly audit   '@open-draft/until': [ '2.1.0' ],
+24 silly audit   '@pnpm/config.env-replace': [ '1.1.0' ],
+24 silly audit   '@pnpm/network.ca-file': [ '1.0.2' ],
+24 silly audit   'graceful-fs': [ '4.2.10', '4.2.11' ],
+24 silly audit   '@pnpm/npm-conf': [ '3.0.3' ],
+24 silly audit   '@portabletext/editor': [ '6.6.5' ],
+24 silly audit   '@portabletext/html': [ '1.0.3' ],
+24 silly audit   '@portabletext/keyboard-shortcuts': [ '2.1.2' ],
+24 silly audit   '@portabletext/markdown': [ '1.4.1' ],
+24 silly audit   '@portabletext/patches': [ '2.0.4' ],
+24 silly audit   '@portabletext/plugin-character-pair-decorator': [ '7.0.29' ],
+24 silly audit   '@portabletext/plugin-input-rule': [ '4.0.28' ],
+24 silly audit   '@portabletext/plugin-markdown-shortcuts': [ '7.0.29' ],
+24 silly audit   '@portabletext/plugin-one-line': [ '6.0.28' ],
+24 silly audit   '@portabletext/plugin-paste-link': [ '3.0.28' ],
+24 silly audit   '@portabletext/plugin-typography': [ '7.0.28' ],
+24 silly audit   '@portabletext/react': [ '6.2.0' ],
+24 silly audit   '@portabletext/sanity-bridge': [ '3.1.5' ],
+24 silly audit   '@sanity/schema': [ '6.1.0', '5.31.1' ],
+24 silly audit   '@portabletext/schema': [ '2.2.1' ],
+24 silly audit   '@portabletext/to-html': [ '5.0.2' ],
+24 silly audit   '@portabletext/toolkit': [ '5.0.2' ],
+24 silly audit   '@portabletext/types': [ '4.0.2' ],
+24 silly audit   '@radix-ui/number': [ '1.1.1' ],
+24 silly audit   '@radix-ui/primitive': [ '1.1.3' ],
+24 silly audit   '@radix-ui/react-accessible-icon': [ '1.1.7' ],
+24 silly audit   '@radix-ui/react-accordion': [ '1.2.12' ],
+24 silly audit   '@radix-ui/react-alert-dialog': [ '1.1.15' ],
+24 silly audit   '@radix-ui/react-arrow': [ '1.1.7' ],
+24 silly audit   '@radix-ui/react-aspect-ratio': [ '1.1.7' ],
+24 silly audit   '@radix-ui/react-avatar': [ '1.1.10' ],
+24 silly audit   '@radix-ui/react-checkbox': [ '1.3.3' ],
+24 silly audit   '@radix-ui/react-collapsible': [ '1.1.12' ],
+24 silly audit   '@radix-ui/react-collection': [ '1.1.7' ],
+24 silly audit   '@radix-ui/react-compose-refs': [ '1.1.2' ],
+24 silly audit   '@radix-ui/react-context': [ '1.1.2' ],
+24 silly audit   '@radix-ui/react-context-menu': [ '2.2.16' ],
+24 silly audit   '@radix-ui/react-dialog': [ '1.1.15' ],
+24 silly audit   '@radix-ui/react-direction': [ '1.1.1' ],
+24 silly audit   '@radix-ui/react-dismissable-layer': [ '1.1.11' ],
+24 silly audit   '@radix-ui/react-dropdown-menu': [ '2.1.16' ],
+24 silly audit   '@radix-ui/react-focus-guards': [ '1.1.3' ],
+24 silly audit   '@radix-ui/react-focus-scope': [ '1.1.7' ],
+24 silly audit   '@radix-ui/react-form': [ '0.1.8' ],
+24 silly audit   '@radix-ui/react-hover-card': [ '1.1.15' ],
+24 silly audit   '@radix-ui/react-id': [ '1.1.1' ],
+24 silly audit   '@radix-ui/react-label': [ '2.1.7' ],
+24 silly audit   '@radix-ui/react-menu': [ '2.1.16' ],
+24 silly audit   '@radix-ui/react-menubar': [ '1.1.16' ],
+24 silly audit   '@radix-ui/react-navigation-menu': [ '1.2.14' ],
+24 silly audit   '@radix-ui/react-one-time-password-field': [ '0.1.8' ],
+24 silly audit   '@radix-ui/react-password-toggle-field': [ '0.1.3' ],
+24 silly audit   '@radix-ui/react-popover': [ '1.1.15' ],
+24 silly audit   '@radix-ui/react-popper': [ '1.2.8' ],
+24 silly audit   '@radix-ui/react-portal': [ '1.1.9' ],
+24 silly audit   '@radix-ui/react-presence': [ '1.1.5' ],
+24 silly audit   '@radix-ui/react-primitive': [ '2.1.3' ],
+24 silly audit   '@radix-ui/react-progress': [ '1.1.7' ],
+24 silly audit   '@radix-ui/react-radio-group': [ '1.3.8' ],
+24 silly audit   '@radix-ui/react-roving-focus': [ '1.1.11' ],
+24 silly audit   '@radix-ui/react-scroll-area': [ '1.2.10' ],
+24 silly audit   '@radix-ui/react-select': [ '2.2.6' ],
+24 silly audit   '@radix-ui/react-separator': [ '1.1.7' ],
+24 silly audit   '@radix-ui/react-slider': [ '1.3.6' ],
+24 silly audit   '@radix-ui/react-slot': [ '1.2.3' ],
+24 silly audit   '@radix-ui/react-switch': [ '1.2.6' ],
+24 silly audit   '@radix-ui/react-tabs': [ '1.1.13' ],
+24 silly audit   '@radix-ui/react-toast': [ '1.2.15' ],
+24 silly audit   '@radix-ui/react-toggle': [ '1.1.10' ],
+24 silly audit   '@radix-ui/react-toggle-group': [ '1.1.11' ],
+24 silly audit   '@radix-ui/react-toolbar': [ '1.1.11' ],
+24 silly audit   '@radix-ui/react-tooltip': [ '1.2.8' ],
+24 silly audit   '@radix-ui/react-use-callback-ref': [ '1.1.1' ],
+24 silly audit   '@radix-ui/react-use-controllable-state': [ '1.2.2' ],
+24 silly audit   '@radix-ui/react-use-effect-event': [ '0.0.2' ],
+24 silly audit   '@radix-ui/react-use-escape-keydown': [ '1.1.1' ],
+24 silly audit   '@radix-ui/react-use-is-hydrated': [ '0.1.0' ],
+24 silly audit   '@radix-ui/react-use-layout-effect': [ '1.1.1' ],
+24 silly audit   '@radix-ui/react-use-previous': [ '1.1.1' ],
+24 silly audit   '@radix-ui/react-use-rect': [ '1.1.1' ],
+24 silly audit   '@radix-ui/react-use-size': [ '1.1.1' ],
+24 silly audit   '@radix-ui/react-visually-hidden': [ '1.2.3' ],
+24 silly audit   '@radix-ui/rect': [ '1.1.1' ],
+24 silly audit   '@rexxars/react-json-inspector': [ '9.0.1' ],
+24 silly audit   '@rolldown/pluginutils': [ '1.0.0-rc.3' ],
+24 silly audit   '@rollup/rollup-android-arm-eabi': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-android-arm64': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-darwin-arm64': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-darwin-x64': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-freebsd-arm64': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-freebsd-x64': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-linux-arm-gnueabihf': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-linux-arm-musleabihf': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-linux-arm64-gnu': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-linux-arm64-musl': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-linux-loong64-gnu': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-linux-loong64-musl': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-linux-ppc64-gnu': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-linux-ppc64-musl': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-linux-riscv64-gnu': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-linux-riscv64-musl': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-linux-s390x-gnu': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-linux-x64-gnu': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-linux-x64-musl': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-openbsd-x64': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-openharmony-arm64': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-win32-arm64-msvc': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-win32-ia32-msvc': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-win32-x64-gnu': [ '4.62.1' ],
+24 silly audit   '@rollup/rollup-win32-x64-msvc': [ '4.62.1' ],
+24 silly audit   '@rtsao/scc': [ '1.1.0' ],
+24 silly audit   '@sanity-labs/design-tokens': [ '0.0.2-alpha.4' ],
+24 silly audit   '@sanity/asset-utils': [ '2.3.0' ],
+24 silly audit   '@sanity/bifur-client': [ '1.0.0' ],
+24 silly audit   nanoid: [ '5.1.14', '3.3.12' ],
+24 silly audit   '@sanity/blueprints': [ '0.20.2' ],
+24 silly audit   '@sanity/blueprints-parser': [ '0.4.0' ],
+24 silly audit   '@sanity/cli': [ '6.7.2' ],
+24 silly audit   '@sanity/cli-build': [ '0.2.2' ],
+24 silly audit   '@sanity/types': [ '5.31.1', '6.1.0' ],
+24 silly audit   react: [ '19.2.7', '19.2.4' ],
+24 silly audit   'react-dom': [ '19.2.7', '19.2.4' ],
+24 silly audit   '@sanity/cli-core': [ '1.3.4' ],
+24 silly audit   chalk: [ '5.6.2', '4.1.2' ],
+24 silly audit   'cli-spinners': [ '3.4.0', '2.9.2' ],
+24 silly audit   'log-symbols': [ '7.0.1', '6.0.0' ],
+24 silly audit   ora: [ '9.4.0', '8.2.0' ],
+24 silly audit   'stdin-discarder': [ '0.3.2', '0.2.2' ],
+24 silly audit   eventsource: [ '4.1.0', '2.0.2', '3.0.7' ],
+24 silly audit   'isomorphic-dompurify': [ '2.36.0', '2.26.0' ],
+24 silly audit   jsdom: [ '28.1.0', '26.1.0', '29.1.1' ],
+24 silly audit   'lru-cache': [ '11.5.1', '10.4.3', '5.1.1' ],
+24 silly audit   'react-is': [ '19.2.7', '16.13.1' ],
+24 silly audit   tr46: [ '6.0.0', '0.0.3', '5.1.1' ],
+24 silly audit   undici: [ '7.28.0', '6.27.0' ],
+24 silly audit   'webidl-conversions': [ '8.0.1', '3.0.1', '7.0.0' ],
+24 silly audit   'whatwg-url': [ '16.0.1', '5.0.0', '14.2.0' ],
+24 silly audit   '@sanity/client': [ '7.23.0' ],
+24 silly audit   '@sanity/codegen': [ '6.1.2' ],
+24 silly audit   chokidar: [ '3.6.0', '5.0.0' ],
+24 silly audit   'glob-parent': [ '5.1.2', '6.0.2' ],
+24 silly audit   groq: [ '5.31.1', '3.88.1-typegen-experimental.0', '6.1.0' ],
+24 silly audit   readdirp: [ '3.6.0', '5.0.0' ],
+24 silly audit   'tsconfig-paths': [ '4.2.0', '3.15.0' ],
+24 silly audit   '@sanity/color': [ '3.0.6' ],
+24 silly audit   '@sanity/comlink': [ '4.0.1' ],
+24 silly audit   uuid: [ '13.0.2', '11.1.1', '10.0.0', '8.3.2' ],
+24 silly audit   '@sanity/descriptors': [ '1.3.0' ],
+24 silly audit   '@sanity/diff': [ '5.31.1' ],
+24 silly audit   '@sanity/diff-match-patch': [ '3.2.0' ],
+24 silly audit   '@sanity/diff-patch': [ '5.0.0', '6.0.0' ],
+24 silly audit   '@sanity/eventsource': [ '5.0.2' ],
+24 silly audit   '@sanity/export': [ '6.2.0' ],
+24 silly audit   '@sanity/generate-help-url': [ '4.0.0' ],
+24 silly audit   '@sanity/icons': [ '3.7.4' ],
+24 silly audit   '@sanity/id-utils': [ '1.0.0' ],
+24 silly audit   '@sanity/image-url': [ '2.1.1' ],
+24 silly audit   '@sanity/import': [ '6.0.3' ],
+24 silly audit   '@sanity/mutator': [ '6.1.0', '5.31.1' ],
+24 silly audit   '@sanity/insert-menu': [ '3.0.8' ],
+24 silly audit   '@sanity/ui': [ '3.2.0' ],
+24 silly audit   '@sanity/json-match': [ '1.0.5' ],
+24 silly audit   '@sanity/logos': [ '2.2.2' ],
+24 silly audit   '@sanity/media-library-types': [ '1.4.0' ],
+24 silly audit   '@sanity/message-protocol': [ '0.23.0' ],
+24 silly audit   '@sanity/migrate': [ '6.1.2' ],
+24 silly audit   '@sanity/mutate': [ '0.16.1', '0.18.1' ],
+24 silly audit   '@sanity/orderable-document-list': [ '2.0.4' ],
+24 silly audit   '@sanity/presentation-comlink': [ '2.1.0' ],
+24 silly audit   '@sanity/preview-url-secret': [ '4.0.7' ],
+24 silly audit   '@sanity/prism-groq': [ '1.1.2' ],
+24 silly audit   '@sanity/runtime-cli': [ '15.2.1' ],
+24 silly audit   '@sanity/sdk': [ '2.14.1' ],
+24 silly audit   '@sanity/signed-urls': [ '2.0.4' ],
+24 silly audit   '@sanity/telemetry': [ '1.1.0' ],
+24 silly audit   'typeid-js': [ '0.3.0', '1.2.0' ],
+24 silly audit   '@sanity/template-validator': [ '3.1.0' ],
+24 silly audit   '@sanity/util': [ '5.31.1' ],
+24 silly audit   '@sanity/uuid': [ '3.0.2' ],
+24 silly audit   '@sanity/visual-editing': [ '5.4.4' ],
+24 silly audit   '@sanity/visual-editing-csm': [ '3.0.9' ],
+24 silly audit   '@sanity/visual-editing-types': [ '2.0.8', '1.1.8' ],
+24 silly audit   '@sanity/webhook': [ '4.0.4' ],
+24 silly audit   '@sanity/worker-channels': [ '2.0.0' ],
+24 silly audit   '@sec-ant/readable-stream': [ '0.4.1' ],
+24 silly audit   '@sentry-internal/browser-utils': [ '8.55.2' ],
+24 silly audit   '@sentry-internal/feedback': [ '8.55.2' ],
+24 silly audit   '@sentry-internal/replay': [ '8.55.2' ],
+24 silly audit   '@sentry-internal/replay-canvas': [ '8.55.2' ],
+24 silly audit   '@sentry/browser': [ '8.55.2' ],
+24 silly audit   '@sentry/core': [ '8.55.2' ],
+24 silly audit   '@sentry/react': [ '8.55.2' ],
+24 silly audit   '@sindresorhus/merge-streams': [ '4.0.0' ],
+24 silly audit   '@swc/helpers': [ '0.5.15' ],
+24 silly audit   '@tailwindcss/node': [ '4.3.0' ],
+24 silly audit   '@tailwindcss/oxide': [ '4.3.0' ],
+24 silly audit   '@tailwindcss/oxide-android-arm64': [ '4.3.0' ],
+24 silly audit   '@tailwindcss/oxide-darwin-arm64': [ '4.3.0' ],
+24 silly audit   '@tailwindcss/oxide-darwin-x64': [ '4.3.0' ],
+24 silly audit   '@tailwindcss/oxide-freebsd-x64': [ '4.3.0' ],
+24 silly audit   '@tailwindcss/oxide-linux-arm-gnueabihf': [ '4.3.0' ],
+24 silly audit   '@tailwindcss/oxide-linux-arm64-gnu': [ '4.3.0' ],
+24 silly audit   '@tailwindcss/oxide-linux-arm64-musl': [ '4.3.0' ],
+24 silly audit   '@tailwindcss/oxide-linux-x64-gnu': [ '4.3.0' ],
+24 silly audit   '@tailwindcss/oxide-linux-x64-musl': [ '4.3.0' ],
+24 silly audit   '@tailwindcss/oxide-win32-arm64-msvc': [ '4.3.0' ],
+24 silly audit   '@tailwindcss/oxide-win32-x64-msvc': [ '4.3.0' ],
+24 silly audit   '@tailwindcss/postcss': [ '4.3.0' ],
+24 silly audit   '@tanstack/react-table': [ '8.21.3' ],
+24 silly audit   '@tanstack/react-virtual': [ '3.14.3' ],
+24 silly audit   '@tanstack/table-core': [ '8.21.3' ],
+24 silly audit   '@tanstack/virtual-core': [ '3.17.1' ],
+24 silly audit   '@ts-morph/common': [ '0.27.0' ],
+24 silly audit   'fast-glob': [ '3.3.3', '3.3.1' ],
+24 silly audit   '@tybys/wasm-util': [ '0.10.2' ],
+24 silly audit   '@types/babel__core': [ '7.20.5' ],
+24 silly audit   '@types/babel__generator': [ '7.27.0' ],
+24 silly audit   '@types/babel__template': [ '7.4.4' ],
+24 silly audit   '@types/babel__traverse': [ '7.28.0' ],
+24 silly audit   '@types/estree': [ '1.0.9' ],
+24 silly audit   '@types/event-source-polyfill': [ '1.0.5' ],
+24 silly audit   '@types/eventsource': [ '1.1.15' ],
+24 silly audit   '@types/hast': [ '3.0.4' ],
+24 silly audit   '@types/json-schema': [ '7.0.15' ],
+24 silly audit   '@types/json5': [ '0.0.29' ],
+24 silly audit   '@types/linkify-it': [ '5.0.0' ],
+24 silly audit   '@types/markdown-it': [ '14.1.2' ],
+24 silly audit   '@types/mdurl': [ '2.0.0' ],
+24 silly audit   '@types/node': [ '25.9.1' ],
+24 silly audit   '@types/normalize-package-data': [ '2.4.4' ],
+24 silly audit   '@types/prismjs': [ '1.26.6' ],
+24 silly audit   '@types/react': [ '19.2.17' ],
+24 silly audit   '@types/set-cookie-parser': [ '2.4.10' ],
+24 silly audit   '@types/statuses': [ '2.0.6' ],
+24 silly audit   '@types/trusted-types': [ '2.0.7' ],
+24 silly audit   '@types/unist': [ '3.0.3', '2.0.11' ],
+24 silly audit   '@types/use-sync-external-store': [ '0.0.6' ],
+24 silly audit   '@types/uuid': [ '8.3.4' ],
+24 silly audit   '@types/validate-npm-package-name': [ '4.0.2' ],
+24 silly audit   '@typescript-eslint/eslint-plugin': [ '8.59.4' ],
+24 silly audit   ignore: [ '7.0.5', '5.3.2' ],
+24 silly audit   '@typescript-eslint/parser': [ '8.59.4' ],
+24 silly audit   '@typescript-eslint/project-service': [ '8.59.4' ],
+24 silly audit   '@typescript-eslint/scope-manager': [ '8.59.4' ],
+24 silly audit   '@typescript-eslint/tsconfig-utils': [ '8.59.4' ],
+24 silly audit   '@typescript-eslint/type-utils': [ '8.59.4' ],
+24 silly audit   '@typescript-eslint/types': [ '8.59.4' ],
+24 silly audit   '@typescript-eslint/typescript-estree': [ '8.59.4' ],
+24 silly audit   '@typescript-eslint/utils': [ '8.59.4' ],
+24 silly audit   '@typescript-eslint/visitor-keys': [ '8.59.4' ],
+24 silly audit   '@unrs/resolver-binding-android-arm-eabi': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-android-arm64': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-darwin-arm64': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-darwin-x64': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-freebsd-x64': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-linux-arm-gnueabihf': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-linux-arm-musleabihf': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-linux-arm64-gnu': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-linux-arm64-musl': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-linux-loong64-gnu': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-linux-loong64-musl': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-linux-ppc64-gnu': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-linux-riscv64-gnu': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-linux-riscv64-musl': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-linux-s390x-gnu': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-linux-x64-gnu': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-linux-x64-musl': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-openharmony-arm64': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-wasm32-wasi': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-win32-arm64-msvc': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-win32-ia32-msvc': [ '1.12.2' ],
+24 silly audit   '@unrs/resolver-binding-win32-x64-msvc': [ '1.12.2' ],
+24 silly audit   '@vercel/edge': [ '1.3.1' ],
+24 silly audit   '@vercel/error-utils': [ '2.0.3' ],
+24 silly audit   '@vercel/frameworks': [ '3.21.1' ],
+24 silly audit   argparse: [ '1.0.10', '2.0.1' ],
+24 silly audit   'js-yaml': [ '3.13.1', '4.1.1' ],
+24 silly audit   '@vercel/stega': [ '1.1.0' ],
+24 silly audit   '@vitejs/plugin-react': [ '5.2.0' ],
+24 silly audit   '@xstate/react': [ '6.1.0' ],
+24 silly audit   accepts: [ '2.0.0' ],
+24 silly audit   acorn: [ '8.16.0' ],
+24 silly audit   'acorn-jsx': [ '5.3.2' ],
+24 silly audit   'acorn-loose': [ '8.5.2' ],
+24 silly audit   'adm-zip': [ '0.5.17' ],
+24 silly audit   'agent-base': [ '7.1.4' ],
+24 silly audit   'ajv-formats': [ '3.0.1' ],
+24 silly audit   'ansi-align': [ '3.0.1' ],
+24 silly audit   'ansi-escapes': [ '4.3.2' ],
+24 silly audit   'type-fest': [ '0.21.3', '4.41.0', '5.6.0' ],
+24 silly audit   'ansi-styles': [ '4.3.0', '6.2.3' ],
+24 silly audit   ansicolors: [ '0.3.2' ],
+24 silly audit   ansis: [ '3.17.0' ],
+24 silly audit   anymatch: [ '3.1.3' ],
+24 silly audit   'aria-hidden': [ '1.2.6' ],
+24 silly audit   'aria-query': [ '5.3.2' ],
+24 silly audit   'array-buffer-byte-length': [ '1.0.2' ],
+24 silly audit   'array-includes': [ '3.1.9' ],
+24 silly audit   'array-treeify': [ '0.1.5' ],
+24 silly audit   'array-union': [ '2.1.0' ],
+24 silly audit   'array.prototype.findlast': [ '1.2.5' ],
+24 silly audit   'array.prototype.findlastindex': [ '1.2.6' ],
+24 silly audit   'array.prototype.flat': [ '1.3.3' ],
+24 silly audit   'array.prototype.flatmap': [ '1.3.3' ],
+24 silly audit   'array.prototype.tosorted': [ '1.1.4' ],
+24 silly audit   'arraybuffer.prototype.slice': [ '1.0.4' ],
+24 silly audit   arrify: [ '2.0.1' ],
+24 silly audit   'ast-types': [ '0.16.1' ],
+24 silly audit   'ast-types-flow': [ '0.0.8' ],
+24 silly audit   async: [ '3.2.6' ],
+24 silly audit   'async-function': [ '1.0.0' ],
+24 silly audit   asynckit: [ '0.4.0' ],
+24 silly audit   'available-typed-arrays': [ '1.0.7' ],
+24 silly audit   aws4: [ '1.13.2' ],
+24 silly audit   'axe-core': [ '4.11.4' ],
+24 silly audit   'axobject-query': [ '4.1.0' ],
+24 silly audit   b4a: [ '1.8.1' ],
+24 silly audit   'babel-plugin-polyfill-corejs2': [ '0.4.17' ],
+24 silly audit   'babel-plugin-polyfill-corejs3': [ '0.14.2' ],
+24 silly audit   'babel-plugin-polyfill-regenerator': [ '0.6.8' ],
+24 silly audit   'bare-events': [ '2.9.1' ],
+24 silly audit   'bare-fs': [ '4.7.2' ],
+24 silly audit   'bare-os': [ '3.9.1' ],
+24 silly audit   'bare-path': [ '3.0.1' ],
+24 silly audit   'bare-stream': [ '2.13.3' ],
+24 silly audit   'bare-url': [ '2.4.5' ],
+24 silly audit   'baseline-browser-mapping': [ '2.10.31' ],
+24 silly audit   'before-after-hook': [ '4.0.0' ],
+24 silly audit   'bidi-js': [ '1.0.3' ],
+24 silly audit   'binary-extensions': [ '2.3.0' ],
+24 silly audit   'body-parser': [ '2.2.2' ],
+24 silly audit   boolbase: [ '1.0.0' ],
+24 silly audit   boxen: [ '8.0.1' ],
+24 silly audit   'widest-line': [ '5.0.0', '3.1.0' ],
+24 silly audit   braces: [ '3.0.3' ],
+24 silly audit   'browserify-zlib': [ '0.1.4' ],
+24 silly audit   browserslist: [ '4.28.2' ],
+24 silly audit   'buffer-from': [ '1.1.2' ],
+24 silly audit   'bundle-name': [ '4.1.0' ],
+24 silly audit   bytes: [ '3.1.2' ],
+24 silly audit   cac: [ '6.7.14' ],
+24 silly audit   'call-bind': [ '1.0.9' ],
+24 silly audit   'call-bind-apply-helpers': [ '1.0.2' ],
+24 silly audit   'call-bound': [ '1.0.4' ],
+24 silly audit   callsites: [ '3.1.0' ],
+24 silly audit   camelcase: [ '8.0.0' ],
+24 silly audit   camelize: [ '1.0.1' ],
+24 silly audit   'caniuse-lite': [ '1.0.30001793' ],
+24 silly audit   cardinal: [ '2.1.1' ],
+24 silly audit   'castable-video': [ '1.1.16' ],
+24 silly audit   'ce-la-react': [ '0.3.2' ],
+24 silly audit   'character-entities': [ '2.0.2' ],
+24 silly audit   'character-entities-legacy': [ '3.0.0' ],
+24 silly audit   'character-reference-invalid': [ '2.0.1' ],
+24 silly audit   chardet: [ '2.1.1' ],
+24 silly audit   chownr: [ '3.0.0' ],
+24 silly audit   'class-variance-authority': [ '0.7.1' ],
+24 silly audit   classnames: [ '2.5.1' ],
+24 silly audit   'clean-stack': [ '3.0.1' ],
+24 silly audit   'cli-boxes': [ '3.0.0' ],
+24 silly audit   'cli-cursor': [ '5.0.0' ],
+24 silly audit   'cli-width': [ '4.1.0' ],
+24 silly audit   'client-only': [ '0.0.1' ],
+24 silly audit   cliui: [ '8.0.1' ],
+24 silly audit   'clone-deep': [ '4.0.1' ],
+24 silly audit   clsx: [ '2.1.1' ],
+24 silly audit   cobe: [ '0.6.5' ],
+24 silly audit   'code-block-writer': [ '13.0.3' ],
+24 silly audit   'color-convert': [ '2.0.1' ],
+24 silly audit   'color-name': [ '1.1.4' ],
+24 silly audit   color2k: [ '2.0.3' ],
+24 silly audit   'combined-stream': [ '1.0.8' ],
+24 silly audit   'comma-separated-tokens': [ '2.0.3' ],
+24 silly audit   commondir: [ '1.0.1' ],
+24 silly audit   'compute-scroll-into-view': [ '3.1.1' ],
+24 silly audit   'concat-map': [ '0.0.1' ],
+24 silly audit   'config-chain': [ '1.1.13' ],
+24 silly audit   ini: [ '1.3.8', '4.1.1', '5.0.0' ],
+24 silly audit   'console-table-printer': [ '2.16.1' ],
+24 silly audit   'content-disposition': [ '1.1.0' ],
+24 silly audit   'convert-source-map': [ '2.0.0' ],
+24 silly audit   cookie: [ '0.7.2', '1.1.1' ],
+24 silly audit   'cookie-signature': [ '1.2.2' ],
+24 silly audit   'core-js-compat': [ '3.49.0' ],
+24 silly audit   'core-util-is': [ '1.0.3' ],
+24 silly audit   cors: [ '2.8.6' ],
+24 silly audit   cosmiconfig: [ '9.0.1' ],
+24 silly audit   'cross-spawn': [ '7.0.6' ],
+24 silly audit   'css-box-model': [ '1.2.1' ],
+24 silly audit   'css-color-keywords': [ '1.0.0' ],
+24 silly audit   'css-select': [ '5.2.2' ],
+24 silly audit   'css-to-react-native': [ '3.2.0' ],
+24 silly audit   'css-tree': [ '3.2.1' ],
+24 silly audit   'css-what': [ '6.2.2' ],
+24 silly audit   cssesc: [ '3.0.0' ],
+24 silly audit   cssstyle: [ '6.2.0', '4.6.0' ],
+24 silly audit   csstype: [ '3.2.3' ],
+24 silly audit   'custom-media-element': [ '1.4.6' ],
+24 silly audit   'damerau-levenshtein': [ '1.0.8' ],
+24 silly audit   'data-uri-to-buffer': [ '4.0.1' ],
+24 silly audit   'data-urls': [ '7.0.0', '5.0.0' ],
+24 silly audit   'data-view-buffer': [ '1.0.2' ],
+24 silly audit   'data-view-byte-length': [ '1.0.2' ],
+24 silly audit   'data-view-byte-offset': [ '1.0.1' ],
+24 silly audit   dataloader: [ '2.2.3' ],
+24 silly audit   'date-fns': [ '4.4.0' ],
+24 silly audit   debounce: [ '1.2.1' ],
+24 silly audit   debug: [ '4.4.3', '3.2.7' ],
+24 silly audit   'decimal.js': [ '10.6.0' ],
+24 silly audit   'decode-named-character-reference': [ '1.3.0' ],
+24 silly audit   'decompress-response': [ '7.0.0' ],
+24 silly audit   dedent: [ '1.7.2' ],
+24 silly audit   'deep-is': [ '0.1.4' ],
+24 silly audit   deepmerge: [ '4.3.1' ],
+24 silly audit   'default-browser': [ '5.5.0' ],
+24 silly audit   'default-browser-id': [ '5.0.1' ],
+24 silly audit   'define-data-property': [ '1.1.4' ],
+24 silly audit   'define-lazy-prop': [ '3.0.0' ],
+24 silly audit   'define-properties': [ '1.2.1' ],
+24 silly audit   'delayed-stream': [ '1.0.0' ],
+24 silly audit   depd: [ '2.0.0' ],
+24 silly audit   dequal: [ '2.0.3' ],
+24 silly audit   'detect-libc': [ '2.1.2' ],
+24 silly audit   'detect-node-es': [ '1.1.0' ],
+24 silly audit   diff: [ '8.0.4' ],
+24 silly audit   'dir-glob': [ '3.0.1' ],
+24 silly audit   doctrine: [ '2.1.0' ],
+24 silly audit   'dom-serializer': [ '2.0.0' ],
+24 silly audit   domelementtype: [ '2.3.0' ],
+24 silly audit   domhandler: [ '5.0.3' ],
+24 silly audit   dompurify: [ '3.4.11' ],
+24 silly audit   domutils: [ '3.2.2' ],
+24 silly audit   dotenv: [ '17.4.2' ],
+24 silly audit   'dunder-proto': [ '1.0.1' ],
+24 silly audit   duplexify: [ '3.7.1' ],
+24 silly audit   isarray: [ '1.0.0', '2.0.5' ],
+24 silly audit   'readable-stream': [ '2.3.8', '3.6.2' ],
+24 silly audit   'safe-buffer': [ '5.1.2', '5.2.1' ],
+24 silly audit   string_decoder: [ '1.1.1', '1.3.0' ],
+24 silly audit   eciesjs: [ '0.4.18' ],
+24 silly audit   'ee-first': [ '1.1.1' ],
+24 silly audit   ejs: [ '3.1.10' ],
+24 silly audit   'electron-to-chromium': [ '1.5.360' ],
+24 silly audit   empathic: [ '2.0.1' ],
+24 silly audit   encodeurl: [ '2.0.0' ],
+24 silly audit   'end-of-stream': [ '1.4.5' ],
+24 silly audit   'enhanced-resolve': [ '5.21.6' ],
+24 silly audit   entities: [ '4.5.0', '6.0.1', '8.0.0' ],
+24 silly audit   'env-paths': [ '2.2.1' ],
+24 silly audit   'error-ex': [ '1.3.4' ],
+24 silly audit   'es-abstract': [ '1.24.2' ],
+24 silly audit   'es-define-property': [ '1.0.1' ],
+24 silly audit   'es-errors': [ '1.3.0' ],
+24 silly audit   'es-iterator-helpers': [ '1.3.2' ],
+24 silly audit   'es-module-lexer': [ '2.1.0' ],
+24 silly audit   'es-object-atoms': [ '1.1.1' ],
+24 silly audit   'es-set-tostringtag': [ '2.1.0' ],
+24 silly audit   'es-shim-unscopables': [ '1.1.0' ],
+24 silly audit   'es-to-primitive': [ '1.3.0' ],
+24 silly audit   esbuild: [ '0.28.1', '0.27.7' ],
+24 silly audit   escalade: [ '3.2.0' ],
+24 silly audit   'escape-html': [ '1.0.3' ],
+24 silly audit   'escape-string-regexp': [ '4.0.0' ],
+24 silly audit   eslint: [ '9.39.4' ],
+24 silly audit   'eslint-config-next': [ '16.2.6' ],
+24 silly audit   globals: [ '16.4.0', '14.0.0' ],
+24 silly audit   'eslint-import-resolver-node': [ '0.3.10' ],
+24 silly audit   'eslint-import-resolver-typescript': [ '3.10.1' ],
+24 silly audit   'eslint-module-utils': [ '2.12.1' ],
+24 silly audit   'eslint-plugin-import': [ '2.32.0' ],
+24 silly audit   'eslint-plugin-jsx-a11y': [ '6.10.2' ],
+24 silly audit   'eslint-plugin-react': [ '7.37.5' ],
+24 silly audit   'eslint-plugin-react-hooks': [ '7.1.1' ],
+24 silly audit   'eslint-scope': [ '8.4.0' ],
+24 silly audit   espree: [ '10.4.0' ],
+24 silly audit   esprima: [ '4.0.1' ],
+24 silly audit   esrecurse: [ '4.3.0' ],
+24 silly audit   estraverse: [ '5.3.0' ],
+24 silly audit   esutils: [ '2.0.3' ],
+24 silly audit   etag: [ '1.8.1' ],
+24 silly audit   'event-source-polyfill': [ '1.0.31' ],
+24 silly audit   eventemitter3: [ '5.0.4' ],
+24 silly audit   'events-universal': [ '1.0.1' ],
+24 silly audit   'eventsource-parser': [ '3.0.8' ],
+24 silly audit   'exif-component': [ '1.0.1' ],
+24 silly audit   express: [ '5.2.1' ],
+24 silly audit   'express-rate-limit': [ '8.5.2' ],
+24 silly audit   'fast-deep-equal': [ '3.1.3' ],
+24 silly audit   'fast-fifo': [ '1.3.2' ],
+24 silly audit   'fast-json-stable-stringify': [ '2.1.0' ],
+24 silly audit   'fast-string-truncated-width': [ '3.0.3' ],
+24 silly audit   'fast-string-width': [ '3.0.2' ],
+24 silly audit   'fast-uri': [ '3.1.2' ],
+24 silly audit   'fast-wrap-ansi': [ '0.2.2' ],
+24 silly audit   'fastest-levenshtein': [ '1.0.16' ],
+24 silly audit   fastq: [ '1.20.1' ],
+24 silly audit   'fetch-blob': [ '3.2.0' ],
+24 silly audit   figures: [ '6.1.0' ],
+24 silly audit   'file-entry-cache': [ '8.0.0' ],
+24 silly audit   filelist: [ '1.0.6' ],
+24 silly audit   'fill-range': [ '7.1.1' ],
+24 silly audit   finalhandler: [ '2.1.1' ],
+24 silly audit   'find-cache-dir': [ '2.1.0' ],
+24 silly audit   'find-up': [ '5.0.0', '3.0.0' ],
+24 silly audit   'find-up-simple': [ '1.0.1' ],
+24 silly audit   'flat-cache': [ '4.0.1' ],
+24 silly audit   flatted: [ '3.4.2' ],
+24 silly audit   'focus-lock': [ '1.3.6' ],
+24 silly audit   'for-each': [ '0.3.5' ],
+24 silly audit   'form-data': [ '4.0.6' ],
+24 silly audit   'mime-db': [ '1.52.0', '1.54.0' ],
+24 silly audit   'mime-types': [ '2.1.35', '3.0.2' ],
+24 silly audit   'formdata-polyfill': [ '4.0.10' ],
+24 silly audit   forwarded: [ '0.2.0' ],
+24 silly audit   'framer-motion': [ '12.40.0' ],
+24 silly audit   fresh: [ '2.0.0' ],
+24 silly audit   'fs-extra': [ '11.3.5' ],
+24 silly audit   fsevents: [ '2.3.3' ],
+24 silly audit   'function-bind': [ '1.1.2' ],
+24 silly audit   'function.prototype.name': [ '1.1.8' ],
+24 silly audit   'functions-have-names': [ '1.2.3' ],
+24 silly audit   fuzzysort: [ '3.1.0' ],
+24 silly audit   'generator-function': [ '2.0.1' ],
+24 silly audit   gensync: [ '1.0.0-beta.2' ],
+24 silly audit   'get-caller-file': [ '2.0.5' ],
+24 silly audit   'get-east-asian-width': [ '1.6.0' ],
+24 silly audit   'get-intrinsic': [ '1.3.0' ],
+24 silly audit   'get-it': [ '8.8.0' ],
+24 silly audit   'get-latest-version': [ '6.0.1' ],
+24 silly audit   'get-nonce': [ '1.0.1' ],
+24 silly audit   'get-own-enumerable-keys': [ '1.0.0' ],
+24 silly audit   'get-package-type': [ '0.1.0' ],
+24 silly audit   'get-proto': [ '1.0.1' ],
+24 silly audit   'get-symbol-description': [ '1.1.0' ],
+24 silly audit   'get-tsconfig': [ '4.14.0' ],
+24 silly audit   'global-directory': [ '4.0.1' ],
+24 silly audit   globalthis: [ '1.0.4' ],
+24 silly audit   globby: [ '11.1.0' ],
+24 silly audit   globrex: [ '0.1.2' ],
+24 silly audit   gopd: [ '1.2.0' ],
+24 silly audit   graphql: [ '16.14.0' ],
+24 silly audit   'groq-js': [ '1.30.2' ],
+24 silly audit   'gunzip-maybe': [ '1.4.2' ],
+24 silly audit   through2: [ '2.0.5', '4.0.2' ],
+24 silly audit   'has-bigints': [ '1.1.0' ],
+24 silly audit   'has-flag': [ '4.0.0' ],
+24 silly audit   'has-property-descriptors': [ '1.0.2' ],
+24 silly audit   'has-proto': [ '1.2.0' ],
+24 silly audit   'has-symbols': [ '1.1.0' ],
+24 silly audit   'has-tostringtag': [ '1.0.2' ],
+24 silly audit   hasown: [ '2.0.4' ],
+24 silly audit   'hast-util-parse-selector': [ '4.0.0' ],
+24 silly audit   hastscript: [ '9.0.1' ],
+24 silly audit   he: [ '1.2.0' ],
+24 silly audit   'headers-polyfill': [ '5.0.1' ],
+24 silly audit   'hermes-estree': [ '0.25.1' ],
+24 silly audit   'hermes-parser': [ '0.25.1' ],
+24 silly audit   history: [ '5.3.0' ],
+24 silly audit   'hls.js': [ '1.6.16' ],
+24 silly audit   'hoist-non-react-statics': [ '3.3.2' ],
+24 silly audit   hono: [ '4.12.21' ],
+24 silly audit   'hosted-git-info': [ '9.0.3' ],
+24 silly audit   hotscript: [ '1.0.13' ],
+24 silly audit   'html-encoding-sniffer': [ '6.0.0', '4.0.0' ],
+24 silly audit   'html-parse-stringify': [ '3.0.1' ],
+24 silly audit   'http-errors': [ '2.0.1' ],
+24 silly audit   'http-proxy-agent': [ '7.0.2' ],
+24 silly audit   'https-proxy-agent': [ '7.0.6' ],
+24 silly audit   'humanize-list': [ '1.0.1' ],
+24 silly audit   i18next: [ '26.3.1' ],
+24 silly audit   'iconv-lite': [ '0.7.2', '0.6.3' ],
+24 silly audit   'import-fresh': [ '3.3.1' ],
+24 silly audit   'import-meta-resolve': [ '4.2.0' ],
+24 silly audit   imurmurhash: [ '0.1.4' ],
+24 silly audit   'indent-string': [ '4.0.0' ],
+24 silly audit   'index-to-position': [ '1.2.0' ],
+24 silly audit   inherits: [ '2.0.4' ],
+24 silly audit   'internal-slot': [ '1.1.0' ],
+24 silly audit   'ip-address': [ '10.2.0' ],
+24 silly audit   'ipaddr.js': [ '1.9.1' ],
+24 silly audit   'is-alphabetical': [ '2.0.1' ],
+24 silly audit   'is-alphanumerical': [ '2.0.1' ],
+24 silly audit   'is-array-buffer': [ '3.0.5' ],
+24 silly audit   'is-arrayish': [ '0.2.1' ],
+24 silly audit   'is-async-function': [ '2.1.1' ],
+24 silly audit   'is-bigint': [ '1.1.0' ],
+24 silly audit   'is-binary-path': [ '2.1.0' ],
+24 silly audit   'is-boolean-object': [ '1.2.2' ],
+24 silly audit   'is-bun-module': [ '2.0.0' ],
+24 silly audit   'is-callable': [ '1.2.7' ],
+24 silly audit   'is-core-module': [ '2.16.2' ],
+24 silly audit   'is-data-view': [ '1.0.2' ],
+24 silly audit   'is-date-object': [ '1.1.0' ],
+24 silly audit   'is-decimal': [ '2.0.1' ],
+24 silly audit   'is-deflate': [ '1.0.0' ],
+24 silly audit   'is-extglob': [ '2.1.1' ],
+24 silly audit   'is-finalizationregistry': [ '1.1.1' ],
+24 silly audit   'is-fullwidth-code-point': [ '3.0.0' ],
+24 silly audit   'is-generator-function': [ '1.1.2' ],
+24 silly audit   'is-glob': [ '4.0.3' ],
+24 silly audit   'is-gzip': [ '1.0.0' ],
+24 silly audit   'is-hexadecimal': [ '2.0.1' ],
+24 silly audit   'is-hotkey-esm': [ '1.0.0' ],
+24 silly audit   'is-in-ssh': [ '1.0.0' ],
+24 silly audit   'is-inside-container': [ '1.0.0' ],
+24 silly audit   'is-installed-globally': [ '1.0.0' ],
+24 silly audit   'is-interactive': [ '2.0.0' ],
+24 silly audit   'is-map': [ '2.0.3' ],
+24 silly audit   'is-negative-zero': [ '2.0.3' ],
+24 silly audit   'is-node-process': [ '1.2.0' ],
+24 silly audit   'is-number': [ '7.0.0' ],
+24 silly audit   'is-number-object': [ '1.1.1' ],
+24 silly audit   'is-obj': [ '3.0.0' ],
+24 silly audit   'is-path-inside': [ '4.0.0' ],
+24 silly audit   'is-plain-obj': [ '4.1.0' ],
+24 silly audit   'is-plain-object': [ '2.0.4' ],
+24 silly audit   'is-potential-custom-element-name': [ '1.0.1' ],
+24 silly audit   'is-promise': [ '4.0.0' ],
+24 silly audit   'is-regex': [ '1.2.1' ],
+24 silly audit   'is-regexp': [ '3.1.0' ],
+24 silly audit   'is-retry-allowed': [ '2.2.0' ],
+24 silly audit   'is-set': [ '2.0.3' ],
+24 silly audit   'is-shared-array-buffer': [ '1.0.4' ],
+24 silly audit   'is-string': [ '1.1.1' ],
+24 silly audit   'is-symbol': [ '1.1.1' ],
+24 silly audit   'is-typed-array': [ '1.1.15' ],
+24 silly audit   'is-unicode-supported': [ '2.1.0', '1.3.0' ],
+24 silly audit   'is-weakmap': [ '2.0.2' ],
+24 silly audit   'is-weakref': [ '1.1.1' ],
+24 silly audit   'is-weakset': [ '2.0.4' ],
+24 silly audit   isobject: [ '3.0.1' ],
+24 silly audit   parse5: [ '7.3.0', '8.0.1' ],
+24 silly audit   tldts: [ '6.1.86', '7.0.30' ],
+24 silly audit   'tldts-core': [ '6.1.86', '7.0.30' ],
+24 silly audit   'tough-cookie': [ '5.1.2', '6.0.1' ],
+24 silly audit   'whatwg-mimetype': [ '4.0.0', '5.0.0' ],
+24 silly audit   'iterator.prototype': [ '1.1.5' ],
+24 silly audit   jake: [ '10.9.4' ],
+24 silly audit   jiti: [ '2.7.0' ],
+24 silly audit   jose: [ '6.2.3' ],
+24 silly audit   'js-tokens': [ '4.0.0' ],
+24 silly audit   jsesc: [ '3.1.0' ],
+24 silly audit   'json-buffer': [ '3.0.1' ],
+24 silly audit   'json-lexer': [ '1.2.0' ],
+24 silly audit   'json-parse-even-better-errors': [ '2.3.1' ],
+24 silly audit   'json-reduce': [ '3.0.0' ],
+24 silly audit   'json-schema-typed': [ '8.0.2' ],
+24 silly audit   'json-stable-stringify': [ '1.3.0' ],
+24 silly audit   'json-stable-stringify-without-jsonify': [ '1.0.1' ],
+24 silly audit   'json-stream-stringify': [ '3.1.6' ],
+24 silly audit   'json-with-bigint': [ '3.5.8' ],
+24 silly audit   json5: [ '2.2.3', '1.0.2' ],
+24 silly audit   'jsonc-parser': [ '3.3.1' ],
+24 silly audit   jsonfile: [ '6.2.1' ],
+24 silly audit   jsonify: [ '0.0.1' ],
+24 silly audit   'jsx-ast-utils': [ '3.3.5' ],
+24 silly audit   keyv: [ '4.5.4' ],
+24 silly audit   'kind-of': [ '6.0.3' ],
+24 silly audit   kleur: [ '4.1.5', '3.0.3' ],
+24 silly audit   'lambda-runtimes': [ '2.0.5' ],
+24 silly audit   'language-subtag-registry': [ '0.3.23' ],
+24 silly audit   'language-tags': [ '1.0.9' ],
+24 silly audit   lenis: [ '1.3.23' ],
+24 silly audit   leven: [ '3.1.0' ],
+24 silly audit   levn: [ '0.4.1' ],
+24 silly audit   lexorank: [ '1.0.5' ],
+24 silly audit   lightningcss: [ '1.32.0' ],
+24 silly audit   'lightningcss-android-arm64': [ '1.32.0' ],
+24 silly audit   'lightningcss-darwin-arm64': [ '1.32.0' ],
+24 silly audit   'lightningcss-darwin-x64': [ '1.32.0' ],
+24 silly audit   'lightningcss-freebsd-x64': [ '1.32.0' ],
+24 silly audit   'lightningcss-linux-arm-gnueabihf': [ '1.32.0' ],
+24 silly audit   'lightningcss-linux-arm64-gnu': [ '1.32.0' ],
+24 silly audit   'lightningcss-linux-arm64-musl': [ '1.32.0' ],
+24 silly audit   'lightningcss-linux-x64-gnu': [ '1.32.0' ],
+24 silly audit   'lightningcss-linux-x64-musl': [ '1.32.0' ],
+24 silly audit   'lightningcss-win32-arm64-msvc': [ '1.32.0' ],
+24 silly audit   'lightningcss-win32-x64-msvc': [ '1.32.0' ],
+24 silly audit   lilconfig: [ '3.1.3' ],
+24 silly audit   'lines-and-columns': [ '1.2.4' ],
+24 silly audit   'linkify-it': [ '5.0.1' ],
+24 silly audit   'locate-path': [ '6.0.0', '3.0.0' ],
+24 silly audit   lodash: [ '4.18.1' ],
+24 silly audit   'lodash-es': [ '4.18.1' ],
+24 silly audit   'lodash.debounce': [ '4.0.8' ],
+24 silly audit   'lodash.isplainobject': [ '4.0.6' ],
+24 silly audit   'lodash.merge': [ '4.6.2' ],
+24 silly audit   'loose-envify': [ '1.4.0' ],
+24 silly audit   'lucide-react': [ '1.16.0' ],
+24 silly audit   'magic-string': [ '0.30.21' ],
+24 silly audit   'make-dir': [ '2.1.0' ],
+24 silly audit   'markdown-it': [ '14.2.0' ],
+24 silly audit   'math-intrinsics': [ '1.1.0' ],
+24 silly audit   'md5-o-matic': [ '0.1.1' ],
+24 silly audit   'mdn-data': [ '2.27.1' ],
+24 silly audit   mdurl: [ '2.0.0' ],
+24 silly audit   'media-chrome': [ '4.19.2', '4.11.1' ],
+24 silly audit   'media-tracks': [ '0.3.5' ],
+24 silly audit   'media-typer': [ '1.1.0' ],
+24 silly audit   mendoza: [ '3.0.8' ],
+24 silly audit   'merge-descriptors': [ '2.0.0' ],
+24 silly audit   'merge-stream': [ '2.0.0' ],
+24 silly audit   merge2: [ '1.4.1' ],
+24 silly audit   micromatch: [ '4.0.8' ],
+24 silly audit   'mimic-fn': [ '2.1.0' ],
+24 silly audit   'mimic-function': [ '5.0.1' ],
+24 silly audit   'mimic-response': [ '3.1.0' ],
+24 silly audit   minimist: [ '1.2.8' ],
+24 silly audit   minipass: [ '7.1.3' ],
+24 silly audit   minizlib: [ '3.1.0' ],
+24 silly audit   motion: [ '12.40.0' ],
+24 silly audit   'motion-dom': [ '12.40.0' ],
+24 silly audit   'motion-utils': [ '12.39.0' ],
+24 silly audit   ms: [ '2.1.3' ],
+24 silly audit   msw: [ '2.14.6' ],
+24 silly audit   'mux-embed': [ '5.18.1' ],
+24 silly audit   'nano-pubsub': [ '3.0.0' ],
+24 silly audit   'napi-postinstall': [ '0.3.4' ],
+24 silly audit   'natural-compare': [ '1.4.0' ],
+24 silly audit   negotiator: [ '1.0.0' ],
+24 silly audit   next: [ '16.2.6' ],
+24 silly audit   'next-sanity': [ '13.1.1' ],
+24 silly audit   postcss: [ '8.4.31', '8.5.15' ],
+24 silly audit   'node-domexception': [ '1.0.0' ],
+24 silly audit   'node-exports-info': [ '1.6.0' ],
+24 silly audit   'node-fetch': [ '2.7.0', '3.3.2' ],
+24 silly audit   'node-html-parser': [ '7.1.0' ],
+24 silly audit   'node-releases': [ '2.0.45' ],
+24 silly audit   'normalize-package-data': [ '8.0.0' ],
+24 silly audit   'normalize-path': [ '3.0.0' ],
+24 silly audit   'path-key': [ '4.0.0', '3.1.1' ],
+24 silly audit   'nth-check': [ '2.1.1' ],
+24 silly audit   nwsapi: [ '2.2.24' ],
+24 silly audit   'object-assign': [ '4.1.1' ],
+24 silly audit   'object-inspect': [ '1.13.4' ],
+24 silly audit   'object-keys': [ '1.1.1' ],
+24 silly audit   'object-treeify': [ '1.1.33' ],
+24 silly audit   'object.assign': [ '4.1.7' ],
+24 silly audit   'object.entries': [ '1.1.9' ],
+24 silly audit   'object.fromentries': [ '2.0.8' ],
+24 silly audit   'object.groupby': [ '1.0.3' ],
+24 silly audit   'object.values': [ '1.2.1' ],
+24 silly audit   'observable-callback': [ '1.0.3' ],
+24 silly audit   obug: [ '2.1.3' ],
+24 silly audit   'on-finished': [ '2.4.1' ],
+24 silly audit   once: [ '1.4.0' ],
+24 silly audit   oneline: [ '2.0.0' ],
+24 silly audit   open: [ '11.0.0' ],
+24 silly audit   optionator: [ '0.9.4' ],
+24 silly audit   outvariant: [ '1.4.3' ],
+24 silly audit   'own-keys': [ '1.0.1' ],
+24 silly audit   'p-limit': [ '3.1.0', '2.3.0' ],
+24 silly audit   'p-locate': [ '5.0.0', '3.0.0' ],
+24 silly audit   'p-map': [ '7.0.4' ],
+24 silly audit   'p-queue': [ '9.3.0' ],
+24 silly audit   'p-timeout': [ '7.0.1' ],
+24 silly audit   'p-try': [ '2.2.0' ],
+24 silly audit   'package-directory': [ '8.2.0' ],
+24 silly audit   pako: [ '0.2.9' ],
+24 silly audit   'parent-module': [ '1.0.1' ],
+24 silly audit   'parse-entities': [ '4.0.2' ],
+24 silly audit   'parse-json': [ '5.2.0', '8.3.0' ],
+24 silly audit   'parse-ms': [ '4.0.0' ],
+24 silly audit   parseurl: [ '1.3.3' ],
+24 silly audit   'path-browserify': [ '1.0.1' ],
+24 silly audit   'path-exists': [ '4.0.0', '3.0.0' ],
+24 silly audit   'path-parse': [ '1.0.7' ],
+24 silly audit   'path-to-regexp': [ '6.3.0', '8.4.2' ],
+24 silly audit   'path-type': [ '4.0.0' ],
+24 silly audit   pathe: [ '2.0.3' ],
+24 silly audit   'peek-stream': [ '1.1.3' ],
+24 silly audit   'performance-now': [ '2.1.0' ],
+24 silly audit   phenomenon: [ '1.6.0' ],
+24 silly audit   picocolors: [ '1.1.1' ],
+24 silly audit   pify: [ '4.0.1' ],
+24 silly audit   pirates: [ '4.0.7' ],
+24 silly audit   'pkce-challenge': [ '5.0.1' ],
+24 silly audit   'pkg-dir': [ '3.0.0' ],
+24 silly audit   'pluralize-esm': [ '9.0.5' ],
+24 silly audit   polished: [ '4.3.1' ],
+24 silly audit   'possible-typed-array-names': [ '1.1.0' ],
+24 silly audit   'postcss-selector-parser': [ '7.1.1' ],
+24 silly audit   'postcss-value-parser': [ '4.2.0' ],
+24 silly audit   'powershell-utils': [ '0.1.0' ],
+24 silly audit   'prelude-ls': [ '1.2.1' ],
+24 silly audit   prettier: [ '3.8.4' ],
+24 silly audit   'pretty-ms': [ '9.3.0' ],
+24 silly audit   'process-nextick-args': [ '2.0.1' ],
+24 silly audit   'promise-props-recursive': [ '2.0.2' ],
+24 silly audit   prompts: [ '2.4.2' ],
+24 silly audit   'prop-types': [ '15.8.1' ],
+24 silly audit   'property-information': [ '7.2.0' ],
+24 silly audit   'proto-list': [ '1.2.4' ],
+24 silly audit   'proxy-addr': [ '2.0.7' ],
+24 silly audit   pump: [ '2.0.1', '3.0.4' ],
+24 silly audit   pumpify: [ '1.5.1' ],
+24 silly audit   punycode: [ '2.3.1' ],
+24 silly audit   'punycode.js': [ '2.3.1' ],
+24 silly audit   qs: [ '6.15.2' ],
+24 silly audit   'queue-microtask': [ '1.2.3' ],
+24 silly audit   'quick-lru': [ '7.3.0' ],
+24 silly audit   'radix-ui': [ '1.4.3' ],
+24 silly audit   raf: [ '3.4.1' ],
+24 silly audit   'raf-schd': [ '4.0.3' ],
+24 silly audit   'range-parser': [ '1.2.1' ],
+24 silly audit   'raw-body': [ '3.0.2' ],
+24 silly audit   'react-clientside-effect': [ '1.2.8' ],
+24 silly audit   'react-compiler-runtime': [ '1.0.0' ],
+24 silly audit   'react-fast-compare': [ '3.2.2' ],
+24 silly audit   'react-focus-lock': [ '2.13.7' ],
+24 silly audit   'react-i18next': [ '17.0.8' ],
+24 silly audit   'react-redux': [ '9.3.0' ],
+24 silly audit   'react-refractor': [ '4.0.0' ],
+24 silly audit   'react-refresh': [ '0.18.0' ],
+24 silly audit   'react-remove-scroll': [ '2.7.2' ],
+24 silly audit   'react-remove-scroll-bar': [ '2.3.8' ],
+24 silly audit   'react-rx': [ '4.2.2' ],
+24 silly audit   'react-style-singleton': [ '2.2.3' ],
+24 silly audit   'read-package-up': [ '12.0.0' ],
+24 silly audit   'read-pkg': [ '10.1.0' ],
+24 silly audit   'unicorn-magic': [ '0.4.0', '0.3.0' ],
+24 silly audit   recast: [ '0.23.11' ],
+24 silly audit   redeyed: [ '2.1.1' ],
+24 silly audit   redux: [ '5.0.1' ],
+24 silly audit   'reflect.getprototypeof': [ '1.0.10' ],
+24 silly audit   refractor: [ '5.0.0' ],
+24 silly audit   regenerate: [ '1.4.2' ],
+24 silly audit   'regenerate-unicode-properties': [ '10.2.2' ],
+24 silly audit   'regexp.prototype.flags': [ '1.5.4' ],
+24 silly audit   'regexpu-core': [ '6.4.0' ],
+24 silly audit   'registry-auth-token': [ '5.1.1' ],
+24 silly audit   'registry-url': [ '7.2.0' ],
+24 silly audit   regjsgen: [ '0.8.0' ],
+24 silly audit   regjsparser: [ '0.13.2' ],
+24 silly audit   remeda: [ '2.39.0' ],
+24 silly audit   'require-directory': [ '2.1.1' ],
+24 silly audit   'require-from-string': [ '2.0.2' ],
+24 silly audit   reselect: [ '5.2.0' ],
+24 silly audit   'resolve-from': [ '4.0.0' ],
+24 silly audit   'resolve-pkg-maps': [ '1.0.0' ],
+24 silly audit   'restore-cursor': [ '5.1.0' ],
+24 silly audit   rettime: [ '0.11.11' ],
+24 silly audit   reusify: [ '1.1.0' ],
+24 silly audit   rollup: [ '4.62.1' ],
+24 silly audit   router: [ '2.2.0' ],
+24 silly audit   'rrweb-cssom': [ '0.8.0' ],
+24 silly audit   'run-applescript': [ '7.1.0' ],
+24 silly audit   'run-parallel': [ '1.2.0' ],
+24 silly audit   rxjs: [ '7.8.2' ],
+24 silly audit   'rxjs-exhaustmap-with-trailing': [ '2.1.1' ],
+24 silly audit   'rxjs-mergemap-array': [ '0.1.0' ],
+24 silly audit   'safe-array-concat': [ '1.1.4' ],
+24 silly audit   'safe-push-apply': [ '1.0.0' ],
+24 silly audit   'safe-regex-test': [ '1.1.0' ],
+24 silly audit   'safer-buffer': [ '2.1.2' ],
+24 silly audit   sanity: [ '5.31.1' ],
+24 silly audit   'sanity-plugin-utils': [ '2.0.3' ],
+24 silly audit   saxes: [ '6.0.0' ],
+24 silly audit   scheduler: [ '0.27.0' ],
+24 silly audit   'scroll-into-view-if-needed': [ '3.1.0' ],
+24 silly audit   scrollmirror: [ '1.2.4' ],
+24 silly audit   send: [ '1.2.1' ],
+24 silly audit   'serve-static': [ '2.2.1' ],
+24 silly audit   'set-cookie-parser': [ '3.1.0' ],
+24 silly audit   'set-function-length': [ '1.2.2' ],
+24 silly audit   'set-function-name': [ '2.0.2' ],
+24 silly audit   'set-proto': [ '1.0.0' ],
+24 silly audit   setprototypeof: [ '1.2.0' ],
+24 silly audit   'sha256-uint8array': [ '0.10.7' ],
+24 silly audit   shadcn: [ '4.8.0' ],
+24 silly audit   zod: [ '3.25.76', '4.4.3' ],
+24 silly audit   'shallow-clone': [ '3.0.1' ],
+24 silly audit   'shallow-equals': [ '1.0.0' ],
+24 silly audit   sharp: [ '0.34.5' ],
+24 silly audit   'shebang-command': [ '2.0.0' ],
+24 silly audit   'shebang-regex': [ '3.0.0' ],
+24 silly audit   'side-channel': [ '1.1.0' ],
+24 silly audit   'side-channel-list': [ '1.0.1' ],
+24 silly audit   'side-channel-map': [ '1.0.1' ],
+24 silly audit   'side-channel-weakmap': [ '1.0.2' ],
+24 silly audit   'simple-wcswidth': [ '1.1.2' ],
+24 silly audit   sisteransi: [ '1.0.5' ],
+24 silly audit   skills: [ '1.5.12' ],
+24 silly audit   slash: [ '3.0.0' ],
+24 silly audit   'smol-toml': [ '1.6.1' ],
+24 silly audit   'source-map': [ '0.6.1' ],
+24 silly audit   'source-map-js': [ '1.2.1' ],
+24 silly audit   'source-map-support': [ '0.5.21' ],
+24 silly audit   'space-separated-tokens': [ '2.0.2' ],
+24 silly audit   'spdx-correct': [ '3.2.0' ],
+24 silly audit   'spdx-exceptions': [ '2.5.0' ],
+24 silly audit   'spdx-expression-parse': [ '3.0.1' ],
+24 silly audit   'spdx-license-ids': [ '3.0.23' ],
+24 silly audit   speakingurl: [ '14.0.1' ],
+24 silly audit   'sprintf-js': [ '1.0.3' ],
+24 silly audit   'stable-hash': [ '0.0.5' ],
+24 silly audit   statuses: [ '2.0.2' ],
+24 silly audit   'stop-iteration-iterator': [ '1.1.0' ],
+24 silly audit   'stream-shift': [ '1.0.3' ],
+24 silly audit   streamx: [ '2.28.0' ],
+24 silly audit   'strict-event-emitter': [ '0.5.1' ],
+24 silly audit   'string.prototype.includes': [ '2.0.1' ],
+24 silly audit   'string.prototype.matchall': [ '4.0.12' ],
+24 silly audit   'string.prototype.repeat': [ '1.0.0' ],
+24 silly audit   'string.prototype.trim': [ '1.2.10' ],
+24 silly audit   'string.prototype.trimend': [ '1.0.9' ],
+24 silly audit   'string.prototype.trimstart': [ '1.0.8' ],
+24 silly audit   'stringify-object': [ '5.0.0' ],
+24 silly audit   'strip-bom': [ '3.0.0' ],
+24 silly audit   'strip-json-comments': [ '3.1.1' ],
+24 silly audit   'styled-components': [ '6.4.2' ],
+24 silly audit   'styled-jsx': [ '5.1.6' ],
+24 silly audit   stylis: [ '4.3.6' ],
+24 silly audit   'supports-preserve-symlinks-flag': [ '1.0.0' ],
+24 silly audit   'svg-dotted-map': [ '2.0.1' ],
+24 silly audit   'symbol-tree': [ '3.2.4' ],
+24 silly audit   'tagged-tag': [ '1.0.0' ],
+24 silly audit   'tailwind-merge': [ '3.6.0' ],
+24 silly audit   tailwindcss: [ '4.3.0' ],
+24 silly audit   tapable: [ '2.3.3' ],
+24 silly audit   tar: [ '7.5.16' ],
+24 silly audit   'tar-fs': [ '3.1.2' ],
+24 silly audit   'tar-stream': [ '3.2.0' ],
+24 silly audit   yallist: [ '5.0.0', '3.1.1' ],
+24 silly audit   teex: [ '1.0.1' ],
+24 silly audit   'text-decoder': [ '1.2.7' ],
+24 silly audit   'tiny-invariant': [ '1.3.3' ],
+24 silly audit   tinyglobby: [ '0.2.16' ],
+24 silly audit   'to-regex-range': [ '5.0.1' ],
+24 silly audit   toidentifier: [ '1.0.1' ],
+24 silly audit   'ts-api-utils': [ '2.5.0' ],
+24 silly audit   'ts-brand': [ '0.2.0' ],
+24 silly audit   'ts-morph': [ '26.0.0' ],
+24 silly audit   tsconfck: [ '3.1.6' ],
+24 silly audit   tslib: [ '2.8.1' ],
+24 silly audit   tsx: [ '4.22.4' ],
+24 silly audit   tunnel: [ '0.0.6' ],
+24 silly audit   'tunnel-agent': [ '0.6.0' ],
+24 silly audit   'tw-animate-css': [ '1.4.0' ],
+24 silly audit   'type-check': [ '0.4.0' ],
+24 silly audit   'type-is': [ '2.1.0' ],
+24 silly audit   'typed-array-buffer': [ '1.0.3' ],
+24 silly audit   'typed-array-byte-length': [ '1.0.3' ],
+24 silly audit   'typed-array-byte-offset': [ '1.0.4' ],
+24 silly audit   'typed-array-length': [ '1.0.7' ],
+24 silly audit   typescript: [ '5.9.3' ],
+24 silly audit   'typescript-eslint': [ '8.59.4' ],
+24 silly audit   'uc.micro': [ '2.1.0' ],
+24 silly audit   'unbox-primitive': [ '1.1.0' ],
+24 silly audit   'undici-types': [ '7.24.6' ],
+24 silly audit   'unicode-canonical-property-names-ecmascript': [ '2.0.1' ],
+24 silly audit   'unicode-match-property-ecmascript': [ '2.0.0' ],
+24 silly audit   'unicode-match-property-value-ecmascript': [ '2.2.1' ],
+24 silly audit   'unicode-property-aliases-ecmascript': [ '2.2.0' ],
+24 silly audit   'unist-util-filter': [ '5.0.1' ],
+24 silly audit   'unist-util-is': [ '6.0.1' ],
+24 silly audit   'unist-util-visit-parents': [ '6.0.2' ],
+24 silly audit   'universal-user-agent': [ '7.0.3' ],
+24 silly audit   universalify: [ '2.0.1' ],
+24 silly audit   unpipe: [ '1.0.0' ],
+24 silly audit   'unrs-resolver': [ '1.12.2' ],
+24 silly audit   'until-async': [ '3.0.2' ],
+24 silly audit   'update-browserslist-db': [ '1.2.3' ],
+24 silly audit   'uri-js': [ '4.4.1' ],
+24 silly audit   'urlpattern-polyfill': [ '10.1.0' ],
+24 silly audit   'use-callback-ref': [ '1.3.3' ],
+24 silly audit   'use-device-pixel-ratio': [ '1.1.2' ],
+24 silly audit   'use-effect-event': [ '2.0.3' ],
+24 silly audit   'use-hot-module-reload': [ '2.0.0' ],
+24 silly audit   'use-isomorphic-layout-effect': [ '1.2.1' ],
+24 silly audit   'use-sidecar': [ '1.1.3' ],
+24 silly audit   'use-sync-external-store': [ '1.6.0' ],
+24 silly audit   'util-deprecate': [ '1.0.2' ],
+24 silly audit   uuidv7: [ '0.4.4' ],
+24 silly audit   valibot: [ '1.4.1' ],
+24 silly audit   'validate-npm-package-license': [ '3.0.4' ],
+24 silly audit   'validate-npm-package-name': [ '7.0.2' ],
+24 silly audit   vary: [ '1.1.2' ],
+24 silly audit   vite: [ '7.3.5' ],
+24 silly audit   'vite-node': [ '5.3.0' ],
+24 silly audit   'vite-tsconfig-paths': [ '6.1.1' ],
+24 silly audit   'void-elements': [ '3.1.0' ],
+24 silly audit   'w3c-xmlserializer': [ '5.0.0' ],
+24 silly audit   'web-streams-polyfill': [ '3.3.3' ],
+24 silly audit   'web-vitals': [ '5.3.0' ],
+24 silly audit   'whatwg-encoding': [ '3.1.1' ],
+24 silly audit   'which-boxed-primitive': [ '1.1.1' ],
+24 silly audit   'which-builtin-type': [ '1.2.1' ],
+24 silly audit   'which-collection': [ '1.0.2' ],
+24 silly audit   'which-typed-array': [ '1.1.20' ],
+24 silly audit   'word-wrap': [ '1.2.5' ],
+24 silly audit   wordwrap: [ '1.0.0' ],
+24 silly audit   wrappy: [ '1.0.2' ],
+24 silly audit   ws: [ '8.21.0' ],
+24 silly audit   'wsl-utils': [ '0.3.1' ],
+24 silly audit   'xdg-basedir': [ '5.1.0' ],
+24 silly audit   'xml-name-validator': [ '5.0.0' ],
+24 silly audit   xmlchars: [ '2.2.0' ],
+24 silly audit   xstate: [ '5.32.1' ],
+24 silly audit   xtend: [ '4.0.2' ],
+24 silly audit   y18n: [ '5.0.8' ],
+24 silly audit   yaml: [ '2.9.0' ],
+24 silly audit   yargs: [ '17.7.2' ],
+24 silly audit   'yargs-parser': [ '21.1.1' ],
+24 silly audit   'yocto-queue': [ '0.1.0' ],
+24 silly audit   'yocto-spinner': [ '1.2.0' ],
+24 silly audit   yoctocolors: [ '2.1.2' ],
+24 silly audit   'yoctocolors-cjs': [ '2.1.3' ],
+24 silly audit   'zod-to-json-schema': [ '3.25.2' ],
+24 silly audit   'zod-validation-error': [ '4.0.2' ],
+24 silly audit   zustand: [ '5.0.14' ],
+24 silly audit   ogl: [ '1.0.11' ],
+24 silly audit   '@tailwindcss/oxide-wasm32-wasi': [ '4.3.0' ]
+24 silly audit }
+25 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-win32-x64-msvc
+26 silly reify mark deleted [
+26 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-win32-x64-msvc'
+26 silly reify ]
+27 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-win32-arm64-msvc
+28 silly reify mark deleted [
+28 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-win32-arm64-msvc'
+28 silly reify ]
+29 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-linux-x64-musl
+30 silly reify mark deleted [
+30 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-linux-x64-musl'
+30 silly reify ]
+31 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-linux-x64-gnu
+32 silly reify mark deleted [
+32 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-linux-x64-gnu'
+32 silly reify ]
+33 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-linux-arm64-musl
+34 silly reify mark deleted [
+34 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-linux-arm64-musl'
+34 silly reify ]
+35 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-linux-arm64-gnu
+36 silly reify mark deleted [
+36 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-linux-arm64-gnu'
+36 silly reify ]
+37 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-linux-arm-gnueabihf
+38 silly reify mark deleted [
+38 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-linux-arm-gnueabihf'
+38 silly reify ]
+39 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-freebsd-x64
+40 silly reify mark deleted [
+40 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-freebsd-x64'
+40 silly reify ]
+41 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-darwin-x64
+42 silly reify mark deleted [
+42 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-darwin-x64'
+42 silly reify ]
+43 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-android-arm64
+44 silly reify mark deleted [
+44 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/lightningcss-android-arm64'
+44 silly reify ]
+45 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-win32-x64-msvc
+46 silly reify mark deleted [
+46 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-win32-x64-msvc'
+46 silly reify ]
+47 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-win32-ia32-msvc
+48 silly reify mark deleted [
+48 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-win32-ia32-msvc'
+48 silly reify ]
+49 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-win32-arm64-msvc
+50 silly reify mark deleted [
+50 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-win32-arm64-msvc'
+50 silly reify ]
+51 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-wasm32-wasi
+52 silly reify mark deleted [
+52 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-wasm32-wasi'
+52 silly reify ]
+53 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-openharmony-arm64
+54 silly reify mark deleted [
+54 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-openharmony-arm64'
+54 silly reify ]
+55 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-x64-musl
+56 silly reify mark deleted [
+56 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-x64-musl'
+56 silly reify ]
+57 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-x64-gnu
+58 silly reify mark deleted [
+58 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-x64-gnu'
+58 silly reify ]
+59 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-s390x-gnu
+60 silly reify mark deleted [
+60 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-s390x-gnu'
+60 silly reify ]
+61 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-riscv64-musl
+62 silly reify mark deleted [
+62 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-riscv64-musl'
+62 silly reify ]
+63 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-riscv64-gnu
+64 silly reify mark deleted [
+64 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-riscv64-gnu'
+64 silly reify ]
+65 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-ppc64-gnu
+66 silly reify mark deleted [
+66 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-ppc64-gnu'
+66 silly reify ]
+67 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-loong64-musl
+68 silly reify mark deleted [
+68 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-loong64-musl'
+68 silly reify ]
+69 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-loong64-gnu
+70 silly reify mark deleted [
+70 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-loong64-gnu'
+70 silly reify ]
+71 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-arm64-musl
+72 silly reify mark deleted [
+72 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-arm64-musl'
+72 silly reify ]
+73 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-arm64-gnu
+74 silly reify mark deleted [
+74 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-arm64-gnu'
+74 silly reify ]
+75 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-arm-musleabihf
+76 silly reify mark deleted [
+76 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-arm-musleabihf'
+76 silly reify ]
+77 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-arm-gnueabihf
+78 silly reify mark deleted [
+78 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-linux-arm-gnueabihf'
+78 silly reify ]
+79 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-freebsd-x64
+80 silly reify mark deleted [
+80 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-freebsd-x64'
+80 silly reify ]
+81 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-darwin-x64
+82 silly reify mark deleted [
+82 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-darwin-x64'
+82 silly reify ]
+83 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-android-arm64
+84 silly reify mark deleted [
+84 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-android-arm64'
+84 silly reify ]
+85 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-android-arm-eabi
+86 silly reify mark deleted [
+86 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@unrs/resolver-binding-android-arm-eabi'
+86 silly reify ]
+87 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-win32-x64-msvc
+88 silly reify mark deleted [
+88 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-win32-x64-msvc'
+88 silly reify ]
+89 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-win32-arm64-msvc
+90 silly reify mark deleted [
+90 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-win32-arm64-msvc'
+90 silly reify ]
+91 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-linux-x64-musl
+92 silly reify mark deleted [
+92 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-linux-x64-musl'
+92 silly reify ]
+93 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-linux-x64-gnu
+94 silly reify mark deleted [
+94 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-linux-x64-gnu'
+94 silly reify ]
+95 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-linux-arm64-musl
+96 silly reify mark deleted [
+96 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-linux-arm64-musl'
+96 silly reify ]
+97 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-linux-arm64-gnu
+98 silly reify mark deleted [
+98 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-linux-arm64-gnu'
+98 silly reify ]
+99 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-linux-arm-gnueabihf
+100 silly reify mark deleted [
+100 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-linux-arm-gnueabihf'
+100 silly reify ]
+101 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-freebsd-x64
+102 silly reify mark deleted [
+102 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-freebsd-x64'
+102 silly reify ]
+103 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-darwin-x64
+104 silly reify mark deleted [
+104 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-darwin-x64'
+104 silly reify ]
+105 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-android-arm64
+106 silly reify mark deleted [
+106 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@tailwindcss/oxide-android-arm64'
+106 silly reify ]
+107 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-win32-x64-msvc
+108 silly reify mark deleted [
+108 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-win32-x64-msvc'
+108 silly reify ]
+109 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-win32-x64-gnu
+110 silly reify mark deleted [
+110 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-win32-x64-gnu'
+110 silly reify ]
+111 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-win32-ia32-msvc
+112 silly reify mark deleted [
+112 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-win32-ia32-msvc'
+112 silly reify ]
+113 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-win32-arm64-msvc
+114 silly reify mark deleted [
+114 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-win32-arm64-msvc'
+114 silly reify ]
+115 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-openharmony-arm64
+116 silly reify mark deleted [
+116 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-openharmony-arm64'
+116 silly reify ]
+117 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-openbsd-x64
+118 silly reify mark deleted [
+118 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-openbsd-x64'
+118 silly reify ]
+119 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-x64-musl
+120 silly reify mark deleted [
+120 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-x64-musl'
+120 silly reify ]
+121 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-x64-gnu
+122 silly reify mark deleted [
+122 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-x64-gnu'
+122 silly reify ]
+123 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-s390x-gnu
+124 silly reify mark deleted [
+124 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-s390x-gnu'
+124 silly reify ]
+125 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-riscv64-musl
+126 silly reify mark deleted [
+126 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-riscv64-musl'
+126 silly reify ]
+127 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-riscv64-gnu
+128 silly reify mark deleted [
+128 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-riscv64-gnu'
+128 silly reify ]
+129 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-ppc64-musl
+130 silly reify mark deleted [
+130 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-ppc64-musl'
+130 silly reify ]
+131 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-ppc64-gnu
+132 silly reify mark deleted [
+132 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-ppc64-gnu'
+132 silly reify ]
+133 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-loong64-musl
+134 silly reify mark deleted [
+134 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-loong64-musl'
+134 silly reify ]
+135 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-loong64-gnu
+136 silly reify mark deleted [
+136 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-loong64-gnu'
+136 silly reify ]
+137 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-arm64-musl
+138 silly reify mark deleted [
+138 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-arm64-musl'
+138 silly reify ]
+139 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-arm64-gnu
+140 silly reify mark deleted [
+140 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-arm64-gnu'
+140 silly reify ]
+141 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-arm-musleabihf
+142 silly reify mark deleted [
+142 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-arm-musleabihf'
+142 silly reify ]
+143 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-arm-gnueabihf
+144 silly reify mark deleted [
+144 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-linux-arm-gnueabihf'
+144 silly reify ]
+145 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-freebsd-x64
+146 silly reify mark deleted [
+146 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-freebsd-x64'
+146 silly reify ]
+147 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-freebsd-arm64
+148 silly reify mark deleted [
+148 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-freebsd-arm64'
+148 silly reify ]
+149 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-darwin-x64
+150 silly reify mark deleted [
+150 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-darwin-x64'
+150 silly reify ]
+151 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-android-arm64
+152 silly reify mark deleted [
+152 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-android-arm64'
+152 silly reify ]
+153 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-android-arm-eabi
+154 silly reify mark deleted [
+154 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@rollup/rollup-android-arm-eabi'
+154 silly reify ]
+155 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@next/swc-win32-x64-msvc
+156 silly reify mark deleted [
+156 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@next/swc-win32-x64-msvc'
+156 silly reify ]
+157 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@next/swc-win32-arm64-msvc
+158 silly reify mark deleted [
+158 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@next/swc-win32-arm64-msvc'
+158 silly reify ]
+159 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@next/swc-linux-x64-musl
+160 silly reify mark deleted [
+160 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@next/swc-linux-x64-musl'
+160 silly reify ]
+161 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@next/swc-linux-x64-gnu
+162 silly reify mark deleted [
+162 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@next/swc-linux-x64-gnu'
+162 silly reify ]
+163 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@next/swc-linux-arm64-musl
+164 silly reify mark deleted [
+164 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@next/swc-linux-arm64-musl'
+164 silly reify ]
+165 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@next/swc-linux-arm64-gnu
+166 silly reify mark deleted [
+166 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@next/swc-linux-arm64-gnu'
+166 silly reify ]
+167 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@next/swc-darwin-x64
+168 silly reify mark deleted [
+168 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@next/swc-darwin-x64'
+168 silly reify ]
+169 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-win32-x64
+170 silly reify mark deleted [
+170 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-win32-x64'
+170 silly reify ]
+171 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-win32-ia32
+172 silly reify mark deleted [
+172 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-win32-ia32'
+172 silly reify ]
+173 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-win32-arm64
+174 silly reify mark deleted [
+174 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-win32-arm64'
+174 silly reify ]
+175 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-wasm32
+176 silly reify mark deleted [
+176 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-wasm32'
+176 silly reify ]
+177 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-linuxmusl-x64
+178 silly reify mark deleted [
+178 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-linuxmusl-x64'
+178 silly reify ]
+179 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-linuxmusl-arm64
+180 silly reify mark deleted [
+180 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-linuxmusl-arm64'
+180 silly reify ]
+181 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-linux-x64
+182 silly reify mark deleted [
+182 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-linux-x64'
+182 silly reify ]
+183 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-linux-s390x
+184 silly reify mark deleted [
+184 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-linux-s390x'
+184 silly reify ]
+185 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-linux-riscv64
+186 silly reify mark deleted [
+186 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-linux-riscv64'
+186 silly reify ]
+187 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-linux-ppc64
+188 silly reify mark deleted [
+188 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-linux-ppc64'
+188 silly reify ]
+189 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-linux-arm64
+190 silly reify mark deleted [
+190 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-linux-arm64'
+190 silly reify ]
+191 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-linux-arm
+192 silly reify mark deleted [
+192 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-linux-arm'
+192 silly reify ]
+193 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-linuxmusl-x64
+194 silly reify mark deleted [
+194 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-linuxmusl-x64'
+194 silly reify ]
+195 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-linuxmusl-arm64
+196 silly reify mark deleted [
+196 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-linuxmusl-arm64'
+196 silly reify ]
+197 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-linux-x64
+198 silly reify mark deleted [
+198 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-linux-x64'
+198 silly reify ]
+199 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-linux-s390x
+200 silly reify mark deleted [
+200 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-linux-s390x'
+200 silly reify ]
+201 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-linux-riscv64
+202 silly reify mark deleted [
+202 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-linux-riscv64'
+202 silly reify ]
+203 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-linux-ppc64
+204 silly reify mark deleted [
+204 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-linux-ppc64'
+204 silly reify ]
+205 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-linux-arm64
+206 silly reify mark deleted [
+206 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-linux-arm64'
+206 silly reify ]
+207 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-linux-arm
+208 silly reify mark deleted [
+208 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-linux-arm'
+208 silly reify ]
+209 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-darwin-x64
+210 silly reify mark deleted [
+210 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-libvips-darwin-x64'
+210 silly reify ]
+211 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-darwin-x64
+212 silly reify mark deleted [
+212 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@img/sharp-darwin-x64'
+212 silly reify ]
+213 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/win32-x64
+214 silly reify mark deleted [
+214 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/win32-x64'
+214 silly reify ]
+215 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/win32-ia32
+216 silly reify mark deleted [
+216 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/win32-ia32'
+216 silly reify ]
+217 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/win32-arm64
+218 silly reify mark deleted [
+218 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/win32-arm64'
+218 silly reify ]
+219 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/sunos-x64
+220 silly reify mark deleted [
+220 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/sunos-x64'
+220 silly reify ]
+221 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/openharmony-arm64
+222 silly reify mark deleted [
+222 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/openharmony-arm64'
+222 silly reify ]
+223 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/openbsd-x64
+224 silly reify mark deleted [
+224 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/openbsd-x64'
+224 silly reify ]
+225 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/openbsd-arm64
+226 silly reify mark deleted [
+226 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/openbsd-arm64'
+226 silly reify ]
+227 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/netbsd-x64
+228 silly reify mark deleted [
+228 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/netbsd-x64'
+228 silly reify ]
+229 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/netbsd-arm64
+230 silly reify mark deleted [
+230 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/netbsd-arm64'
+230 silly reify ]
+231 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-x64
+232 silly reify mark deleted [
+232 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-x64'
+232 silly reify ]
+233 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-s390x
+234 silly reify mark deleted [
+234 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-s390x'
+234 silly reify ]
+235 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-riscv64
+236 silly reify mark deleted [
+236 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-riscv64'
+236 silly reify ]
+237 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-ppc64
+238 silly reify mark deleted [
+238 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-ppc64'
+238 silly reify ]
+239 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-mips64el
+240 silly reify mark deleted [
+240 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-mips64el'
+240 silly reify ]
+241 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-loong64
+242 silly reify mark deleted [
+242 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-loong64'
+242 silly reify ]
+243 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-ia32
+244 silly reify mark deleted [
+244 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-ia32'
+244 silly reify ]
+245 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-arm64
+246 silly reify mark deleted [
+246 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-arm64'
+246 silly reify ]
+247 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-arm
+248 silly reify mark deleted [
+248 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/linux-arm'
+248 silly reify ]
+249 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/freebsd-x64
+250 silly reify mark deleted [
+250 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/freebsd-x64'
+250 silly reify ]
+251 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/freebsd-arm64
+252 silly reify mark deleted [
+252 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/freebsd-arm64'
+252 silly reify ]
+253 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/darwin-x64
+254 silly reify mark deleted [
+254 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/darwin-x64'
+254 silly reify ]
+255 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/android-x64
+256 silly reify mark deleted [
+256 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/android-x64'
+256 silly reify ]
+257 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/android-arm64
+258 silly reify mark deleted [
+258 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/android-arm64'
+258 silly reify ]
+259 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/android-arm
+260 silly reify mark deleted [
+260 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/android-arm'
+260 silly reify ]
+261 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/aix-ppc64
+262 silly reify mark deleted [
+262 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/@esbuild/aix-ppc64'
+262 silly reify ]
+263 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/win32-x64
+264 silly reify mark deleted [
+264 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/win32-x64'
+264 silly reify ]
+265 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/win32-ia32
+266 silly reify mark deleted [
+266 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/win32-ia32'
+266 silly reify ]
+267 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/win32-arm64
+268 silly reify mark deleted [
+268 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/win32-arm64'
+268 silly reify ]
+269 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/sunos-x64
+270 silly reify mark deleted [
+270 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/sunos-x64'
+270 silly reify ]
+271 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/openharmony-arm64
+272 silly reify mark deleted [
+272 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/openharmony-arm64'
+272 silly reify ]
+273 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/openbsd-x64
+274 silly reify mark deleted [
+274 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/openbsd-x64'
+274 silly reify ]
+275 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/openbsd-arm64
+276 silly reify mark deleted [
+276 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/openbsd-arm64'
+276 silly reify ]
+277 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/netbsd-x64
+278 silly reify mark deleted [
+278 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/netbsd-x64'
+278 silly reify ]
+279 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/netbsd-arm64
+280 silly reify mark deleted [
+280 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/netbsd-arm64'
+280 silly reify ]
+281 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-x64
+282 silly reify mark deleted [
+282 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-x64'
+282 silly reify ]
+283 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-s390x
+284 silly reify mark deleted [
+284 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-s390x'
+284 silly reify ]
+285 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-riscv64
+286 silly reify mark deleted [
+286 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-riscv64'
+286 silly reify ]
+287 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-ppc64
+288 silly reify mark deleted [
+288 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-ppc64'
+288 silly reify ]
+289 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-mips64el
+290 silly reify mark deleted [
+290 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-mips64el'
+290 silly reify ]
+291 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-loong64
+292 silly reify mark deleted [
+292 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-loong64'
+292 silly reify ]
+293 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-ia32
+294 silly reify mark deleted [
+294 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-ia32'
+294 silly reify ]
+295 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-arm64
+296 silly reify mark deleted [
+296 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-arm64'
+296 silly reify ]
+297 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-arm
+298 silly reify mark deleted [
+298 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/linux-arm'
+298 silly reify ]
+299 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/freebsd-x64
+300 silly reify mark deleted [
+300 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/freebsd-x64'
+300 silly reify ]
+301 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/freebsd-arm64
+302 silly reify mark deleted [
+302 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/freebsd-arm64'
+302 silly reify ]
+303 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/darwin-x64
+304 silly reify mark deleted [
+304 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/darwin-x64'
+304 silly reify ]
+305 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/android-x64
+306 silly reify mark deleted [
+306 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/android-x64'
+306 silly reify ]
+307 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/android-arm64
+308 silly reify mark deleted [
+308 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/android-arm64'
+308 silly reify ]
+309 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/android-arm
+310 silly reify mark deleted [
+310 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/android-arm'
+310 silly reify ]
+311 verbose reify failed optional dependency /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/aix-ppc64
+312 silly reify mark deleted [
+312 silly reify   '/Users/ayushmantalukdar/Documents/Projects/Rabt/rabt/node_modules/vite/node_modules/@esbuild/aix-ppc64'
+312 silly reify ]
+313 silly tarball no local data for ogl@https://registry.npmjs.org/ogl/-/ogl-1.0.11.tgz. Extracting by manifest.
+314 http fetch GET 200 https://registry.npmjs.org/ogl/-/ogl-1.0.11.tgz 746ms (cache miss)
+315 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 1552ms
+316 silly audit report {
+316 silly audit report   '@babel/core': [
+316 silly audit report     {
+316 silly audit report       id: 1120793,
+316 silly audit report       url: 'https://github.com/advisories/GHSA-4x5r-pxfx-6jf8',
+316 silly audit report       title: '@babel/core: Arbitrary File Read via sourceMappingURL Comment',
+316 silly audit report       severity: 'low',
+316 silly audit report       vulnerable_versions: '<=7.29.0',
+316 silly audit report       cwe: [Array],
+316 silly audit report       cvss: [Object]
+316 silly audit report     }
+316 silly audit report   ],
+316 silly audit report   uuid: [
+316 silly audit report     {
+316 silly audit report       id: 1119441,
+316 silly audit report       url: 'https://github.com/advisories/GHSA-w5hq-g745-h8pq',
+316 silly audit report       title: 'uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided',
+316 silly audit report       severity: 'moderate',
+316 silly audit report       vulnerable_versions: '<11.1.1',
+316 silly audit report       cwe: [Array],
+316 silly audit report       cvss: [Object]
+316 silly audit report     }
+316 silly audit report   ],
+316 silly audit report   'js-yaml': [
+316 silly audit report     {
+316 silly audit report       id: 1112714,
+316 silly audit report       url: 'https://github.com/advisories/GHSA-mh29-5h37-fv8m',
+316 silly audit report       title: 'js-yaml has prototype pollution in merge (<<)',
+316 silly audit report       severity: 'moderate',
+316 silly audit report       vulnerable_versions: '<3.14.2',
+316 silly audit report       cwe: [Array],
+316 silly audit report       cvss: [Object]
+316 silly audit report     },
+316 silly audit report     {
+316 silly audit report       id: 1120792,
+316 silly audit report       url: 'https://github.com/advisories/GHSA-h67p-54hq-rp68',
+316 silly audit report       title: 'JS-YAML: Quadratic-complexity DoS in merge key handling via repeated aliases',
+316 silly audit report       severity: 'moderate',
+316 silly audit report       vulnerable_versions: '<=4.1.1',
+316 silly audit report       cwe: [Array],
+316 silly audit report       cvss: [Object]
+316 silly audit report     }
+316 silly audit report   ],
+316 silly audit report   esbuild: [
+316 silly audit report     {
+316 silly audit report       id: 1120680,
+316 silly audit report       url: 'https://github.com/advisories/GHSA-g7r4-m6w7-qqqr',
+316 silly audit report       title: 'esbuild allows arbitrary file read when running the development server on Windows',
+316 silly audit report       severity: 'low',
+316 silly audit report       vulnerable_versions: '>=0.27.3 <0.28.1',
+316 silly audit report       cwe: [Array],
+316 silly audit report       cvss: [Object]
+316 silly audit report     }
+316 silly audit report   ],
+316 silly audit report   hono: [
+316 silly audit report     {
+316 silly audit report       id: 1120910,
+316 silly audit report       url: 'https://github.com/advisories/GHSA-wwfh-h76j-fc44',
+316 silly audit report       title: 'hono: Path traversal in `serve-static` on Windows via encoded backslash (`%5C`)',
+316 silly audit report       severity: 'moderate',
+316 silly audit report       vulnerable_versions: '<4.12.25',
+316 silly audit report       cwe: [Array],
+316 silly audit report       cvss: [Object]
+316 silly audit report     },
+316 silly audit report     {
+316 silly audit report       id: 1120911,
+316 silly audit report       url: 'https://github.com/advisories/GHSA-j6c9-x7qj-28xf',
+316 silly audit report       title: 'hono: AWS Lambda adapter merges multiple `Set-Cookie` headers into one value, dropping cookies on ALB single-header and Lattice',
+316 silly audit report       severity: 'moderate',
+316 silly audit report       vulnerable_versions: '<4.12.25',
+316 silly audit report       cwe: [Array],
+316 silly audit report       cvss: [Object]
+316 silly audit report     },
+316 silly audit report     {
+316 silly audit report       id: 1120913,
+316 silly audit report       url: 'https://github.com/advisories/GHSA-88fw-hqm2-52qc',
+316 silly audit report       title: 'hono: CORS Middleware reflects any Origin with credentials when `origin` defaults to the wildcard',
+316 silly audit report       severity: 'high',
+316 silly audit report       vulnerable_versions: '<4.12.25',
+316 silly audit report       cwe: [Array],
+316 silly audit report       cvss: [Object]
+316 silly audit report     },
+316 silly audit report     {
+316 silly audit report       id: 1120921,
+316 silly audit report       url: 'https://github.com/advisories/GHSA-rv63-4mwf-qqc2',
+316 silly audit report       title: 'hono: Body Limit Middleware can be bypassed on AWS Lambda by understating `Content-Length`',
+316 silly audit report       severity: 'moderate',
+316 silly audit report       vulnerable_versions: '<4.12.25',
+316 silly audit report       cwe: [Array],
+316 silly audit report       cvss: [Object]
+316 silly audit report     },
+316 silly audit report     {
+316 silly audit report       id: 1120922,
+316 silly audit report       url: 'https://github.com/advisories/GHSA-wgpf-jwqj-8h8p',
+316 silly audit report       title: 'hono: Lambda@Edge adapter keeps only the last value of a repeated request header, dropping the rest',
+316 silly audit report       severity: 'moderate',
+316 silly audit report       vulnerable_versions: '<4.12.25',
+316 silly audit report       cwe: [Array],
+316 silly audit report       cvss: [Object]
+316 silly audit report     }
+316 silly audit report   ],
+316 silly audit report   postcss: [
+316 silly audit report     {
+316 silly audit report       id: 1117015,
+316 silly audit report       url: 'https://github.com/advisories/GHSA-qx2v-qp2m-jg93',
+316 silly audit report       title: 'PostCSS has XSS via Unescaped </style> in its CSS Stringify Output',
+316 silly audit report       severity: 'moderate',
+316 silly audit report       vulnerable_versions: '<8.5.10',
+316 silly audit report       cwe: [Array],
+316 silly audit report       cvss: [Object]
+316 silly audit report     }
+316 silly audit report   ]
+316 silly audit report }
+317 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fcore cache-miss
+318 silly packumentCache corgi:https://registry.npmjs.org/uuid cache-miss
+319 silly packumentCache corgi:https://registry.npmjs.org/js-yaml cache-miss
+320 silly packumentCache corgi:https://registry.npmjs.org/esbuild cache-miss
+321 silly packumentCache corgi:https://registry.npmjs.org/hono cache-miss
+322 silly packumentCache corgi:https://registry.npmjs.org/postcss cache-miss
+323 http fetch GET 200 https://registry.npmjs.org/uuid 258ms (cache revalidated)
+324 silly packumentCache corgi:https://registry.npmjs.org/uuid set size:82973 disposed:false
+325 http fetch GET 200 https://registry.npmjs.org/postcss 328ms (cache revalidated)
+326 silly packumentCache corgi:https://registry.npmjs.org/postcss set size:344717 disposed:false
+327 http fetch GET 200 https://registry.npmjs.org/js-yaml 501ms (cache revalidated)
+328 silly packumentCache corgi:https://registry.npmjs.org/js-yaml set size:61746 disposed:false
+329 http fetch GET 200 https://registry.npmjs.org/hono 611ms (cache revalidated)
+330 silly packumentCache corgi:https://registry.npmjs.org/hono set size:703574 disposed:false
+331 http fetch GET 200 https://registry.npmjs.org/esbuild 813ms (cache revalidated)
+332 silly packumentCache corgi:https://registry.npmjs.org/esbuild set size:887361 disposed:false
+333 http fetch GET 200 https://registry.npmjs.org/@babel%2fcore 4700ms (cache revalidated)
+334 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fcore set size:422446 disposed:false
+335 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fhelper-create-class-features-plugin cache-miss
+336 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fhelper-create-regexp-features-plugin cache-miss
+337 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fhelper-define-polyfill-provider cache-miss
+338 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fhelper-module-transforms cache-miss
+339 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fhelper-remap-async-to-generator cache-miss
+340 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fhelper-replace-supers cache-miss
+341 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-bugfix-firefox-class-in-computed-class-key cache-miss
+342 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-bugfix-safari-class-field-initializer-scope cache-miss
+343 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-bugfix-safari-id-destructuring-collision-in-function-expression cache-miss
+344 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-bugfix-safari-rest-destructuring-rhs-array cache-miss
+345 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-bugfix-v8-spread-parameters-in-optional-chaining cache-miss
+346 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-bugfix-v8-static-class-fields-redefine-readonly cache-miss
+347 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-proposal-private-property-in-object cache-miss
+348 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-syntax-import-assertions cache-miss
+349 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-syntax-import-attributes cache-miss
+350 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-syntax-jsx cache-miss
+351 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-syntax-typescript cache-miss
+352 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-syntax-unicode-sets-regex cache-miss
+353 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-arrow-functions cache-miss
+354 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-async-generator-functions cache-miss
+355 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-async-to-generator cache-miss
+356 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-block-scoped-functions cache-miss
+357 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-block-scoping cache-miss
+358 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-class-properties cache-miss
+359 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-class-static-block cache-miss
+360 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-classes cache-miss
+361 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-computed-properties cache-miss
+362 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-destructuring cache-miss
+363 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-dotall-regex cache-miss
+364 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-duplicate-keys cache-miss
+365 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-duplicate-named-capturing-groups-regex cache-miss
+366 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-dynamic-import cache-miss
+367 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-explicit-resource-management cache-miss
+368 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-exponentiation-operator cache-miss
+369 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-export-namespace-from cache-miss
+370 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-for-of cache-miss
+371 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-function-name cache-miss
+372 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-json-strings cache-miss
+373 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-literals cache-miss
+374 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-logical-assignment-operators cache-miss
+375 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-member-expression-literals cache-miss
+376 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-modules-amd cache-miss
+377 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-modules-commonjs cache-miss
+378 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-modules-systemjs cache-miss
+379 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-modules-umd cache-miss
+380 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-named-capturing-groups-regex cache-miss
+381 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-new-target cache-miss
+382 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-nullish-coalescing-operator cache-miss
+383 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-numeric-separator cache-miss
+384 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-object-rest-spread cache-miss
+385 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-object-super cache-miss
+386 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-optional-catch-binding cache-miss
+387 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-optional-chaining cache-miss
+388 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-parameters cache-miss
+389 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-private-methods cache-miss
+390 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-private-property-in-object cache-miss
+391 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-property-literals cache-miss
+392 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-react-display-name cache-miss
+393 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-react-jsx cache-miss
+394 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-react-jsx-development cache-miss
+395 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-react-jsx-self cache-miss
+396 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-react-jsx-source cache-miss
+397 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-react-pure-annotations cache-miss
+398 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-regenerator cache-miss
+399 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-regexp-modifiers cache-miss
+400 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-reserved-words cache-miss
+401 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-shorthand-properties cache-miss
+402 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-spread cache-miss
+403 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-sticky-regex cache-miss
+404 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-template-literals cache-miss
+405 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-typeof-symbol cache-miss
+406 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-typescript cache-miss
+407 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-unicode-escapes cache-miss
+408 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-unicode-property-regex cache-miss
+409 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-unicode-regex cache-miss
+410 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-unicode-sets-regex cache-miss
+411 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fpreset-env cache-miss
+412 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fpreset-modules cache-miss
+413 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fpreset-react cache-miss
+414 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fpreset-typescript cache-miss
+415 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fregister cache-miss
+416 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2fcodegen cache-miss
+417 silly packumentCache corgi:https://registry.npmjs.org/@vitejs%2fplugin-react cache-miss
+418 silly packumentCache corgi:https://registry.npmjs.org/babel-plugin-polyfill-corejs2 cache-miss
+419 silly packumentCache corgi:https://registry.npmjs.org/babel-plugin-polyfill-corejs3 cache-miss
+420 silly packumentCache corgi:https://registry.npmjs.org/babel-plugin-polyfill-regenerator cache-miss
+421 silly packumentCache corgi:https://registry.npmjs.org/eslint-plugin-react-hooks cache-miss
+422 silly packumentCache corgi:https://registry.npmjs.org/shadcn cache-miss
+423 http fetch GET 200 https://registry.npmjs.org/shadcn 112ms (cache hit)
+424 silly packumentCache corgi:https://registry.npmjs.org/shadcn set size:415430 disposed:false
+425 http fetch GET 200 https://registry.npmjs.org/@babel%2fhelper-module-transforms 265ms (cache revalidated)
+426 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fhelper-module-transforms set size:187739 disposed:false
+427 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-bugfix-safari-class-field-initializer-scope 276ms (cache revalidated)
+428 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-bugfix-safari-class-field-initializer-scope set size:23561 disposed:false
+429 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-bugfix-firefox-class-in-computed-class-key 329ms (cache revalidated)
+430 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-bugfix-firefox-class-in-computed-class-key set size:32850 disposed:false
+431 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-class-static-block 385ms (cache revalidated)
+432 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-class-static-block set size:52503 disposed:false
+433 http fetch GET 200 https://registry.npmjs.org/@babel%2fhelper-create-class-features-plugin 392ms (cache revalidated)
+434 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fhelper-create-class-features-plugin set size:225140 disposed:false
+435 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-proposal-private-property-in-object 410ms (cache revalidated)
+436 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-proposal-private-property-in-object set size:48496 disposed:false
+437 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-classes 422ms (cache revalidated)
+438 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-classes set size:196090 disposed:false
+439 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-syntax-jsx 487ms (cache revalidated)
+440 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-syntax-jsx set size:98808 disposed:false
+441 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-syntax-import-assertions 489ms (cache revalidated)
+442 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-syntax-import-assertions set size:52563 disposed:false
+443 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-async-generator-functions 532ms (cache revalidated)
+444 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-async-generator-functions set size:62140 disposed:false
+445 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-block-scoped-functions 532ms (cache revalidated)
+446 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-block-scoped-functions set size:106398 disposed:false
+447 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-duplicate-named-capturing-groups-regex 542ms (cache revalidated)
+448 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-duplicate-named-capturing-groups-regex set size:26989 disposed:false
+449 http fetch GET 200 https://registry.npmjs.org/@babel%2fhelper-remap-async-to-generator 570ms (cache revalidated)
+450 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fhelper-remap-async-to-generator set size:121738 disposed:false
+451 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-bugfix-v8-spread-parameters-in-optional-chaining 654ms (cache revalidated)
+452 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-bugfix-v8-spread-parameters-in-optional-chaining set size:75572 disposed:false
+453 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-bugfix-safari-id-destructuring-collision-in-function-expression 673ms (cache revalidated)
+454 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-bugfix-safari-id-destructuring-collision-in-function-expression set size:62851 disposed:false
+455 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-explicit-resource-management 677ms (cache revalidated)
+456 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-explicit-resource-management set size:15915 disposed:false
+457 http fetch GET 200 https://registry.npmjs.org/@babel%2fhelper-replace-supers 686ms (cache revalidated)
+458 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fhelper-replace-supers set size:146043 disposed:false
+459 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-export-namespace-from 743ms (cache revalidated)
+460 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-export-namespace-from set size:40837 disposed:false
+461 http fetch GET 200 https://registry.npmjs.org/@babel%2fhelper-define-polyfill-provider 781ms (cache revalidated)
+462 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fhelper-define-polyfill-provider set size:62899 disposed:false
+463 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-member-expression-literals 771ms (cache revalidated)
+464 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-member-expression-literals set size:106683 disposed:false
+465 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-arrow-functions 780ms (cache revalidated)
+466 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-arrow-functions set size:115260 disposed:false
+467 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-for-of 794ms (cache revalidated)
+468 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-for-of set size:129658 disposed:false
+469 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-syntax-typescript 815ms (cache revalidated)
+470 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-syntax-typescript set size:110946 disposed:false
+471 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-duplicate-keys 822ms (cache revalidated)
+472 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-duplicate-keys set size:108702 disposed:false
+473 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-exponentiation-operator 854ms (cache revalidated)
+474 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-exponentiation-operator set size:115695 disposed:false
+475 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-bugfix-v8-static-class-fields-redefine-readonly 880ms (cache revalidated)
+476 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-bugfix-v8-static-class-fields-redefine-readonly set size:37933 disposed:false
+477 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-syntax-import-attributes 926ms (cache revalidated)
+478 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-syntax-import-attributes set size:31768 disposed:false
+479 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-destructuring 946ms (cache revalidated)
+480 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-destructuring set size:158732 disposed:false
+481 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-class-properties 951ms (cache revalidated)
+482 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-class-properties set size:41273 disposed:false
+483 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-logical-assignment-operators 945ms (cache revalidated)
+484 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-logical-assignment-operators set size:47110 disposed:false
+485 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-dotall-regex 949ms (cache revalidated)
+486 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-dotall-regex set size:113285 disposed:false
+487 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-computed-properties 963ms (cache revalidated)
+488 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-computed-properties set size:117599 disposed:false
+489 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-bugfix-safari-rest-destructuring-rhs-array 979ms (cache revalidated)
+490 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-bugfix-safari-rest-destructuring-rhs-array set size:9438 disposed:false
+491 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-named-capturing-groups-regex 974ms (cache revalidated)
+492 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-named-capturing-groups-regex set size:100168 disposed:false
+493 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-async-to-generator 1008ms (cache revalidated)
+494 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-async-to-generator set size:132919 disposed:false
+495 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-parameters 1035ms (cache revalidated)
+496 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-parameters set size:149698 disposed:false
+497 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-modules-commonjs 1043ms (cache revalidated)
+498 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-modules-commonjs set size:174466 disposed:false
+499 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-syntax-unicode-sets-regex 1053ms (cache revalidated)
+500 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-syntax-unicode-sets-regex set size:13214 disposed:false
+501 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-numeric-separator 1058ms (cache revalidated)
+502 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-numeric-separator set size:43871 disposed:false
+503 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-react-jsx-development 1064ms (cache revalidated)
+504 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-react-jsx-development set size:71535 disposed:false
+505 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-private-methods 1108ms (cache revalidated)
+506 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-private-methods set size:41140 disposed:false
+507 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-modules-systemjs 1111ms (cache revalidated)
+508 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-modules-systemjs set size:171703 disposed:false
+509 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-react-display-name 1141ms (cache revalidated)
+510 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-react-display-name set size:112167 disposed:false
+511 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-json-strings 1174ms (cache revalidated)
+512 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-json-strings set size:40272 disposed:false
+513 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-template-literals 1181ms (cache revalidated)
+514 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-template-literals set size:119408 disposed:false
+515 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-function-name 1225ms (cache revalidated)
+516 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-function-name set size:119337 disposed:false
+517 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-property-literals 1206ms (cache revalidated)
+518 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-property-literals set size:104150 disposed:false
+519 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-nullish-coalescing-operator 1297ms (cache revalidated)
+520 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-nullish-coalescing-operator set size:44314 disposed:false
+521 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-react-jsx-self 1268ms (cache revalidated)
+522 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-react-jsx-self set size:106765 disposed:false
+523 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-regexp-modifiers 1272ms (cache revalidated)
+524 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-regexp-modifiers set size:20178 disposed:false
+525 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-modules-umd 1365ms (cache revalidated)
+526 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-modules-umd set size:121997 disposed:false
+527 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-spread 1331ms (cache revalidated)
+528 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-spread set size:123769 disposed:false
+529 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-react-pure-annotations 1350ms (cache revalidated)
+530 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-react-pure-annotations set size:66307 disposed:false
+531 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-object-super 1434ms (cache revalidated)
+532 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-object-super set size:110555 disposed:false
+533 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-typescript 1397ms (cache revalidated)
+534 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-typescript set size:226588 disposed:false
+535 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-object-rest-spread 1439ms (cache revalidated)
+536 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-object-rest-spread set size:56819 disposed:false
+537 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-reserved-words 1461ms (cache revalidated)
+538 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-reserved-words set size:105094 disposed:false
+539 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-react-jsx 1470ms (cache revalidated)
+540 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-react-jsx set size:167859 disposed:false
+541 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-regenerator 1479ms (cache revalidated)
+542 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-regenerator set size:148468 disposed:false
+543 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-optional-chaining 1521ms (cache revalidated)
+544 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-optional-chaining set size:56190 disposed:false
+545 http fetch GET 200 https://registry.npmjs.org/@babel%2fpreset-react 1483ms (cache revalidated)
+546 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fpreset-react set size:149700 disposed:false
+547 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-literals 1559ms (cache revalidated)
+548 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-literals set size:105944 disposed:false
+549 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-dynamic-import 1568ms (cache revalidated)
+550 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-dynamic-import set size:39773 disposed:false
+551 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-react-jsx-source 1551ms (cache revalidated)
+552 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-react-jsx-source set size:109784 disposed:false
+553 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-sticky-regex 1562ms (cache revalidated)
+554 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-sticky-regex set size:106218 disposed:false
+555 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-private-property-in-object 1627ms (cache revalidated)
+556 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-private-property-in-object set size:48379 disposed:false
+557 http fetch GET 200 https://registry.npmjs.org/babel-plugin-polyfill-corejs2 1656ms (cache revalidated)
+558 silly packumentCache corgi:https://registry.npmjs.org/babel-plugin-polyfill-corejs2 set size:66942 disposed:false
+559 http fetch GET 200 https://registry.npmjs.org/@babel%2fpreset-typescript 1664ms (cache revalidated)
+560 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fpreset-typescript set size:144596 disposed:false
+561 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-unicode-sets-regex 1671ms (cache revalidated)
+562 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-unicode-sets-regex set size:41566 disposed:false
+563 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-unicode-escapes 1695ms (cache revalidated)
+564 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-unicode-escapes set size:65124 disposed:false
+565 http fetch GET 200 https://registry.npmjs.org/@babel%2fpreset-modules 1699ms (cache revalidated)
+566 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fpreset-modules set size:21335 disposed:false
+567 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-optional-catch-binding 1874ms (cache revalidated)
+568 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-optional-catch-binding set size:41822 disposed:false
+569 http fetch GET 200 https://registry.npmjs.org/babel-plugin-polyfill-corejs3 1803ms (cache revalidated)
+570 silly packumentCache corgi:https://registry.npmjs.org/babel-plugin-polyfill-corejs3 set size:90382 disposed:false
+571 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-typeof-symbol 1837ms (cache revalidated)
+572 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-typeof-symbol set size:119490 disposed:false
+573 http fetch GET 200 https://registry.npmjs.org/eslint-plugin-react-hooks 1792ms (cache revalidated)
+574 silly packumentCache corgi:https://registry.npmjs.org/eslint-plugin-react-hooks set size:4230275 disposed:false
+575 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-unicode-property-regex 1894ms (cache revalidated)
+576 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-unicode-property-regex set size:41250 disposed:false
+577 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-unicode-regex 1899ms (cache revalidated)
+578 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-unicode-regex set size:115729 disposed:false
+579 http fetch GET 200 https://registry.npmjs.org/babel-plugin-polyfill-regenerator 1992ms (cache revalidated)
+580 silly packumentCache corgi:https://registry.npmjs.org/babel-plugin-polyfill-regenerator set size:55469 disposed:false
+581 http fetch GET 200 https://registry.npmjs.org/@vitejs%2fplugin-react 2029ms (cache revalidated)
+582 silly packumentCache corgi:https://registry.npmjs.org/@vitejs%2fplugin-react set size:115032 disposed:false
+583 http fetch GET 200 https://registry.npmjs.org/@babel%2fregister 2061ms (cache revalidated)
+584 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fregister set size:153994 disposed:false
+585 http fetch GET 200 https://registry.npmjs.org/@babel%2fpreset-env 2089ms (cache revalidated)
+586 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fpreset-env set size:966126 disposed:false
+587 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-modules-amd 2186ms (cache revalidated)
+588 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-modules-amd set size:136358 disposed:false
+589 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-shorthand-properties 2245ms (cache revalidated)
+590 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-shorthand-properties set size:105139 disposed:false
+591 http fetch GET 200 https://registry.npmjs.org/@sanity%2fcodegen 2329ms (cache revalidated)
+592 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2fcodegen set size:3366645 disposed:false
+593 http fetch GET 200 https://registry.npmjs.org/@babel%2fhelper-create-regexp-features-plugin 5037ms (cache revalidated)
+594 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fhelper-create-regexp-features-plugin set size:102509 disposed:false
+595 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-new-target 5545ms (cache revalidated)
+596 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-new-target set size:119936 disposed:false
+597 http fetch GET 200 https://registry.npmjs.org/@babel%2fplugin-transform-block-scoping 5778ms (cache revalidated)
+598 silly packumentCache corgi:https://registry.npmjs.org/@babel%2fplugin-transform-block-scoping set size:173595 disposed:false
+599 silly packumentCache corgi:https://registry.npmjs.org/typeid-js cache-miss
+600 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2fuuid cache-miss
+601 http fetch GET 200 https://registry.npmjs.org/typeid-js 555ms (cache revalidated)
+602 silly packumentCache corgi:https://registry.npmjs.org/typeid-js set size:9076 disposed:false
+603 http fetch GET 200 https://registry.npmjs.org/@sanity%2fuuid 833ms (cache revalidated)
+604 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2fuuid set size:419636 disposed:false
+605 silly packumentCache corgi:https://registry.npmjs.org/@vercel%2fframeworks cache-miss
+606 http fetch GET 200 https://registry.npmjs.org/@vercel%2fframeworks 1065ms (cache revalidated)
+607 silly packumentCache corgi:https://registry.npmjs.org/@vercel%2fframeworks set size:320069 disposed:false
+608 silly packumentCache corgi:https://registry.npmjs.org/@eslint%2feslintrc cache-miss
+609 silly packumentCache corgi:https://registry.npmjs.org/cosmiconfig cache-miss
+610 http fetch GET 200 https://registry.npmjs.org/cosmiconfig 242ms (cache revalidated)
+611 silly packumentCache corgi:https://registry.npmjs.org/cosmiconfig set size:86096 disposed:false
+612 http fetch GET 200 https://registry.npmjs.org/@eslint%2feslintrc 277ms (cache revalidated)
+613 silly packumentCache corgi:https://registry.npmjs.org/@eslint%2feslintrc set size:83205 disposed:false
+614 silly packumentCache corgi:https://registry.npmjs.org/vite cache-miss
+615 http fetch GET 200 https://registry.npmjs.org/vite 932ms (cache revalidated)
+616 silly packumentCache corgi:https://registry.npmjs.org/vite set size:2267606 disposed:false
+617 silly packumentCache corgi:https://registry.npmjs.org/@hono%2fnode-server cache-miss
+618 silly packumentCache corgi:https://registry.npmjs.org/@modelcontextprotocol%2fsdk cache-miss
+619 http fetch GET 200 https://registry.npmjs.org/@modelcontextprotocol%2fsdk 1009ms (cache revalidated)
+620 silly packumentCache corgi:https://registry.npmjs.org/@modelcontextprotocol%2fsdk set size:115846 disposed:false
+621 http fetch GET 200 https://registry.npmjs.org/@hono%2fnode-server 1016ms (cache revalidated)
+622 silly packumentCache corgi:https://registry.npmjs.org/@hono%2fnode-server set size:93013 disposed:false
+623 silly packumentCache corgi:https://registry.npmjs.org/next cache-miss
+624 http fetch GET 200 https://registry.npmjs.org/next 556ms (cache revalidated)
+625 silly packumentCache corgi:https://registry.npmjs.org/next set size:25313143 disposed:false
+626 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2fcli cache-miss
+627 http fetch GET 200 https://registry.npmjs.org/@sanity%2fcli 1322ms (cache revalidated)
+628 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2fcli set size:10211682 disposed:false
+629 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2fid-utils cache-miss
+630 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2fmutator cache-miss
+631 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2fmutate cache-miss
+632 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2fpreview-url-secret cache-miss
+633 silly packumentCache corgi:https://registry.npmjs.org/sanity cache-miss
+634 http fetch GET 200 https://registry.npmjs.org/sanity 716ms (cache revalidated)
+635 silly packumentCache corgi:https://registry.npmjs.org/sanity set size:20095725 disposed:false
+636 http fetch GET 200 https://registry.npmjs.org/@sanity%2fmutate 1216ms (cache revalidated)
+637 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2fmutate set size:66458 disposed:false
+638 http fetch GET 200 https://registry.npmjs.org/@sanity%2fid-utils 1285ms (cache revalidated)
+639 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2fid-utils set size:1767 disposed:false
+640 http fetch GET 200 https://registry.npmjs.org/@sanity%2fmutator 1353ms (cache revalidated)
+641 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2fmutator set size:5121794 disposed:false
+642 http fetch GET 200 https://registry.npmjs.org/@sanity%2fpreview-url-secret 3865ms (cache revalidated)
+643 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2fpreview-url-secret set size:242917 disposed:false
+644 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2fvisual-editing cache-miss
+645 silly packumentCache corgi:https://registry.npmjs.org/next-sanity cache-miss
+646 http fetch GET 200 https://registry.npmjs.org/next-sanity 501ms (cache revalidated)
+647 silly packumentCache corgi:https://registry.npmjs.org/next-sanity set size:1388660 disposed:false
+648 http fetch GET 200 https://registry.npmjs.org/@sanity%2fvisual-editing 1470ms (cache revalidated)
+649 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2fvisual-editing set size:756369 disposed:false
+650 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2forderable-document-list cache-miss
+651 silly packumentCache corgi:https://registry.npmjs.org/sanity-plugin-utils cache-miss
+652 http fetch GET 200 https://registry.npmjs.org/sanity-plugin-utils 442ms (cache revalidated)
+653 silly packumentCache corgi:https://registry.npmjs.org/sanity-plugin-utils set size:66119 disposed:false
+654 http fetch GET 200 https://registry.npmjs.org/@sanity%2forderable-document-list 1308ms (cache revalidated)
+655 silly packumentCache corgi:https://registry.npmjs.org/@sanity%2forderable-document-list set size:94980 disposed:false
+656 silly ADD node_modules/ogl
+657 silly ADD
+658 silly ADD
+659 silly ADD
+660 silly ADD
+661 silly ADD
+662 silly ADD
+663 silly ADD
+664 silly ADD
+665 silly ADD
+666 silly ADD
+667 silly ADD
+668 silly ADD
+669 silly ADD
+670 silly ADD
+671 silly ADD
+672 silly ADD
+673 silly ADD
+674 silly ADD
+675 silly ADD
+676 silly ADD
+677 silly ADD
+678 silly ADD
+679 silly ADD
+680 silly ADD
+681 silly ADD
+682 silly ADD
+683 silly ADD
+684 silly ADD
+685 silly ADD
+686 silly ADD
+687 silly ADD
+688 silly ADD
+689 silly ADD
+690 silly ADD
+691 silly ADD
+692 silly ADD
+693 silly ADD
+694 silly ADD
+695 silly ADD
+696 silly ADD
+697 silly ADD
+698 silly ADD
+699 silly ADD
+700 silly ADD
+701 silly ADD
+702 silly ADD
+703 silly ADD
+704 silly ADD
+705 silly ADD
+706 silly ADD
+707 silly ADD
+708 silly ADD
+709 silly ADD
+710 silly ADD
+711 silly ADD
+712 silly ADD
+713 silly ADD
+714 silly ADD
+715 silly ADD
+716 silly ADD
+717 silly ADD
+718 silly ADD
+719 silly ADD
+720 silly ADD
+721 silly ADD
+722 silly ADD
+723 silly ADD
+724 silly ADD
+725 silly ADD
+726 silly ADD
+727 silly ADD
+728 silly ADD
+729 silly ADD
+730 silly ADD
+731 silly ADD
+732 silly ADD
+733 silly ADD
+734 silly ADD
+735 silly ADD
+736 silly ADD
+737 silly ADD
+738 silly ADD
+739 silly ADD
+740 silly ADD
+741 silly ADD
+742 silly ADD
+743 silly ADD
+744 silly ADD
+745 silly ADD
+746 silly ADD
+747 silly ADD
+748 silly ADD
+749 silly ADD
+750 silly ADD
+751 silly ADD
+752 silly ADD
+753 silly ADD
+754 silly ADD
+755 silly ADD
+756 silly ADD
+757 silly ADD
+758 silly ADD
+759 silly ADD
+760 silly ADD
+761 silly ADD
+762 silly ADD
+763 silly ADD
+764 silly ADD
+765 silly ADD
+766 silly ADD
+767 silly ADD
+768 silly ADD
+769 silly ADD
+770 silly ADD
+771 silly ADD
+772 silly ADD
+773 silly ADD
+774 silly ADD
+775 silly ADD
+776 silly ADD
+777 silly ADD
+778 silly ADD
+779 silly ADD
+780 silly ADD
+781 silly ADD
+782 silly ADD
+783 silly ADD
+784 silly ADD
+785 silly ADD
+786 silly ADD
+787 silly ADD
+788 silly ADD
+789 silly ADD
+790 silly ADD
+791 silly ADD
+792 silly ADD
+793 silly ADD
+794 silly ADD
+795 silly ADD
+796 silly ADD
+797 silly ADD
+798 silly ADD
+799 silly ADD
+800 silly ADD
+801 silly ADD
+802 verbose cwd /Users/ayushmantalukdar/Documents/Projects/Rabt/rabt
+803 verbose os Darwin 23.6.0
+804 verbose node v20.20.2
+805 verbose npm  v10.8.2
+806 verbose exit 0
+807 info ok

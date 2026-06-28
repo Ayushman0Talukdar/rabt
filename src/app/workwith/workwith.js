@@ -1,9 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { getPills } from "@/lib/cms/pills";
 import { resolveImageUrl } from "@/lib/sanity";
+import { DottedMap } from "@/components/ui/dotted-map";
+
+const markers = [];
 
 const ROW_ONE = [
   {
@@ -90,7 +94,7 @@ const ROW_THREE = [
     glow: "rgba(30,120,120,0.18)",
   },
   {
-    label: "Musicians",
+    label: "Start-ups",
     avatarBg: "#1a1028",
     pillBg: "#130c1e",
     border: "rgba(130,50,180,0.5)",
@@ -118,52 +122,122 @@ const itemVariants = {
   },
 };
 
+const Pill = ({ pill }) => {
+  const pillBg = pill.theme?.pillBg || pill.pillBg || "#111622";
+  const border = pill.theme?.border || pill.border || "rgba(80,100,200,0.45)";
+  const glow = pill.theme?.glow || pill.glow || "rgba(60,80,180,0.18)";
+  const avatarBg = pill.theme?.avatarBg || pill.avatarBg || "#1a1f35";
+  const avatarSrc = resolveImageUrl(pill.avatar) || pill.avatarUrl;
+
+  const cardRef = useRef(null);
+  const [rotate, setRotate] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    // Calculate rotation relative to mouse position (max 15 degrees)
+    const rotateX = -(y / (rect.height / 2)) * 15;
+    const rotateY = (x / (rect.width / 2)) * 15;
+
+    setRotate({ x: rotateX, y: rotateY });
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setRotate({ x: 0, y: 0 });
+  };
+
+  const borderStyle = useMemo(() => {
+    return `1px solid ${border.replace(/[\d.]+\)$/, (m) => (parseFloat(m) * 0.8).toFixed(2) + ")")}`;
+  }, [border]);
+
+  const transformStr = isHovered
+    ? `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale3d(1.06, 1.06, 1.06)`
+    : "none";
+
+  return (
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        background: pillBg,
+        border: borderStyle,
+        boxShadow: isHovered
+          ? `rgba(255,255,255,0.08) 0px 1px 0px inset, rgba(0,0,0,0.4) 0px -1px 2px inset, 0 0 24px 8px ${glow}, rgba(0,0,0,0.3) 0px 4px 12px`
+          : `rgba(255,255,255,0.05) 0px 1px 0px inset, rgba(0,0,0,0.35) 0px -1px 2px inset, 0 0 16px 3px ${glow}, rgba(0,0,0,0.25) 0px 2px 8px`,
+        willChange: isHovered ? "transform" : "auto",
+        transform: transformStr,
+        transition: isHovered ? "transform 0.08s ease-out, box-shadow 0.2s ease" : "transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease",
+      }}
+      className="group flex items-center gap-2 sm:gap-3 pr-2 py-1.5 sm:pr-4.5 sm:py-2 sm:pl-2 rounded-full cursor-default select-none flex-shrink-0 pointer-events-auto"
+    >
+      <div
+        className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-white/10 flex-shrink-0 overflow-hidden flex items-center justify-center"
+        style={{ backgroundColor: avatarBg, transform: "translateZ(20px)" }}
+      >
+        {avatarSrc && (
+          <Image
+            src={avatarSrc}
+            alt={pill.label}
+            width={40}
+            height={40}
+            className="w-full h-full object-cover"
+          />
+        )}
+      </div>
+      <span
+        className="text-[12px] sm:text-[14px] text-white/85 group-hover:text-white transition-colors duration-200 whitespace-nowrap pr-1 bricolage-grotesque font-bold"
+        style={{ transform: "translateZ(10px)" }}
+      >
+        {pill.label}
+      </span>
+    </div>
+  );
+};
+
 const PillRow = ({ pills }) => (
   <motion.div
     variants={itemVariants}
-    className="flex flex-wrap justify-center gap-3 md:gap-4"
+    className="flex flex-nowrap justify-center gap-2 sm:gap-3 pointer-events-none"
+    style={{ willChange: "transform, opacity" }}
   >
-    {pills.map((pill) => {
-      const pillBg = pill.theme?.pillBg || pill.pillBg || "#111622";
-      const border =
-        pill.theme?.border || pill.border || "rgba(80,100,200,0.45)";
-      const glow = pill.theme?.glow || pill.glow || "rgba(60,80,180,0.18)";
-      const avatarBg = pill.theme?.avatarBg || pill.avatarBg || "#1a1f35";
-      const avatarSrc = resolveImageUrl(pill.avatar) || pill.avatarUrl;
-
-      return (
-        <div
-          key={pill.label}
-          style={{
-            background: `linear-gradient(145deg, ${pillBg} 0%, rgba(255,255,255,0.01) 100%)`,
-            border: `1px solid ${border.replace(/[\d.]+\)$/, (m) => `${(parseFloat(m) * 0.3).toFixed(2)})`)}`,
-            boxShadow: `rgba(255,255,255,0.03) 0px 1px 0px inset, rgba(0,0,0,0.35) 0px -1px 2px inset, 0 0 18px 4px ${glow}, rgba(0,0,0,0.25) 0px 2px 8px`,
-          }}
-          className="group flex items-center gap-2.5 px-1.5 py-1 pr-3 rounded-full cursor-default transition-all duration-300 hover:scale-[1.04]"
-        >
-          <div
-            className="w-10 h-10 rounded-full border border-white/10 flex-shrink-0 overflow-hidden flex items-center justify-center"
-            style={{ backgroundColor: avatarBg }}
-          >
-            {avatarSrc && (
-              <img
-                src={avatarSrc}
-                alt={pill.label}
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
-            )}
-          </div>
-          <span className="text-[12px] text-white/50 whitespace-nowrap pr-3 bricolage-grotesque font-bold">
-            {pill.label}
-          </span>
-        </div>
-      );
-    })}
+    {pills.map((pill) => (
+      <Pill key={pill.label} pill={pill} />
+    ))}
   </motion.div>
 );
 
 export default function Workwith() {
   const [pillsList, setPillsList] = useState([]);
+  const sectionRef = useRef(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     getPills()
@@ -182,28 +256,50 @@ export default function Workwith() {
   const rowThree =
     pillsList.length > 0 ? pillsList.filter((p) => p.row === 3) : ROW_THREE;
 
+  const allPills = [...rowOne, ...rowTwo, ...rowThree];
+
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      variants={containerVariants}
-      viewport={{ amount: 0.3 }}
-      className="space-y-4 px-4 pb-10"
-    >
+    <section ref={sectionRef} className="relative w-full pt-16 pb-56 sm:pt-24 sm:pb-72 overflow-hidden bg-black flex flex-col items-center justify-center min-h-[700px]">
+      {/* Centered Eyebrow Subtitle */}
       <motion.div
         variants={itemVariants}
-        className="w-full flex justify-center"
+        className="w-full flex justify-center text-center mb-10 sm:mb-16 z-10"
+        style={{ willChange: "transform, opacity" }}
       >
-        <div className="bricolage-grotesque text-s font-bold text-neutral-600 mb-10">
-          We work with all kinds of creators & brands
+        <div className="bricolage-grotesque text-sm sm:text-base font-bold text-neutral-600 px-4">
+          The creative partner behind high-performing content
         </div>
       </motion.div>
 
-      <div className="flex flex-col gap-4 scale-95">
-        <PillRow pills={rowOne} />
-        <PillRow pills={rowTwo} />
-        <PillRow pills={rowThree} />
+      {/* Centered Pills Container */}
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-10 flex flex-col items-center justify-center z-10">
+        {/* Background Dotted Map */}
+        <div className="absolute inset-0 flex items-center justify-center -z-10 pointer-events-none opacity-45 translate-y-24">
+          <div className="w-full max-w-5xl aspect-[2/1]">
+            {isInView && (
+              <DottedMap
+                markers={markers}
+                pulse
+                dotColor="rgba(255, 255, 255, 0.95)"
+                markerColor="rgba(56, 189, 248, 0.95)"
+                className="w-full h-full object-contain"
+              />
+            )}
+          </div>
+        </div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={containerVariants}
+          viewport={{ amount: 0.2 }}
+          className="w-full flex flex-col gap-3 sm:gap-4 items-center justify-center pointer-events-none"
+        >
+          <PillRow pills={rowOne} />
+          <PillRow pills={rowTwo} />
+          <PillRow pills={rowThree} />
+        </motion.div>
       </div>
-    </motion.div>
+    </section>
   );
 }

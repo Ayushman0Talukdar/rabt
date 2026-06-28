@@ -36,6 +36,7 @@ export default defineConfig({
             orderableDocumentListDeskItem({ type: "workCard", title: "Order Work Cards", S, context }),
             orderableDocumentListDeskItem({ type: "video", title: "Order Videos", S, context }),
             orderableDocumentListDeskItem({ type: "pill", title: "Order Creator Tags", S, context }),
+            orderableDocumentListDeskItem({ type: "post", title: "Order Blog Posts", S, context }),
           ]),
     }),
   ],
